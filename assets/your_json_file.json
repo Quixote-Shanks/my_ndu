@@ -1,0 +1,108 @@
+{
+    "days": [
+      {
+        "day": "Monday",
+        "schedule": [
+          {
+            "start_time": "9:00 AM",
+            "end_time": "10:30 AM",
+            "class_name": "Physics 101",
+            "class_location": "Room 101"
+          },
+          {
+            "start_time": "11:00 AM",
+            "end_time": "12:30 PM",
+            "class_name": "Chemistry 201",
+            "class_location": "Room 201"
+          },
+          {
+            "start_time": "1:00 PM",
+            "end_time": "2:30 PM",
+            "class_name": "English 101",
+            "class_location": "Room 301"
+          }
+        ]
+      },
+      {
+        "day": "Tuesday",
+        "schedule": [
+          {
+            "start_time": "10:00 AM",
+            "end_time": "11:30 AM",
+            "class_name": "Math 201",
+            "class_location": "Room 201"
+          },
+          {
+            "start_time": "1:00 PM",
+            "end_time": "2:30 PM",
+            "class_name": "History 101",
+            "class_location": "Room 101"
+          }
+        ]
+      },
+      {
+        "day": "Wednesday",
+        "schedule": [
+          {
+            "start_time": "9:00 AM",
+            "end_time": "10:30 AM",
+            "class_name": "Physics 101",
+            "class_location": "Room 101"
+          },
+          {
+            "start_time": "11:00 AM",
+            "end_time": "12:30 PM",
+            "class_name": "Chemistry 201",
+            "class_location": "Room 201"
+          },
+          {
+            "start_time": "1:00 PM",
+            "end_time": "2:30 PM",
+            "class_name": "English 101",
+            "class_location": "Room 301"
+          }
+        ]
+      },
+      {
+        "day": "Thursday",
+        "schedule": [
+          {
+            "start_time": "10:00 AM",
+            "end_time": "11:30 AM",
+            "class_name": "Math 201",
+            "class_location": "Room 201"
+          },
+          {
+            "start_time": "1:00 PM",
+            "end_time": "2:30 PM",
+            "class_name": "History 101",
+            "class_location": "Room 101"
+          }
+        ]
+      },
+      {
+        "day": "Friday",
+        "schedule": [
+          {
+            "start_time": "9:00 AM",
+            "end_time": "10:30 AM",
+            "class_name": "Physics 101",
+            "class_location": "Room 101"
+          },
+          {
+            "start_time": "11:00 AM",
+            "end_time": "12:30 PM",
+            "class_name": "Chemistry 201",
+            "class_location": "Room 201"
+          },
+          {
+            "start_time": "1:00 PM",
+            "end_time": "2:30 PM",
+            "class_name": "English 101",
+            "class_location": "Room 301"
+          }
+        ]
+      }
+    ]
+  }
+  

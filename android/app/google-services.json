@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "708795142607",
+    "project_id": "myndu-f2459",
+    "storage_bucket": "myndu-f2459.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:708795142607:android:fd17f870256f1dc42dc2ba",
+        "android_client_info": {
+          "package_name": "com.my_ndu"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "708795142607-hruahvtdve8ejjdsegn01ld8l807b815.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBgeZ3hKiT5CH4oqTRhFLNxER3dKbf8V6E"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "708795142607-hruahvtdve8ejjdsegn01ld8l807b815.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "708795142607-k05spb2foshonrg0f8m2dabp5fuj6nj2.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.socialMediaApp"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

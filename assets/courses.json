@@ -1,0 +1,29 @@
+{
+    "courses": [
+      {
+        "code": "PHY101",
+        "title": "Introduction to Physics"
+      },
+      {
+        "code": "PHY201",
+        "title": "Classical Mechanics"
+      },
+      {
+        "code": "PHY301",
+        "title": "Electricity and Magnetism"
+      },
+      {
+        "code": "PHY401",
+        "title": "Quantum Mechanics"
+      },
+      {
+        "code": "PHY501",
+        "title": "Statistical Mechanics"
+      },
+      {
+        "code": "PHY601",
+        "title": "Advanced Topics in Physics"
+      }
+    ]
+  }
+  
