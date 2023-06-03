@@ -36,22 +36,44 @@ class _DashboardScreenState extends State<DashboardScreen> {
     });
   }
 
-  Widget _buildDrawer(BuildContext context) {
-    return Drawer(
+Widget _buildDrawer(BuildContext context) {
+  const drawerHeaderText = TextStyle(
+    color: Colors.white,
+    fontSize: 24.0,
+  );
+
+  const drawerItemText = TextStyle(
+    color: Colors.white,
+  );
+
+  return Drawer(
+    child: Container(
+      decoration: BoxDecoration(
+        gradient: LinearGradient(
+          colors: <Color>[
+            Colors.blueGrey[900]!,
+            Colors.indigo[900]!,
+          ].whereType<Color>().toList(),
+          begin: Alignment.topCenter,
+          end: Alignment.bottomCenter,
+        ),
+      ),
       child: Stack(
         children: [
-          Container(
-            decoration: BoxDecoration(
-              image: DecorationImage(
-                image: AssetImage('assets/field_or_flower_image.jpg'),
-                fit: BoxFit.cover,
+          Positioned.fill(
+            child: Container(
+              decoration: const BoxDecoration(
+                image: DecorationImage(
+                  image: AssetImage('assets/unsplash1.jpg'),
+                  fit: BoxFit.cover,
+                ),
               ),
-            ),
-            child: BackdropFilter(
-              filter: ImageFilter.blur(sigmaX: 4.0, sigmaY: 4.0),
-              child: Container(
-                decoration: BoxDecoration(
-                  color: Colors.white.withOpacity(0.0),
+              child: BackdropFilter(
+                filter: ImageFilter.blur(sigmaX: 4.0, sigmaY: 4.0),
+                child: Container(
+                  decoration: BoxDecoration(
+                    color: Colors.white.withOpacity(0.1),
+                  ),
                 ),
               ),
             ),
@@ -59,178 +81,187 @@ class _DashboardScreenState extends State<DashboardScreen> {
           ListView(
             padding: EdgeInsets.zero,
             children: <Widget>[
-              DrawerHeader(
+              const DrawerHeader(
                 decoration: BoxDecoration(
                   color: Colors.transparent,
                 ),
                 child: Text(
                   'Student Dashboard',
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 24.0,
-                  ),
+                  style: drawerHeaderText,
                 ),
               ),
               ListTile(
-                leading: Icon(Icons.home, color: Colors.white),
-                title: Text(
+                leading: const Icon(Icons.home, color: Colors.white),
+                title: const Text(
                   'Home',
-                  style: TextStyle(color: Colors.white),
+                  style: drawerItemText,
                 ),
                 selected: _selectedIndex == 0,
+                selectedTileColor: Colors.indigo[700],
                 onTap: () {
                   _onItemTapped(0);
                   Navigator.pop(context);
-                },
+              },
+            ),
+            ListTile(
+              leading: const Icon(Icons.school, color: Colors.white),
+              title: const Text(
+                'Course Management',
+                style: drawerItemText,
               ),
-              ListTile(
-                leading: Icon(Icons.school, color: Colors.white),
-                title: Text(
-                  'Course Management',
-                  style: TextStyle(color: Colors.white),
-                ),
-                selected: _selectedIndex == 1,
-                onTap: () {
-                  _onItemTapped(1);
-                  Navigator.pop(context);
-                },
+              selected: _selectedIndex == 1,
+              selectedTileColor: Colors.indigo[700],
+              onTap: () {
+                _onItemTapped(1);
+                Navigator.pop(context);
+              },
+            ),
+            ListTile(
+              leading: const Icon(Icons.class_, color: Colors.white),
+              title: const Text(
+                'Classroom Management',
+                style: drawerItemText,
               ),
-              ListTile(
-                leading: Icon(Icons.class_, color: Colors.white),
-                title: Text(
-                  'Classroom Management',
-                  style: TextStyle(color: Colors.white),
-                ),
-                selected: _selectedIndex == 2,
-                onTap: () {
-                  _onItemTapped(2);
-                  Navigator.pop(context);
-                },
+              selected: _selectedIndex == 2,
+              selectedTileColor: Colors.indigo[700],
+              onTap: () {
+                _onItemTapped(2);
+                Navigator.pop(context);
+              },
+            ),
+            ListTile(
+              leading: const Icon(Icons.people, color: Colors.white),
+              title: const Text(
+                'Peer-to-Peer Learning',
+                style: drawerItemText,
               ),
-              ListTile(
-                leading: Icon(Icons.people, color: Colors.white),
-                title: Text(
-                  'Peer-to-Peer Learning',
-                  style: TextStyle(color: Colors.white),
-                ),
-                selected: _selectedIndex == 3,
-                onTap: () {
-                  _onItemTapped(3);
-                  Navigator.pop(context);
-                },
+              selected: _selectedIndex == 3,
+              selectedTileColor: Colors.indigo[700],
+              onTap: () {
+                _onItemTapped(3);
+                Navigator.pop(context);
+              },
+            ),
+            ListTile(
+              leading: const Icon(Icons.assignment, color: Colors.white),
+              title: const Text(
+                'Tasks and Tokenization',
+                style: drawerItemText,
               ),
-              ListTile(
-                leading: Icon(Icons.assignment, color: Colors.white),
-                title: Text(
-                  'Tasks and Tokenization',
-                  style: TextStyle(color: Colors.white),
-                ),
-                selected: _selectedIndex == 4,
-                onTap: () {
-                  _onItemTapped(4);
-                  Navigator.pop(context);
-                },
+              selected: _selectedIndex == 4,
+              selectedTileColor: Colors.indigo[700],
+              onTap: () {
+                _onItemTapped(4);
+                Navigator.pop(context);
+              },
+            ),
+            ListTile(
+              leading: const Icon(Icons.event, color: Colors.white),
+              title: const Text(
+                'Events and Activities',
+                style: drawerItemText,
               ),
-              ListTile(
-                leading: Icon(Icons.event, color: Colors.white),
-                title: Text(
-                  'Events and Activities',
-                  style: TextStyle(color: Colors.white),
-                ),
-                selected: _selectedIndex == 5,
-                onTap: () {
-                  _onItemTapped(5);
-                  Navigator.pop(context);
-                },
+              selected: _selectedIndex == 5,
+              selectedTileColor: Colors.indigo[700],
+              onTap: () {
+                _onItemTapped(5);
+                Navigator.pop(context);
+              },
+            ),
+            ListTile(
+              leading: const Icon(Icons.forum, color: Colors.white),
+              title: const Text(
+                'Feed',
+                style: drawerItemText,
               ),
-              ListTile(
-                leading: Icon(Icons.forum, color: Colors.white),
-                title: Text(
-                  'Feed',
-                  style: TextStyle(color: Colors.white),
-                ),
-                selected: _selectedIndex == 6,
-                onTap: () {
-                  _onItemTapped(6);
-                  Navigator.pop(context);
-                },
+              selected: _selectedIndex == 6,
+              selectedTileColor: Colors.indigo[700],
+              onTap: () {
+                _onItemTapped(6);
+                Navigator.pop(context);
+              },
+            ),
+            ListTile(
+              leading: const Icon(Icons.chair, color: Colors.white),
+              title: const Text(
+                'Corner',
+                style: drawerItemText,
               ),
-              ListTile(
-                leading: Icon(Icons.chair, color: Colors.white),
-                title: Text(
-                  'Corner',
-                  style: TextStyle(color: Colors.white),
-                ),
-                selected: _selectedIndex == 7,
-                onTap: () {
-                  _onItemTapped(7);
-                  Navigator.pop(context);
-                },
+              selected: _selectedIndex == 7,
+              selectedTileColor: Colors.indigo[700],
+              onTap: () {
+                _onItemTapped(7);
+                Navigator.pop(context);
+              },
+            ),
+            ListTile(
+              leading: const Icon(Icons.notifications, color: Colors.white),
+              title: const Text(
+                'Notifications',
+                style: drawerItemText,
               ),
-              ListTile(
-                leading: Icon(Icons.notifications, color: Colors.white),
-                title: Text(
-                  'Notifications',
-                  style: TextStyle(color: Colors.white),
-                ),
-                selected: _selectedIndex == 8,
-                onTap: () {
-                  _onItemTapped(8);
-                  Navigator.pop(context);
-                },
+              selected: _selectedIndex == 8,
+              selectedTileColor: Colors.indigo[700],
+              onTap: () {
+                _onItemTapped(8);
+                Navigator.pop(context);
+              },
+            ),
+            ListTile(
+              leading: const Icon(Icons.analytics, color: Colors.white),
+              title: const Text(
+                'Analytics',
+                style: drawerItemText,
               ),
-              ListTile(
-                leading: Icon(Icons.analytics, color: Colors.white),
-                title: Text(
-                  'Analytics',
-                  style: TextStyle(color: Colors.white),
-                ),
-                selected: _selectedIndex == 9,
-                onTap: () {
-                  _onItemTapped(9);
-                  Navigator.pop(context);
-                },
+              selected: _selectedIndex == 9,
+              selectedTileColor: Colors.indigo[700],
+              onTap: () {
+                _onItemTapped(9);
+                Navigator.pop(context);
+              },
+            ),
+            ListTile(
+              leading: const Icon(Icons.integration_instructions, color: Colors.white),
+              title: const Text(
+                'Integration',
+                style: drawerItemText,
               ),
-              ListTile(
-                leading:
-                    Icon(Icons.integration_instructions, color: Colors.white),
-                title: Text(
-                  'Integration',
-                  style: TextStyle(color: Colors.white),
-                ),
-                selected: _selectedIndex == 10,
-                onTap: () {
-                  _onItemTapped(10);
-                  Navigator.pop(context);
-                },
+              selected: _selectedIndex == 10,
+              selectedTileColor: Colors.indigo[700],
+              onTap: () {
+                _onItemTapped(10);
+                Navigator.pop(context);
+              },
+            ),
+            ListTile(
+              leading: const Icon(Icons.person, color: Colors.white),
+              title: const Text(
+                'Profile',
+                style: drawerItemText,
               ),
-              ListTile(
-                leading: Icon(Icons.person, color: Colors.white),
-                title: Text(
-                  'Profile',
-                  style: TextStyle(color: Colors.white),
-                ),
-                selected: _selectedIndex == 11,
-                onTap: () {
-                  _onItemTapped(11);
-                  Navigator.pop(context);
-                },
-              ),
-            ],
-          ),
-        ],
-      ),
-    );
-  }
+              selected: _selectedIndex == 11,
+              selectedTileColor: Colors.indigo[700],
+              onTap: () {
+                _onItemTapped(11);
+                Navigator.pop(context);
+              },
+            ),
+          ],
+        ),
+      ],
+    ),
+  ),);
+}
+
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Student Dashboard'),
+        title: const Text('Student Dashboard'),
         actions: [
           IconButton(
-            icon: Icon(Icons.logout),
+            icon: const Icon(Icons.logout),
             onPressed: () {
               // Implement logout functionality here
               // For example, navigate to the login screen and clear the user session
@@ -258,9 +289,9 @@ class CourseManagementScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Course Management'),
+        title: const Text('Course Management'),
       ),
-      body: Center(
+      body: const Center(
         child: Text('Course Management Screen'),
       ),
     );
@@ -270,10 +301,8 @@ class CourseManagementScreen extends StatelessWidget {
 class ClassroomManagementScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    // ignore: prefer_const_constructors
     return Scaffold(
-      appBar: AppBar(
-        title: Text('Classroom Management'),
-      ),
       // body: VirtualClassroom(),
       body: const HomeView(),
     );
@@ -285,9 +314,9 @@ class PeerToPeerLearningScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Peer-to-Peer Learning'),
+        title: const Text('Peer-to-Peer Learning'),
       ),
-      body: Center(
+      body: const Center(
         child: Text('Peer-to-Peer Learning Screen'),
       ),
     );
@@ -299,9 +328,9 @@ class TasksAndTokenizationScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Tasks and Tokenization'),
+        title: const Text('Tasks and Tokenization'),
       ),
-      body: Center(
+      body: const Center(
         child: Text('Tasks and Tokenization Screen'),
       ),
     );
@@ -313,9 +342,9 @@ class EventsAndActivitiesScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Events and Activities'),
+        title: const Text('Events and Activities'),
       ),
-      body: Center(
+      body: const Center(
         child: Text('Events and Activities Screen'),
       ),
     );
@@ -325,7 +354,7 @@ class EventsAndActivitiesScreen extends StatelessWidget {
 class FeedScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return const Scaffold(
       body: PostTopic(),
     );
   }
@@ -336,9 +365,9 @@ class CornerScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Corner'),
+        title: const Text('Corner'),
       ),
-      body: Center(
+      body: const Center(
         child: Text('Corner Screen'),
       ),
     );
@@ -350,9 +379,9 @@ class NotificationsScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Notifications'),
+        title: const Text('Notifications'),
       ),
-      body: Center(
+      body: const Center(
         child: Text('Notifications Screen'),
       ),
     );
@@ -364,9 +393,9 @@ class AnalyticsScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Analytics'),
+        title: const Text('Analytics'),
       ),
-      body: Center(
+      body: const Center(
         child: Text('Analytics Screen'),
       ),
     );
@@ -378,9 +407,9 @@ class IntegrationScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Integration'),
+        title: const Text('Integration'),
       ),
-      body: Center(
+      body: const Center(
         child: Text('Integration Screen'),
       ),
     );
@@ -392,9 +421,9 @@ class ProfileScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Profile'),
+        title: const Text('Profile'),
       ),
-      body: Center(
+      body: const Center(
         child: Text('Profile Screen'),
       ),
     );
