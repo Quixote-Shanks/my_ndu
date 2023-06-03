@@ -1,6 +1,7 @@
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
+import 'package:my_ndu/modules/student/views/course_management.dart';
 
 import '../../classroom/views/ui/views/home_view.dart';
 import 'class.dart';
@@ -288,11 +289,8 @@ class CourseManagementScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Course Management'),
-      ),
-      body: const Center(
-        child: Text('Course Management Screen'),
+      body:  Center(
+        child: CourseListScreen(),
       ),
     );
   }
