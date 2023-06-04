@@ -4,13 +4,11 @@ import 'package:get/get.dart';
 import '../controllers/course_management.dart';
 
 class CourseManagementScreen extends StatelessWidget {
-  final CourseManagementController _controller = Get.find();
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Course Management'),
+        title: const Text('Course Management'),
       ),
       body: Center(
         child: CourseListScreen(),
@@ -20,49 +18,55 @@ class CourseManagementScreen extends StatelessWidget {
 }
 
 class CourseListScreen extends StatelessWidget {
-  final CourseManagementController _controller = Get.find();
-
   @override
   Widget build(BuildContext context) {
-    return ListView.builder(
-      itemCount: _controller.courses.length,
-      itemBuilder: (context, index) {
-        Course course = _controller.courses[index];
-        return ListTile(
-          title: Text(course.title),
-          subtitle: Text(course.instructor),
+    return GetBuilder<CourseManagementController>(
+      init: CourseManagementController(),
+      builder: (controller) {
+        return ListView.builder(
+          itemCount: controller.courses.length,
+          itemBuilder: (context, index) {
+            Course course = controller.courses[index];
+            return Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+              child: Card(
+                child: InkWell(
+                  onTap: () => Get.toNamed('/course_details', arguments: course),
+                  child: Padding(
+                    padding: const EdgeInsets.all(16.0),
+                    child: Stack(
+                      children: [
+                        Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              course.title,
+                              style: const TextStyle(
+                                fontSize: 18,
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                            const SizedBox(height: 8),
+                            Text('Instructor: ${course.instructor}'),
+                          ],
+                        ),
+                        Positioned(
+                          right: 0,
+                          top: 0,
+                          child: IconButton(
+                            icon: const Icon(Icons.delete),
+                            onPressed: () => controller.removeCourse(course.id),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+              ),
+            );
+          },
         );
       },
-    );
-  }
-}
-
-class CourseDetailsScreen extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    final course = Get.arguments as Course;
-
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text('Course Details'),
-      ),
-      body: Padding(
-        padding: const EdgeInsets.all(16.0),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text(
-              'Course: ${course.title}',
-              style: const TextStyle(
-                fontSize: 20,
-                fontWeight: FontWeight.bold,
-              ),
-            ),
-            const SizedBox(height: 10),
-            Text('Instructor: ${course.instructor}'),
-          ],
-        ),
-      ),
     );
   }
 }

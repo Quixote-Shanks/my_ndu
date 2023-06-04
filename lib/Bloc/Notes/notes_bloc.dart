@@ -10,7 +10,7 @@ part 'notes_event.dart';
 part 'notes_state.dart';
 
 class NotesBloc extends Bloc<NotesEvent, NotesState> {
-  NotesBloc() : super(NotesState()) {
+  NotesBloc() : super(const NotesState()) {
     on<AddNoteFrave>(_addNewNote);
     on<SelectedColorEvent>(_selectedColor);
     on<SelectedCategoryEvent>(_selectedCategory);
