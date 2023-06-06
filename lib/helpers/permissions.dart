@@ -1,5 +1,5 @@
-import 'package:permission_handler/permission_handler.dart';
 import 'package:my_ndu/utils/utility.dart';
+import 'package:permission_handler/permission_handler.dart';
 
 abstract class AppPermissions {
   static Future<bool> checkStoragePermission() async {

@@ -5,12 +5,12 @@ class LecturerDashboard extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Lecturer Dashboard'),
+        title: const Text('Lecturer Dashboard'),
       ),
-      drawer: Drawer(
+      drawer: const Drawer(
           // Add your drawer content here
           ),
-      body: Center(
+      body: const Center(
         child: Text(
           'Welcome to the Lecturer Dashboard!',
           style: TextStyle(fontSize: 24),

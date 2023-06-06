@@ -18,7 +18,7 @@ class TextTitle extends StatelessWidget {
       child: TextField(
         controller: controller,
         style: GoogleFonts.getFont('Inter'),
-        decoration: InputDecoration(
+        decoration: const InputDecoration(
           border: InputBorder.none,
           hintText: 'Title',
           contentPadding: EdgeInsets.only(left: 10.0)

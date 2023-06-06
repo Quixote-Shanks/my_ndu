@@ -31,7 +31,7 @@ class SubjectItem extends StatelessWidget {
                 children: [
                   Text(
                     subject.name,
-                    style: TextStyle(
+                    style: const TextStyle(
                       color: AppColor.white,
                       fontSize: 24,
                       fontWeight: FontWeight.w600,
@@ -57,7 +57,7 @@ class SubjectItem extends StatelessWidget {
             ],
           ),
         ),
-        Positioned(
+        const Positioned(
           top: 8,
           right: 8,
           child: Icon(Icons.more_vert, color: AppColor.white),

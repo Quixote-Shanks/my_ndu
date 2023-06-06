@@ -31,10 +31,10 @@ class AdvertisementController extends GetxController {
 
   Future<void> fetchAdvertisementData() async {
     // Simulating data fetching from a server or JSON file
-    await Future.delayed(Duration(seconds: 2));
+    await Future.delayed(const Duration(seconds: 2));
 
     // Mock advertisement data
-    List<AdvertisementCard> data = [
+    var data = <AdvertisementCard>[
       AdvertisementCard(
         title: 'Card 1',
         imagePath: 'assets/card1.jpg',
@@ -57,7 +57,7 @@ class AdvertisementController extends GetxController {
   }
 
   void startTimer() {
-    timer = Timer.periodic(Duration(seconds: 5), (timer) {
+    timer = Timer.periodic(const Duration(seconds: 5), (timer) {
       if (currentIndex.value < advertisementCards.length - 1) {
         currentIndex.value++;
       } else {
@@ -65,7 +65,7 @@ class AdvertisementController extends GetxController {
       }
       pageController.animateToPage(
         currentIndex.value,
-        duration: Duration(milliseconds: 500),
+        duration: const Duration(milliseconds: 500),
         curve: Curves.easeInOut,
       );
     });

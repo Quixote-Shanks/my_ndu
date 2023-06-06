@@ -11,13 +11,13 @@ void showDialogBottomFrave(ctx) {
   showModalBottomSheet(
     context: ctx,
     barrierColor: Colors.black26,
-    shape: RoundedRectangleBorder(
+    shape: const RoundedRectangleBorder(
         borderRadius: BorderRadius.only(
             topLeft: Radius.circular(40.0), topRight: Radius.circular(40.0))),
     builder: (context) => Container(
       height: 300,
       width: double.infinity,
-      decoration: BoxDecoration(
+      decoration: const BoxDecoration(
           color: Colors.white,
           borderRadius: BorderRadius.vertical(top: Radius.circular(25.0)),
           boxShadow: [

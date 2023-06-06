@@ -13,7 +13,6 @@ import 'package:my_ndu/modules/home/controllers/profile_controller.dart';
 import 'package:my_ndu/routes/route_management.dart';
 import 'package:my_ndu/utils/utility.dart';
 
-import '../../../apis/models/entities/student.dart';
 
 class LoginController extends GetxController {
   static LoginController get find => Get.find();

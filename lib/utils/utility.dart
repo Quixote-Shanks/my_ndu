@@ -3,8 +3,6 @@ import 'dart:math';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:rive/rive.dart';
-import 'package:share_plus/share_plus.dart';
 import 'package:my_ndu/constants/assets.dart';
 import 'package:my_ndu/constants/colors.dart';
 import 'package:my_ndu/constants/dimens.dart';
@@ -13,6 +11,8 @@ import 'package:my_ndu/constants/styles.dart';
 import 'package:my_ndu/extensions/string_extensions.dart';
 import 'package:my_ndu/global_widgets/circular_progress_indicator.dart';
 import 'package:my_ndu/global_widgets/primary_text_btn.dart';
+import 'package:rive/rive.dart';
+import 'package:share_plus/share_plus.dart';
 import 'package:talker_flutter/talker_flutter.dart';
 import 'package:url_launcher/url_launcher.dart';
 

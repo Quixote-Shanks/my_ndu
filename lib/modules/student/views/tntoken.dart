@@ -1,5 +1,6 @@
-import 'package:flutter/material.dart';
 import 'dart:async';
+
+import 'package:flutter/material.dart';
 
 
 class TaskListPage extends StatefulWidget {
@@ -38,10 +39,10 @@ class _TaskListPageState extends State<TaskListPage> {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Padding(
-            padding: EdgeInsets.all(16),
+            padding: const EdgeInsets.all(16),
             child: Text(
               'Token Count: $tokenCount',
-              style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+              style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
             ),
           ),
           Expanded(
@@ -65,7 +66,7 @@ class _TaskListPageState extends State<TaskListPage> {
         onPressed: () {
           // TODO: Implement task assignment functionality for admins
         },
-        child: Icon(Icons.add),
+        child: const Icon(Icons.add),
       ),
     );
   }
@@ -90,9 +91,9 @@ class _TaskTileState extends State<TaskTile> {
   void initState() {
     super.initState();
     _duration = widget.task.deadline.difference(DateTime.now());
-    _timer = Timer.periodic(Duration(seconds: 1), (timer) {
+    _timer = Timer.periodic(const Duration(seconds: 1), (timer) {
       setState(() {
-        _duration = _duration - Duration(seconds: 1);
+        _duration = _duration - const Duration(seconds: 1);
         if (_duration.inSeconds <= 0) {
           _timer.cancel();
         }
@@ -109,8 +110,8 @@ class _TaskTileState extends State<TaskTile> {
 
   String _formatDuration(Duration duration) {
     String twoDigits(int n) => n.toString().padLeft(2, '0');
-    String minutes = twoDigits(duration.inMinutes.remainder(60));
-    String seconds = twoDigits(duration.inSeconds.remainder(60));
+    var minutes = twoDigits(duration.inMinutes.remainder(60));
+    var seconds = twoDigits(duration.inSeconds.remainder(60));
     return '$minutes:$seconds';
   }
 
@@ -118,49 +119,49 @@ class _TaskTileState extends State<TaskTile> {
   Widget build(BuildContext context) {
     return Card(
       elevation: 2,
-      margin: EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+      margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
       child: ListTile(
         title: Text(
           widget.task.name,
-          style: TextStyle(fontSize: 18),
+          style: const TextStyle(fontSize: 18),
         ),
         subtitle: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            SizedBox(height: 8),
+            const SizedBox(height: 8),
             Row(
               children: [
-                Text(
+                const Text(
                   'Assigned By: ',
                   style: TextStyle(fontWeight: FontWeight.bold),
                 ),
                 Text(widget.task.assignedBy),
               ],
             ),
-            SizedBox(height: 4),
+            const SizedBox(height: 4),
             Row(
               children: [
-                Text(
+                const Text(
                   'Deadline: ',
                   style: TextStyle(fontWeight: FontWeight.bold),
                 ),
                 Text(widget.task.deadline.toString()),
               ],
             ),
-            SizedBox(height: 4),
+            const SizedBox(height: 4),
             Row(
               children: [
-                Text(
+                const Text(
                   'Time Remaining: ',
                   style: TextStyle(fontWeight: FontWeight.bold),
                 ),
                 Text(_timeRemaining),
               ],
             ),
-            SizedBox(height: 4),
+            const SizedBox(height: 4),
             Row(
               children: [
-                Text(
+                const Text(
                   'Reward: ',
                   style: TextStyle(fontWeight: FontWeight.bold),
                 ),
@@ -170,7 +171,7 @@ class _TaskTileState extends State<TaskTile> {
           ],
         ),
         trailing: IconButton(
-          icon: Icon(Icons.check_circle),
+          icon: const Icon(Icons.check_circle),
           onPressed: () {
             widget.onTaskCompleted(int.parse(widget.task.reward.split(' ')[0]));
           },

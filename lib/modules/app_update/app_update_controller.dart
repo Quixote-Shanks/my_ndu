@@ -2,14 +2,14 @@ import 'dart:async';
 
 import 'package:get/get.dart';
 import 'package:http/http.dart' as http;
-import 'package:package_info_plus/package_info_plus.dart';
-import 'package:r_upgrade/r_upgrade.dart';
 import 'package:my_ndu/apis/models/entities/update_info.dart';
 import 'package:my_ndu/apis/providers/api_provider.dart';
 import 'package:my_ndu/app_services/auth_service.dart';
 import 'package:my_ndu/constants/strings.dart';
 import 'package:my_ndu/routes/route_management.dart';
 import 'package:my_ndu/utils/utility.dart';
+import 'package:package_info_plus/package_info_plus.dart';
+import 'package:r_upgrade/r_upgrade.dart';
 
 enum UpgradeMethod {
   all,

@@ -21,7 +21,7 @@ class Circle extends StatelessWidget {
               BoxDecoration(shape: BoxShape.circle, color: Color(color)),
           child: BlocBuilder<NotesBloc, NotesState>(
               builder: (_, state) => state.color == color
-                  ? Icon(Icons.check, color: Colors.white)
+                  ? const Icon(Icons.check, color: Colors.white)
                   : Container())),
     );
   }

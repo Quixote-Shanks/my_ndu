@@ -1,9 +1,9 @@
-import 'package:my_ndu/apis/models/entities/post_media_file.dart';
-import 'package:my_ndu/apis/models/entities/user.dart';
-import 'package:my_ndu/constants/hive_type_id.dart';
 import 'package:copy_with_extension/copy_with_extension.dart';
 import 'package:hive/hive.dart';
 import 'package:json_annotation/json_annotation.dart';
+import 'package:my_ndu/apis/models/entities/post_media_file.dart';
+import 'package:my_ndu/apis/models/entities/user.dart';
+import 'package:my_ndu/constants/hive_type_id.dart';
 
 part 'chat_message.g.dart';
 

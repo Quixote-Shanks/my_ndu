@@ -5,7 +5,7 @@ class StudentTimetable extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Student Timetable'),
+        title: const Text('Student Timetable'),
       ),
       body: SingleChildScrollView(
         child: Padding(
@@ -13,21 +13,21 @@ class StudentTimetable extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
-              Text(
+              const Text(
                 'Fall Semester 2023',
                 style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
                 textAlign: TextAlign.center,
               ),
-              SizedBox(height: 20),
+              const SizedBox(height: 20),
               Table(
                 columnWidths: {
-                  0: FlexColumnWidth(1),
-                  1: FlexColumnWidth(2),
-                  2: FlexColumnWidth(2),
-                  3: FlexColumnWidth(2),
-                  4: FlexColumnWidth(2),
-                  5: FlexColumnWidth(2),
-                  6: FlexColumnWidth(2),
+                  0: const FlexColumnWidth(1),
+                  1: const FlexColumnWidth(2),
+                  2: const FlexColumnWidth(2),
+                  3: const FlexColumnWidth(2),
+                  4: const FlexColumnWidth(2),
+                  5: const FlexColumnWidth(2),
+                  6: const FlexColumnWidth(2),
                 },
                 children: [
                   TableRow(
@@ -35,63 +35,63 @@ class StudentTimetable extends StatelessWidget {
                       color: Colors.grey[300],
                     ),
                     children: [
-                      TableCell(
+                      const TableCell(
                         child: Padding(
-                          padding: const EdgeInsets.all(8.0),
+                          padding: EdgeInsets.all(8.0),
                           child: Text(
                             'Time',
                             style: TextStyle(fontWeight: FontWeight.bold),
                           ),
                         ),
                       ),
-                      TableCell(
+                      const TableCell(
                         child: Padding(
-                          padding: const EdgeInsets.all(8.0),
+                          padding: EdgeInsets.all(8.0),
                           child: Text(
                             'Monday',
                             style: TextStyle(fontWeight: FontWeight.bold),
                           ),
                         ),
                       ),
-                      TableCell(
+                      const TableCell(
                         child: Padding(
-                          padding: const EdgeInsets.all(8.0),
+                          padding: EdgeInsets.all(8.0),
                           child: Text(
                             'Tuesday',
                             style: TextStyle(fontWeight: FontWeight.bold),
                           ),
                         ),
                       ),
-                      TableCell(
+                      const TableCell(
                         child: Padding(
-                          padding: const EdgeInsets.all(8.0),
+                          padding: EdgeInsets.all(8.0),
                           child: Text(
                             'Wednesday',
                             style: TextStyle(fontWeight: FontWeight.bold),
                           ),
                         ),
                       ),
-                      TableCell(
+                      const TableCell(
                         child: Padding(
-                          padding: const EdgeInsets.all(8.0),
+                          padding: EdgeInsets.all(8.0),
                           child: Text(
                             'Thursday',
                             style: TextStyle(fontWeight: FontWeight.bold),
                           ),
                         ),
                       ),
-                      TableCell(
+                      const TableCell(
                         child: Padding(
-                          padding: const EdgeInsets.all(8.0),
+                          padding: EdgeInsets.all(8.0),
                           child: Text(
                             'Friday',
                             style: TextStyle(fontWeight: FontWeight.bold),
                           ),
                         ),
                       ),
-                      TableCell(
+                      const TableCell(
                         child: Padding(
-                          padding: const EdgeInsets.all(8.0),
+                          padding: EdgeInsets.all(8.0),
                           child: Text(
                             'Saturday',
                             style: TextStyle(fontWeight: FontWeight.bold),
@@ -102,39 +102,39 @@ class StudentTimetable extends StatelessWidget {
                   ),
                   TableRow(
                     children: [
-                      TableCell(
+                      const TableCell(
                         child: Padding(
-                          padding: const EdgeInsets.all(8.0),
+                          padding: EdgeInsets.all(8.0),
                           child: Text('8:00 AM'),
                         ),
                       ),
-                      TableCell(
+                      const TableCell(
                         child: Padding(
-                          padding: const EdgeInsets.all(8.0),
+                          padding: EdgeInsets.all(8.0),
                           child: Text('SS101'),
                         ),
                       ),
-                      TableCell(
+                      const TableCell(
                         child: Padding(
-                          padding: const EdgeInsets.all(8.0),
+                          padding: EdgeInsets.all(8.0),
                           child: Text('MA101'),
                         ),
                       ),
-                      TableCell(
+                      const TableCell(
                         child: Padding(
-                          padding: const EdgeInsets.all(8.0),
+                          padding: EdgeInsets.all(8.0),
                           child: Text(''),
                         ),
                       ),
-                      TableCell(
+                      const TableCell(
                         child: Padding(
-                          padding: const EdgeInsets.all(8.0),
+                          padding: EdgeInsets.all(8.0),
                           child: Text('CS101'),
                         ),
                       ),
-                      TableCell(
+                      const TableCell(
                         child: Padding(
-                          padding: const EdgeInsets.all(8.0),
+                          padding: EdgeInsets.all(8.0),
                           child: Text(''),
                         ),
                       ),

@@ -7,7 +7,7 @@ part 'general_state.dart';
 class GeneralBloc extends Bloc<GeneralEvent, GeneralState> {
 
 
-  GeneralBloc() : super(GeneralState()) {
+  GeneralBloc() : super(const GeneralState()) {
 
     on<IsScrollTopAppBarEvent>(_isScrollTopAppBar);
 

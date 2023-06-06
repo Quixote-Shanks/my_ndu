@@ -2,7 +2,6 @@ import 'dart:ui';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
-import 'package:rive/rive.dart';
 import 'package:my_ndu/constants/assets.dart';
 import 'package:my_ndu/constants/dimens.dart';
 import 'package:my_ndu/constants/strings.dart';
@@ -11,6 +10,7 @@ import 'package:my_ndu/extensions/string_extensions.dart';
 import 'package:my_ndu/global_widgets/primary_filled_btn.dart';
 import 'package:my_ndu/global_widgets/primary_outlined_btn.dart';
 import 'package:my_ndu/routes/route_management.dart';
+import 'package:rive/rive.dart';
 
 class WelcomeView extends StatelessWidget {
   const WelcomeView({Key? key}) : super(key: key);

@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:rive/rive.dart';
 import 'package:my_ndu/constants/assets.dart';
 import 'package:my_ndu/constants/dimens.dart';
 import 'package:my_ndu/constants/styles.dart';
 import 'package:my_ndu/utils/utility.dart';
+import 'package:rive/rive.dart';
 
 class ServerMaintenanceView extends StatelessWidget {
   const ServerMaintenanceView({Key? key}) : super(key: key);

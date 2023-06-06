@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_markdown/flutter_markdown.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
-import 'package:r_upgrade/r_upgrade.dart';
 import 'package:my_ndu/constants/assets.dart';
 import 'package:my_ndu/constants/colors.dart';
 import 'package:my_ndu/constants/dimens.dart';
@@ -12,6 +11,7 @@ import 'package:my_ndu/extensions/string_extensions.dart';
 import 'package:my_ndu/global_widgets/circular_progress_indicator.dart';
 import 'package:my_ndu/global_widgets/primary_outlined_btn.dart';
 import 'package:my_ndu/modules/app_update/app_update_controller.dart';
+import 'package:r_upgrade/r_upgrade.dart';
 
 class AppUpdateView extends StatelessWidget {
   const AppUpdateView({super.key});

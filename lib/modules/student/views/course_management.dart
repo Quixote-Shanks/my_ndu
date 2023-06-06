@@ -26,7 +26,7 @@ class CourseListScreen extends StatelessWidget {
         return ListView.builder(
           itemCount: controller.courses.length,
           itemBuilder: (context, index) {
-            Course course = controller.courses[index];
+            var course = controller.courses[index];
             return Padding(
               padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
               child: Card(

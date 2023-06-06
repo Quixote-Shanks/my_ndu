@@ -5,12 +5,12 @@ class StudentDashboard extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Student Dashboard'),
+        title: const Text('Student Dashboard'),
       ),
-      drawer: Drawer(
+      drawer: const Drawer(
           // Add your drawer content here
           ),
-      body: Center(
+      body: const Center(
         child: Text(
           'Welcome to the Student Dashboard!',
           style: TextStyle(fontSize: 24),

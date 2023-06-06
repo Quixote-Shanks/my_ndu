@@ -64,7 +64,7 @@ class StudentForumScreen extends StatefulWidget {
 }
 
 class _StudentForumScreenState extends State<StudentForumScreen> {
-  List<String> _forumMessages = [];
+  final List<String> _forumMessages = [];
 
   final _messageController = TextEditingController();
 
@@ -133,7 +133,7 @@ class FacultyForumScreen extends StatefulWidget {
 }
 
 class _FacultyForumScreenState extends State<FacultyForumScreen> {
-  List<String> _facultyMessages = [];
+  final List<String> _facultyMessages = [];
 
   final _messageController = TextEditingController();
 

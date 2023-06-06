@@ -88,7 +88,7 @@ class HomeView extends StatelessWidget {
                             Navigator.of(context).pop();
                           },
                           style: ElevatedButton.styleFrom(
-                            primary: Theme.of(context).primaryColor,
+                            backgroundColor: Theme.of(context).primaryColor,
                             shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(8),
                             ),
@@ -266,8 +266,8 @@ class HomeView extends StatelessWidget {
                     ],
                   ),
                   const SizedBox(height: 16),
-                  Row(
-                    children: const [
+                  const Row(
+                    children: [
                       Expanded(
                         child: AssignmentWeek(
                           count: 5,

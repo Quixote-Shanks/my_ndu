@@ -23,7 +23,7 @@ class _MyAppState extends State<MyApp> {
   }
 
   Future<void> _loadCourses() async {
-    String jsonData =
+    var jsonData =
         await DefaultAssetBundle.of(context).loadString('assets/courses.json');
     List<dynamic> courses = jsonDecode(jsonData)['courses'];
     setState(() {
@@ -43,7 +43,7 @@ class _MyAppState extends State<MyApp> {
           children: [
             Text(
               'Course List',
-              style: Theme.of(context).textTheme.headline6,
+              style: Theme.of(context).textTheme.titleLarge,
             ),
             const SizedBox(height: 16.0),
             _courses.isEmpty

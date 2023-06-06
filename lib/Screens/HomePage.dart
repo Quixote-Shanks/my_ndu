@@ -36,9 +36,9 @@ class _HomePageState extends State<HomePage> {
 
   void _scrollControllerApp() {
     if (_scrollController.offset > 170) {
-      BlocProvider.of<GeneralBloc>(context).add(IsScrollTopAppBarEvent(true));
+      BlocProvider.of<GeneralBloc>(context).add(const IsScrollTopAppBarEvent(true));
     } else {
-      BlocProvider.of<GeneralBloc>(context).add(IsScrollTopAppBarEvent(false));
+      BlocProvider.of<GeneralBloc>(context).add(const IsScrollTopAppBarEvent(false));
     }
   }
 
@@ -48,7 +48,7 @@ class _HomePageState extends State<HomePage> {
     final box = Hive.box<NoteModels>('keepNote');
 
     return Scaffold(
-      backgroundColor: Color(0xffF2F3F7),
+      backgroundColor: const Color(0xffF2F3F7),
       body: SafeArea(
         child: CustomScrollView(
           controller: _scrollController,
@@ -59,20 +59,20 @@ class _HomePageState extends State<HomePage> {
                   title: AnimatedOpacity(
                       duration: const Duration(milliseconds: 100),
                       opacity: state.isScrollAppBar ? 1 : 0,
-                      child: TextFrave(
+                      child: const TextFrave(
                           text: 'All notes',
                           isTitle: true,
                           fontSize: 20,
                           color: Colors.black)),
                   background: Container(
-                    color: Color(0xffF2F3F7),
+                    color: const Color(0xffF2F3F7),
                     child: AnimatedOpacity(
                       duration: const Duration(milliseconds: 100),
                       opacity: !state.isScrollAppBar ? 1 : 0,
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          TextFrave(
+                          const TextFrave(
                             text: 'All notes',
                             isTitle: true,
                             fontWeight: FontWeight.w500,
@@ -92,11 +92,11 @@ class _HomePageState extends State<HomePage> {
                 expandedHeight: MediaQuery.of(context).size.height * .4,
                 pinned: true,
                 elevation: 0,
-                backgroundColor: Color(0xffF2F3F7),
+                backgroundColor: const Color(0xffF2F3F7),
                 leading: IconButton(
                   splashRadius: 20,
                   onPressed: () {},
-                  icon: Icon(Icons.menu_rounded, color: Colors.black),
+                  icon: const Icon(Icons.menu_rounded, color: Colors.black),
                 ),
                 actions: [
                   BlocBuilder<NotesBloc, NotesState>(
@@ -123,7 +123,7 @@ class _HomePageState extends State<HomePage> {
                   noteBloc.add(LengthAllNotesEvent(box.length));
 
                   if (box.values.isEmpty) {
-                    return Center(
+                    return const Center(
                       child: TextFrave(text: 'No notes', color: Colors.grey),
                     );
                   }
@@ -133,7 +133,7 @@ class _HomePageState extends State<HomePage> {
                     return state.isList
                         ? Column(
                             children: [
-                              _ListNotes(),
+                              const _ListNotes(),
                               state.noteLength == 5
                                   ? SizedBox(
                                       height:
@@ -143,7 +143,7 @@ class _HomePageState extends State<HomePage> {
                                   : const SizedBox()
                             ],
                           )
-                        : _GridViewNote();
+                        : const _GridViewNote();
                   });
                 },
               ),
@@ -155,10 +155,10 @@ class _HomePageState extends State<HomePage> {
         borderRadius: BorderRadius.circular(50.0),
         onTap: () => Navigator.push(
             context, MaterialPageRoute(builder: (_) => AddNotePage())),
-        child: CircleAvatar(
+        child: const CircleAvatar(
           radius: 24,
           backgroundColor: Color(0xff1977F3),
-          child: const Icon(Icons.mode_edit_outline, color: Colors.white),
+          child: Icon(Icons.mode_edit_outline, color: Colors.white),
         ),
       ),
     );
@@ -179,7 +179,7 @@ class _ListNotes extends StatelessWidget {
       padding: const EdgeInsets.symmetric(horizontal: 10.0),
       itemCount: box.values.length,
       itemBuilder: (_, i) {
-        NoteModels note = box.getAt(i)!;
+        var note = box.getAt(i)!;
 
         return GestureDetector(
           onTap: () => Navigator.push(
@@ -191,21 +191,21 @@ class _ListNotes extends StatelessWidget {
             background: Container(),
             direction: DismissDirection.endToStart,
             secondaryBackground: Container(
-              padding: EdgeInsets.only(right: 35.0),
-              margin: EdgeInsets.only(bottom: 15.0),
+              padding: const EdgeInsets.only(right: 35.0),
+              margin: const EdgeInsets.only(bottom: 15.0),
               alignment: Alignment.centerRight,
-              decoration: BoxDecoration(
+              decoration: const BoxDecoration(
                   color: Colors.red,
                   borderRadius: BorderRadius.only(
                       topRight: Radius.circular(20.0),
                       bottomRight: Radius.circular(20.0))),
-              child: Icon(Icons.delete_sweep_rounded,
+              child: const Icon(Icons.delete_sweep_rounded,
                   color: Colors.white, size: 40),
             ),
             onDismissed: (direction) => noteBloc.add(DeleteNoteEvent(i)),
             child: Container(
-              padding: EdgeInsets.all(10.0),
-              margin: EdgeInsets.only(bottom: 15.0),
+              padding: const EdgeInsets.all(10.0),
+              margin: const EdgeInsets.only(bottom: 15.0),
               height: 110,
               width: MediaQuery.of(context).size.width,
               decoration: BoxDecoration(
@@ -226,7 +226,7 @@ class _ListNotes extends StatelessWidget {
                           color: Colors.blueGrey),
                     ],
                   ),
-                  SizedBox(height: 10.0),
+                  const SizedBox(height: 10.0),
                   Wrap(
                     children: [
                       TextFrave(
@@ -237,7 +237,7 @@ class _ListNotes extends StatelessWidget {
                       )
                     ],
                   ),
-                  SizedBox(height: 15.0),
+                  const SizedBox(height: 15.0),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
@@ -272,7 +272,7 @@ class _GridViewNote extends StatelessWidget {
     return GridView.builder(
         physics: const NeverScrollableScrollPhysics(),
         shrinkWrap: true,
-        gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
+        gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(
             childAspectRatio: 2 / 2,
             crossAxisSpacing: 10,
             maxCrossAxisExtent: 200,
@@ -280,7 +280,7 @@ class _GridViewNote extends StatelessWidget {
         padding: const EdgeInsets.symmetric(horizontal: 10.0),
         itemCount: box.values.length,
         itemBuilder: (_, i) {
-          NoteModels note = box.getAt(i)!;
+          var note = box.getAt(i)!;
 
           return GestureDetector(
             onTap: () => Navigator.push(
@@ -292,20 +292,20 @@ class _GridViewNote extends StatelessWidget {
               direction: DismissDirection.endToStart,
               background: Container(),
               secondaryBackground: Container(
-                padding: EdgeInsets.only(bottom: 35.0),
-                margin: EdgeInsets.only(bottom: 15.0),
+                padding: const EdgeInsets.only(bottom: 35.0),
+                margin: const EdgeInsets.only(bottom: 15.0),
                 alignment: Alignment.bottomCenter,
-                decoration: BoxDecoration(
+                decoration: const BoxDecoration(
                     color: Colors.red,
                     borderRadius: BorderRadius.only(
                         bottomLeft: Radius.circular(20.0),
                         bottomRight: Radius.circular(20.0))),
-                child: Icon(Icons.delete, color: Colors.white, size: 40),
+                child: const Icon(Icons.delete, color: Colors.white, size: 40),
               ),
               onDismissed: (direction) => noteBloc.add(DeleteNoteEvent(i)),
               child: Container(
-                padding: EdgeInsets.all(10.0),
-                margin: EdgeInsets.only(bottom: 15.0),
+                padding: const EdgeInsets.all(10.0),
+                margin: const EdgeInsets.only(bottom: 15.0),
                 decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(10.0),
                     color: Colors.white),
@@ -316,7 +316,7 @@ class _GridViewNote extends StatelessWidget {
                         child: TextFrave(
                             text: note.title.toString(),
                             fontWeight: FontWeight.bold)),
-                    SizedBox(height: 10.0),
+                    const SizedBox(height: 10.0),
                     Expanded(
                       child: Container(
                           child: TextFrave(

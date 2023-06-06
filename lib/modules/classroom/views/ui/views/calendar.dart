@@ -21,7 +21,7 @@ class _ClassroomCalendarScreenState extends State<ClassroomCalendarScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Classroom Calendar'),
+        title: const Text('Classroom Calendar'),
       ),
       body: Column(
         children: [
@@ -32,7 +32,7 @@ class _ClassroomCalendarScreenState extends State<ClassroomCalendarScreen> {
             firstDay: DateTime.utc(2023, 1, 1),
             lastDay: DateTime.utc(2023, 12, 31),
             eventLoader: _getEventsForDay,
-            calendarStyle: CalendarStyle(
+            calendarStyle: const CalendarStyle(
               todayTextStyle: TextStyle(fontWeight: FontWeight.bold),
               selectedTextStyle: TextStyle(color: Colors.white),
               selectedDecoration: BoxDecoration(
@@ -60,7 +60,7 @@ class _ClassroomCalendarScreenState extends State<ClassroomCalendarScreen> {
               });
             },
           ),
-          SizedBox(height: 16.0),
+          const SizedBox(height: 16.0),
           Expanded(
             child: ListView(
               children: _getEventsForDay(_selectedDate)

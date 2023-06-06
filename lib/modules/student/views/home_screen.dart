@@ -35,7 +35,7 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
   String? _jsonTimetable;
-  int _currentPageIndex = 0;
+  final int _currentPageIndex = 0;
 
   @override
   void initState() {
@@ -44,7 +44,7 @@ class _HomeScreenState extends State<HomeScreen> {
   }
 
   Future<void> _loadJsonData() async {
-    String jsonString =
+    var jsonString =
         await rootBundle.loadString('assets/your_json_file.json');
     setState(() {
       _jsonTimetable = jsonString;
@@ -461,30 +461,30 @@ Widget buildTimetableSection() {
 Widget buildClassroomInfoSection() {
   return Container(
     padding: const EdgeInsets.symmetric(horizontal: 16),
-    child: Column(
+    child: const Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget>[
-        const Text(
+        Text(
           'Classroom Information',
           style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
         ),
-        const SizedBox(height: 10),
+        SizedBox(height: 10),
         Row(
           children: <Widget>[
-            const Icon(Icons.location_on, size: 20),
-            const SizedBox(width: 10),
-            const Text(
+            Icon(Icons.location_on, size: 20),
+            SizedBox(width: 10),
+            Text(
               'Room 123, Building A',
               style: TextStyle(fontSize: 16),
             ),
           ],
         ),
-        const SizedBox(height: 10),
+        SizedBox(height: 10),
         Row(
           children: <Widget>[
-            const Icon(Icons.access_time, size: 20),
-            const SizedBox(width: 10),
-            const Text(
+            Icon(Icons.access_time, size: 20),
+            SizedBox(width: 10),
+            Text(
               'Office Hours: Mon-Fri, 9am-5pm',
               style: TextStyle(fontSize: 16),
             ),

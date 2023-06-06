@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
 import 'package:my_ndu/constants/colors.dart';
 import 'package:my_ndu/constants/dimens.dart';
@@ -108,9 +107,9 @@ class EditDOBView extends StatelessWidget {
             hintColor: Theme.of(context).colorScheme.secondary,
             colorScheme: ColorScheme.light(
                 primary: Theme.of(context).colorScheme.secondary),
-            buttonTheme: ButtonThemeData(textTheme: ButtonTextTheme.primary),
+            buttonTheme: const ButtonThemeData(textTheme: ButtonTextTheme.primary),
           ),
-          child: child ?? SizedBox(),
+          child: child ?? const SizedBox(),
         );
       },
     ).then((selectedDate) {

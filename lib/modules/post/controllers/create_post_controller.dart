@@ -8,7 +8,6 @@ import 'package:flutter_image_compress/flutter_image_compress.dart';
 import 'package:get/get.dart';
 import 'package:http/http.dart' as http;
 import 'package:image_picker/image_picker.dart';
-import 'package:path_provider/path_provider.dart';
 import 'package:my_ndu/apis/models/entities/hashtag.dart';
 import 'package:my_ndu/apis/models/entities/post.dart';
 import 'package:my_ndu/apis/models/responses/hashtag_response.dart';
@@ -21,6 +20,7 @@ import 'package:my_ndu/modules/home/controllers/profile_controller.dart';
 import 'package:my_ndu/routes/route_management.dart';
 import 'package:my_ndu/utils/file_utility.dart';
 import 'package:my_ndu/utils/utility.dart';
+import 'package:path_provider/path_provider.dart';
 import 'package:video_compress_ds/video_compress_ds.dart';
 
 class CreatePostController extends GetxController {

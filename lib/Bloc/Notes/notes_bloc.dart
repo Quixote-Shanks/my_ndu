@@ -1,8 +1,8 @@
 import 'dart:async';
 
 import 'package:bloc/bloc.dart';
-import 'package:hive_flutter/hive_flutter.dart';
 import 'package:flutter/material.dart';
+import 'package:hive_flutter/hive_flutter.dart';
 
 import '../../Models/NoteModels.dart';
 
@@ -31,7 +31,7 @@ class NotesBloc extends Bloc<NotesEvent, NotesState> {
         category: event.category,
         created: DateTime.now());
 
-    box.add(noteModel);
+    await box.add(noteModel);
   }
 
   Future<void> _selectedColor(
@@ -62,14 +62,14 @@ class NotesBloc extends Bloc<NotesEvent, NotesState> {
         category: event.category,
         created: DateTime.now());
 
-    box.putAt(event.index, noteModel);
+    await box.putAt(event.index, noteModel);
   }
 
   Future<void> _deleteNote(
       DeleteNoteEvent event, Emitter<NotesState> emit) async {
     var box = Hive.box<NoteModels>('keepNote');
 
-    box.deleteAt(event.index);
+    await box.deleteAt(event.index);
   }
 
   Future<void> _lengthAllNotes(

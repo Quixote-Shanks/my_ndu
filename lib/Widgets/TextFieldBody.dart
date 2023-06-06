@@ -18,7 +18,7 @@ class TextWriteNote extends StatelessWidget {
         controller: controller,
         style: GoogleFonts.getFont('Inter'),
         maxLines: 10,
-        decoration: InputDecoration(
+        decoration: const InputDecoration(
           border: InputBorder.none,
           hintText: 'Write a note...',
           contentPadding: EdgeInsets.all(10.0),

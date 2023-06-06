@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:intl/intl.dart';
+
 import '../../data/model/subject_assignment.dart';
 import '../../ui/theme/app_color.dart';
 import '../../ui/widgets/assignment_status.dart';
-import 'package:intl/intl.dart';
 
 class AssignmentItem extends StatelessWidget {
   final SubjectAssignment assignment;
@@ -49,8 +50,7 @@ class AssignmentItem extends StatelessWidget {
                           ),
                           const SizedBox(height: 4),
                           Text(
-                            "Due at " +
-                                DateFormat("MMM dd").format(assignment.dueAt),
+                            "Due at ${DateFormat("MMM dd").format(assignment.dueAt)}",
                             style: const TextStyle(
                               color: AppColor.grey,
                               fontSize: 12,

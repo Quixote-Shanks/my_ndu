@@ -78,7 +78,7 @@ class StudentRegistrationController extends GetxController {
         selectedDepartment.value,
       );
       if (response.isSuccessful) {
-        Get.offNamed('/nextScreen');
+        await Get.offNamed('/nextScreen');
       } else {
         Get.snackbar('Error', 'Something went wrong!');
       }

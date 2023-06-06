@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:photo_view/photo_view.dart';
 import 'package:my_ndu/constants/colors.dart';
 import 'package:my_ndu/constants/dimens.dart';
 import 'package:my_ndu/global_widgets/circular_progress_indicator.dart';
 import 'package:my_ndu/global_widgets/custom_app_bar.dart';
 import 'package:my_ndu/global_widgets/unfocus_widget.dart';
+import 'package:photo_view/photo_view.dart';
 
 class ImageViewerWidget extends StatelessWidget {
   const ImageViewerWidget({super.key, required this.url});

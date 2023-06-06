@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:intl/intl.dart';
+
 import '../../data/model/subject_stream.dart';
 import '../../ui/theme/app_color.dart';
 import '../../ui/widgets/stream_type.dart';
-import 'package:intl/intl.dart';
 
 class StreamItem extends StatelessWidget {
   final SubjectStream stream;

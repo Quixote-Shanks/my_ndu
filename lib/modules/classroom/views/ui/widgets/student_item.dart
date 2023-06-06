@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import '../../data/model/student.dart';
 import '../../ui/theme/app_color.dart';
 import '../../ui/widgets/app_icon_buttton.dart';

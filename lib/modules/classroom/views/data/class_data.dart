@@ -1,6 +1,6 @@
 import '../data/model/student.dart';
-import '../data/model/subject_stream.dart';
 import '../data/model/subject_assignment.dart';
+import '../data/model/subject_stream.dart';
 
 final List<Student> students = [
   const Student(

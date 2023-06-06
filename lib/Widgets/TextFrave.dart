@@ -14,7 +14,6 @@ class TextFrave extends StatelessWidget {
   final double? letterSpacing;
 
   const TextFrave({
-    Key? key, 
     required this.text,
     this.fontSize = 16,
     this.fontWeight = FontWeight.normal,

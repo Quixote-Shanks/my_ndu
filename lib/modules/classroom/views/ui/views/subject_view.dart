@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:google_nav_bar/google_nav_bar.dart';
+
 import '../../data/class_data.dart';
 import '../../data/model/subject.dart';
 import '../../data/model/subject_assignment.dart';
@@ -11,7 +13,6 @@ import '../../ui/widgets/assignment_item.dart';
 import '../../ui/widgets/stream_item.dart';
 import '../../ui/widgets/student_item.dart';
 import '../../ui/widgets/subject_post.dart';
-import 'package:google_nav_bar/google_nav_bar.dart';
 
 class SubjectView extends StatefulWidget {
   final Subject subject;
@@ -30,12 +31,12 @@ class _SubjectViewState extends State<SubjectView> {
     final pageController = PageController();
     final subjectStreams =
         streams.where((item) => item.subjectId == widget.subject.id).toList();
-    final List<Map<String, dynamic>> menus = [
+    final menus = <Map<String, dynamic>>[
       {'index': 1, 'icon': Icons.timer, 'title': "Stream"},
       {'index': 2, 'icon': Icons.assignment, 'title': "Assignment"},
       {'index': 3, 'icon': Icons.group, 'title': "Classmates"},
     ];
-    final List<Widget> bodies = [
+    final bodies = <Widget>[
       StreamBody(streams: subjectStreams),
       AssignmentBody(
           assignments: assignments

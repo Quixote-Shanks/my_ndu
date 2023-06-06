@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:rive/rive.dart';
 import 'package:my_ndu/constants/assets.dart';
 import 'package:my_ndu/constants/dimens.dart';
 import 'package:my_ndu/constants/strings.dart';
 import 'package:my_ndu/constants/styles.dart';
 import 'package:my_ndu/utils/utility.dart';
+import 'package:rive/rive.dart';
 
 class AppErrorView extends StatelessWidget {
   const AppErrorView({Key? key}) : super(key: key);

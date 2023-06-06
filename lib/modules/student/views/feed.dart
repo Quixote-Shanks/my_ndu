@@ -8,7 +8,7 @@ class PostTopic extends StatefulWidget {
 }
 
 class _PostTopicState extends State<PostTopic> {
-  List<Topic> _topics = []; // List of topics
+  final List<Topic> _topics = []; // List of topics
   int _expandedIndex = -1; // Index of the currently expanded topic, -1 for none
 
   void _createTopic(String title, String description, List<String> tags) {
@@ -108,7 +108,7 @@ class _PostTopicState extends State<PostTopic> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Post Topic'),
+        title: const Text('Post Topic'),
       ),
       body: ListView.builder(
         itemCount: _topics.length,
@@ -122,17 +122,17 @@ class _PostTopicState extends State<PostTopic> {
               boxShadow: [
                 BoxShadow(
                   color: Colors.grey[300]!,
-                  offset: Offset(0, 2),
+                  offset: const Offset(0, 2),
                   blurRadius: 6.0,
                 ),
               ],
             ),
-            margin: EdgeInsets.symmetric(vertical: 8.0, horizontal: 16.0),
+            margin: const EdgeInsets.symmetric(vertical: 8.0, horizontal: 16.0),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Padding(
-                  padding: EdgeInsets.all(16.0),
+                  padding: const EdgeInsets.all(16.0),
                   child: Row(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
@@ -141,22 +141,22 @@ class _PostTopicState extends State<PostTopic> {
                         radius: 24.0,
                         child: Text(
                           topic.author[0],
-                          style: TextStyle(fontSize: 18.0),
+                          style: const TextStyle(fontSize: 18.0),
                         ),
                       ),
-                      SizedBox(width: 16.0),
+                      const SizedBox(width: 16.0),
                       Expanded(
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Text(
                               topic.author,
-                              style: TextStyle(
+                              style: const TextStyle(
                                 fontWeight: FontWeight.bold,
                                 fontSize: 16.0,
                               ),
                             ),
-                            SizedBox(height: 4.0),
+                            const SizedBox(height: 4.0),
                             Text(
                               topic.timestamp.toString(),
                               style: TextStyle(
@@ -171,7 +171,7 @@ class _PostTopicState extends State<PostTopic> {
                   ),
                 ),
                 Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 16.0),
+                  padding: const EdgeInsets.symmetric(horizontal: 16.0),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
@@ -179,13 +179,13 @@ class _PostTopicState extends State<PostTopic> {
                         onTap: () => _toggleExpansion(index),
                         child: Text(
                           topic.title,
-                          style: TextStyle(
+                          style: const TextStyle(
                             fontWeight: FontWeight.bold,
                             fontSize: 18.0,
                           ),
                         ),
                       ),
-                      SizedBox(height: 8.0),
+                      const SizedBox(height: 8.0),
                       Text(
                         topic.description,
                         maxLines: isExpanded ? null : 2,
@@ -195,7 +195,7 @@ class _PostTopicState extends State<PostTopic> {
                           color: Colors.grey[600],
                         ),
                       ),
-                      SizedBox(height: 16.0),
+                      const SizedBox(height: 16.0),
                       Wrap(
                         spacing: 8.0,
                         runSpacing: 4.0,
@@ -203,7 +203,7 @@ class _PostTopicState extends State<PostTopic> {
                           return Chip(
                             label: Text(
                               tag,
-                              style: TextStyle(fontSize: 12.0),
+                              style: const TextStyle(fontSize: 12.0),
                             ),
                             backgroundColor: Colors.grey[300],
                           );
@@ -217,23 +217,23 @@ class _PostTopicState extends State<PostTopic> {
                     decoration: BoxDecoration(
                       color: Colors.grey[200],
                       borderRadius:
-                          BorderRadius.vertical(bottom: Radius.circular(8.0)),
+                          const BorderRadius.vertical(bottom: Radius.circular(8.0)),
                     ),
-                    padding: EdgeInsets.all(16.0),
+                    padding: const EdgeInsets.all(16.0),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.stretch,
                       children: [
                         Text(
                           'Comments (${topic.comments.length})',
-                          style: TextStyle(
+                          style: const TextStyle(
                             fontWeight: FontWeight.bold,
                             fontSize: 16.0,
                           ),
                         ),
-                        SizedBox(height: 8.0),
+                        const SizedBox(height: 8.0),
                         ListView.builder(
                           shrinkWrap: true,
-                          physics: NeverScrollableScrollPhysics(),
+                          physics: const NeverScrollableScrollPhysics(),
                           itemCount: topic.comments.length,
                           itemBuilder: (context, commentIndex) {
                             final comment = topic.comments[commentIndex];
@@ -252,12 +252,12 @@ class _PostTopicState extends State<PostTopic> {
                             );
                           },
                         ),
-                        SizedBox(height: 16.0),
+                        const SizedBox(height: 16.0),
                         TextField(
                           decoration: InputDecoration(
                             hintText: 'Add a comment...',
                             suffixIcon: IconButton(
-                              icon: Icon(Icons.send),
+                              icon: const Icon(Icons.send),
                               onPressed: () {
                                 // Perform comment validation and add the comment
                                 final comment = 'New Comment'; // Replace with the actual comment
@@ -275,12 +275,12 @@ class _PostTopicState extends State<PostTopic> {
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
                       IconButton(
-                        icon: Icon(Icons.arrow_upward),
+                        icon: const Icon(Icons.arrow_upward),
                         onPressed: () => _upvoteTopic(index),
                       ),
                       Text('${topic.upvotes}'),
                       IconButton(
-                        icon: Icon(Icons.arrow_downward),
+                        icon: const Icon(Icons.arrow_downward),
                         onPressed: () => _downvoteTopic(index),
                       ),
                       Text('${topic.downvotes}'),
@@ -300,7 +300,7 @@ class _PostTopicState extends State<PostTopic> {
           final tags = ['tag1', 'tag2', 'tag3']; // Replace with the actual tags
           _createTopic(title, description, tags);
         },
-        child: Icon(Icons.add),
+        child: const Icon(Icons.add),
       ),
     );
   }
@@ -377,22 +377,22 @@ class CommentWidget extends StatelessWidget {
               radius: 16.0,
               child: Text(
                 comment.author[0],
-                style: TextStyle(fontSize: 14.0),
+                style: const TextStyle(fontSize: 14.0),
               ),
             ),
-            SizedBox(width: 8.0),
+            const SizedBox(width: 8.0),
             Expanded(
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
                     comment.author,
-                    style: TextStyle(
+                    style: const TextStyle(
                       fontWeight: FontWeight.bold,
                       fontSize: 14.0,
                     ),
                   ),
-                  SizedBox(height: 2.0),
+                  const SizedBox(height: 2.0),
                   Text(
                     comment.timestamp.toString(),
                     style: TextStyle(
@@ -405,46 +405,46 @@ class CommentWidget extends StatelessWidget {
             ),
           ],
         ),
-        SizedBox(height: 8.0),
+        const SizedBox(height: 8.0),
         Text(
           comment.text,
-          style: TextStyle(fontSize: 14.0),
+          style: const TextStyle(fontSize: 14.0),
         ),
-        SizedBox(height: 8.0),
+        const SizedBox(height: 8.0),
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
             IconButton(
-              icon: Icon(Icons.arrow_upward),
+              icon: const Icon(Icons.arrow_upward),
               onPressed: onUpvote,
             ),
             Text('${comment.upvotes}'),
             IconButton(
-              icon: Icon(Icons.arrow_downward),
+              icon: const Icon(Icons.arrow_downward),
               onPressed: onDownvote,
             ),
             Text('${comment.downvotes}'),
             IconButton(
-              icon: Icon(Icons.reply),
+              icon: const Icon(Icons.reply),
               onPressed: () {
                 showDialog(
                   context: context,
                   builder: (context) {
                     return AlertDialog(
-                      title: Text('Reply to Comment'),
+                      title: const Text('Reply to Comment'),
                       content: TextField(
-                        decoration: InputDecoration(
+                        decoration: const InputDecoration(
                           hintText: 'Enter your reply...',
                         ),
                         onChanged: onReply,
                       ),
                       actions: [
                         TextButton(
-                          child: Text('Cancel'),
+                          child: const Text('Cancel'),
                           onPressed: () => Navigator.of(context).pop(),
                         ),
                         TextButton(
-                          child: Text('Reply'),
+                          child: const Text('Reply'),
                           onPressed: () {
                             // Perform reply validation and add the reply
                             final reply = 'New Reply'; // Replace with the actual reply
@@ -460,15 +460,15 @@ class CommentWidget extends StatelessWidget {
             ),
           ],
         ),
-        SizedBox(height: 8.0),
+        const SizedBox(height: 8.0),
         ListView.builder(
           shrinkWrap: true,
-          physics: NeverScrollableScrollPhysics(),
+          physics: const NeverScrollableScrollPhysics(),
           itemCount: comment.replies.length,
           itemBuilder: (context, replyIndex) {
             final reply = comment.replies[replyIndex];
             return Container(
-              margin: EdgeInsets.only(left: 32.0),
+              margin: const EdgeInsets.only(left: 32.0),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
@@ -480,22 +480,22 @@ class CommentWidget extends StatelessWidget {
                         radius: 12.0,
                         child: Text(
                           reply.author[0],
-                          style: TextStyle(fontSize: 10.0),
+                          style: const TextStyle(fontSize: 10.0),
                         ),
                       ),
-                      SizedBox(width: 4.0),
+                      const SizedBox(width: 4.0),
                       Expanded(
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Text(
                               reply.author,
-                              style: TextStyle(
+                              style: const TextStyle(
                                 fontWeight: FontWeight.bold,
                                 fontSize: 10.0,
                               ),
                             ),
-                            SizedBox(height: 2.0),
+                            const SizedBox(height: 2.0),
                             Text(
                               reply.timestamp.toString(),
                               style: TextStyle(
@@ -508,22 +508,22 @@ class CommentWidget extends StatelessWidget {
                       ),
                     ],
                   ),
-                  SizedBox(height: 4.0),
+                  const SizedBox(height: 4.0),
                   Text(
                     reply.text,
-                    style: TextStyle(fontSize: 10.0),
+                    style: const TextStyle(fontSize: 10.0),
                   ),
-                  SizedBox(height: 4.0),
+                  const SizedBox(height: 4.0),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
                       IconButton(
-                        icon: Icon(Icons.arrow_upward),
+                        icon: const Icon(Icons.arrow_upward),
                         onPressed: () => onUpvoteReply(replyIndex),
                       ),
                       Text('${reply.upvotes}'),
                       IconButton(
-                        icon: Icon(Icons.arrow_downward),
+                        icon: const Icon(Icons.arrow_downward),
                         onPressed: () => onDownvoteReply(replyIndex),
                       ),
                       Text('${reply.downvotes}'),

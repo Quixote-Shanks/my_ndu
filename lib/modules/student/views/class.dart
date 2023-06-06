@@ -5,18 +5,18 @@ class VirtualClassroom extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Virtual Classroom'),
+        title: const Text('Virtual Classroom'),
       ),
       body: SingleChildScrollView(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
             // Dashboard Section
-            Card(
+            const Card(
               elevation: 2.0,
               margin: EdgeInsets.all(16.0),
               child: Padding(
-                padding: const EdgeInsets.all(16.0),
+                padding: EdgeInsets.all(16.0),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
@@ -39,11 +39,11 @@ class VirtualClassroom extends StatelessWidget {
             ),
 
             // Class Materials Section
-            Card(
+            const Card(
               elevation: 2.0,
               margin: EdgeInsets.all(16.0),
               child: Padding(
-                padding: const EdgeInsets.all(16.0),
+                padding: EdgeInsets.all(16.0),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
@@ -74,11 +74,11 @@ class VirtualClassroom extends StatelessWidget {
             ),
 
             // Assignments Section
-            Card(
+            const Card(
               elevation: 2.0,
               margin: EdgeInsets.all(16.0),
               child: Padding(
-                padding: const EdgeInsets.all(16.0),
+                padding: EdgeInsets.all(16.0),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
@@ -107,11 +107,11 @@ class VirtualClassroom extends StatelessWidget {
             ),
 
             // Discussion Forum Section
-            Card(
+            const Card(
               elevation: 2.0,
               margin: EdgeInsets.all(16.0),
               child: Padding(
-                padding: const EdgeInsets.all(16.0),
+                padding: EdgeInsets.all(16.0),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
@@ -142,26 +142,26 @@ class VirtualClassroom extends StatelessWidget {
             // Live Classes and Video Conferencing Section
             Card(
               elevation: 2.0,
-              margin: EdgeInsets.all(16.0),
+              margin: const EdgeInsets.all(16.0),
               child: Padding(
                 padding: const EdgeInsets.all(16.0),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text(
+                    const Text(
                       'Live Classes and Video Conferencing',
                       style: TextStyle(
                         fontWeight: FontWeight.bold,
                         fontSize: 18.0,
                       ),
                     ),
-                    SizedBox(height: 8.0),
+                    const SizedBox(height: 8.0),
                     // Integration with video conferencing platform
                     ElevatedButton(
                       onPressed: () {
                         // Open video conferencing session
                       },
-                      child: Text('Join Live Class'),
+                      child: const Text('Join Live Class'),
                     ),
                   ],
                 ),
@@ -169,11 +169,11 @@ class VirtualClassroom extends StatelessWidget {
             ),
 
             // Notifications and Reminders Section
-            Card(
+            const Card(
               elevation: 2.0,
               margin: EdgeInsets.all(16.0),
               child: Padding(
-                padding: const EdgeInsets.all(16.0),
+                padding: EdgeInsets.all(16.0),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
@@ -202,11 +202,11 @@ class VirtualClassroom extends StatelessWidget {
             ),
 
             // User Profile Section
-            Card(
+            const Card(
               elevation: 2.0,
               margin: EdgeInsets.all(16.0),
               child: Padding(
-                padding: const EdgeInsets.all(16.0),
+                padding: EdgeInsets.all(16.0),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
@@ -230,11 +230,11 @@ class VirtualClassroom extends StatelessWidget {
             ),
 
             // Interactive Quizzes Section
-            Card(
+            const Card(
               elevation: 2.0,
               margin: EdgeInsets.all(16.0),
               child: Padding(
-                padding: const EdgeInsets.all(16.0),
+                padding: EdgeInsets.all(16.0),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
@@ -263,11 +263,11 @@ class VirtualClassroom extends StatelessWidget {
             ),
 
             // Gamification Elements Section
-            Card(
+            const Card(
               elevation: 2.0,
               margin: EdgeInsets.all(16.0),
               child: Padding(
-                padding: const EdgeInsets.all(16.0),
+                padding: EdgeInsets.all(16.0),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [

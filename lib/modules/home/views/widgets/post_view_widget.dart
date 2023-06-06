@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_carousel_widget/flutter_carousel_widget.dart';
-import 'package:photo_view/photo_view.dart';
 import 'package:my_ndu/apis/models/entities/post.dart';
 import 'package:my_ndu/constants/colors.dart';
 import 'package:my_ndu/constants/dimens.dart';
 import 'package:my_ndu/global_widgets/circular_progress_indicator.dart';
 import 'package:my_ndu/global_widgets/custom_app_bar.dart';
 import 'package:my_ndu/global_widgets/video_player_widget.dart';
+import 'package:photo_view/photo_view.dart';
 
 class PostViewWidget extends StatelessWidget {
   const PostViewWidget({

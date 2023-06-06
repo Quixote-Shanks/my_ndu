@@ -18,7 +18,7 @@ class ItemCategory extends StatelessWidget {
       onTap: onPressed,
       child: Container(
         padding: const EdgeInsets.symmetric(horizontal: 20.0),
-        margin: EdgeInsets.only(bottom: 15.0),
+        margin: const EdgeInsets.only(bottom: 15.0),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
@@ -31,7 +31,7 @@ class ItemCategory extends StatelessWidget {
                       border: Border.all(color: color, width: 4.0),
                       borderRadius: BorderRadius.circular(7.0)),
                 ),
-                SizedBox(width: 10.0),
+                const SizedBox(width: 10.0),
                 TextFrave(text: text, fontSize: 19),
               ],
             ),
@@ -40,7 +40,7 @@ class ItemCategory extends StatelessWidget {
                 Container(
                   child: BlocBuilder<NotesBloc, NotesState>(
                     builder: (_, state) => state.category == text
-                        ? Icon(Icons.check)
+                        ? const Icon(Icons.check)
                         : Container(),
                   ),
                 )

@@ -13,8 +13,8 @@ void modalWarning(BuildContext context, String text) {
         height: 250,
         child: Column(
           children: [
-            Row(
-              children: const [
+            const Row(
+              children: [
                 TextFrave(
                     text: 'Frave ',
                     color: Colors.amber,
