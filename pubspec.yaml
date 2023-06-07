@@ -13,7 +13,10 @@ dependencies:
     sdk: flutter
 
   cupertino_icons: ^1.0.5
-
+  flutter_timetable_view:
+    git:
+      url: https://github.com/iqfareez/flutter_timetable_view.git
+      ref: 0486b731669a055b2c5d4924a0d2228f5e2968f7
   device_info_plus: ^8.0.0
   package_info_plus: ^3.0.2
   geolocator: ^9.0.2
@@ -78,6 +81,8 @@ dependencies:
   table_calendar: ^3.0.9
   modal_bottom_sheet: ^3.0.0-pre
   google_nav_bar: ^5.0.6
+  flutter_native_timezone: ^2.0.0
+  # flutter_native_timezone: ^2.0.0
 
 dev_dependencies:
   flutter_test:
