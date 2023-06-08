@@ -24,6 +24,10 @@ abstract class RouteManagement {
     Get.offAllNamed(AppRoutes.student);
   }
 
+  static void goToLecturerView() {
+    Get.offAllNamed(AppRoutes.lecturer);
+  }
+
   static void goToServerMaintenanceView() {
     Get.offAllNamed(AppRoutes.maintenance);
   }

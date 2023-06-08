@@ -44,7 +44,7 @@ class NxFilledButton extends StatelessWidget {
         constraints: BoxConstraints(maxWidth: Dimens.screenWidth),
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(borderRadius ?? Dimens.four),
-          color: bgColor ?? ColorValues.primaryColor,
+          gradient: ColorValues.primaryGradient,
         ),
         child: Row(
           mainAxisSize: MainAxisSize.min,

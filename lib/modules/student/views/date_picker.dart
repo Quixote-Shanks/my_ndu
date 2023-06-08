@@ -48,7 +48,7 @@ final FlutterLocalNotificationsPlugin fltrNotification = FlutterLocalNotificatio
   );
   fltrNotification.initialize(
     initilizationsSettings,
-    onSelectNotification: notificationSelected,
+    onDidReceiveNotificationResponse : notificationSelected,
   );
 }
 
@@ -350,14 +350,14 @@ final FlutterLocalNotificationsPlugin fltrNotification = FlutterLocalNotificatio
     );
   }
 
-  Future notificationSelected(String payload) async {
-    showDialog(
-      context: context,
-      builder: (context) => AlertDialog(
-        content: Text("Notification : $payload"),
-      ),
-    );
-  }
+  void notificationSelected(NotificationResponse notification) {
+  showDialog(
+    context: context,
+    builder: (context) => AlertDialog(
+      content: Text("Notification : ${notification.payload}"),
+    ),
+  );
+}
 
   Future picktime(BuildContext context, int index) async {
     TimeOfDay? tod = TimeOfDay.now();
@@ -599,4 +599,7 @@ List<Item> generateItems(List reminders) {
           '${reminders[index][0].day} ${DatePickerState().monthsInYear[reminders[index][0].month]} ${reminders[index][0].year} , ${reminders[index][1].hourOfPeriod}:${DatePickerState().getminute(reminders[index][1])} ${DatePickerState().getm(reminders[index][1])}',
     );
   });
+}
+
+void onDidReceiveLocalNotification(int id, String? title, String? body, String? payload) {
 }

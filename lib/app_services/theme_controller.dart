@@ -83,7 +83,7 @@ class AppThemeController extends GetxController {
     getSystemChromeData();
     return ThemeData(
       useMaterial3: true,
-      colorSchemeSeed: ColorValues.primaryColor,
+      colorSchemeSeed: const Color.fromARGB(255, 71, 97, 243),
       iconTheme: const IconThemeData(color: ColorValues.lightGrayColor),
       scaffoldBackgroundColor: ColorValues.lightBgColor,
       appBarTheme: const AppBarTheme(backgroundColor: ColorValues.lightBgColor),
@@ -106,11 +106,11 @@ class AppThemeController extends GetxController {
         contentTextStyle: AppStyles.style14Normal.copyWith(
           color: ColorValues.darkBodyTextColor,
         ),
-        actionTextColor: ColorValues.primaryColor,
+        actionTextColor:const Color.fromARGB(255, 71, 97, 243),
       ),
       elevatedButtonTheme: ElevatedButtonThemeData(
         style: const ButtonStyle().copyWith(
-          backgroundColor: MaterialStateProperty.all(ColorValues.primaryColor),
+          backgroundColor: MaterialStateProperty.all(const Color.fromARGB(255, 71, 97, 243)),
           foregroundColor: MaterialStateProperty.all(ColorValues.whiteColor),
           elevation: MaterialStateProperty.all(0.0),
         ),
@@ -132,7 +132,7 @@ class AppThemeController extends GetxController {
           color: ColorValues.lightBodyTextColor.withAlpha(140),
         ),
         errorStyle: AppStyles.style14Normal.copyWith(
-          color: ColorValues.errorColor,
+          color: const Color.fromARGB(255, 71, 97, 243),
         ),
         border: OutlineInputBorder(
           borderSide: BorderSide(
@@ -157,21 +157,21 @@ class AppThemeController extends GetxController {
         ),
         focusedBorder: OutlineInputBorder(
           borderSide: BorderSide(
-            color: ColorValues.primaryColor,
+            color:const Color.fromARGB(255, 71, 97, 243),
             width: Dimens.pointEight,
           ),
           borderRadius: BorderRadius.circular(Dimens.four),
         ),
         errorBorder: OutlineInputBorder(
           borderSide: BorderSide(
-            color: ColorValues.errorColor,
+            color: const Color.fromARGB(255, 71, 97, 243),
             width: Dimens.pointEight,
           ),
           borderRadius: BorderRadius.circular(Dimens.four),
         ),
         focusedErrorBorder: OutlineInputBorder(
           borderSide: BorderSide(
-            color: ColorValues.errorColor,
+            color: const Color.fromARGB(255, 71, 97, 243),
             width: Dimens.pointEight,
           ),
           borderRadius: BorderRadius.circular(Dimens.four),
@@ -204,7 +204,7 @@ class AppThemeController extends GetxController {
     getSystemChromeData();
     return ThemeData(
       useMaterial3: true,
-      colorSchemeSeed: ColorValues.primaryColor,
+      colorSchemeSeed:const Color.fromARGB(255, 71, 97, 243),
       iconTheme: const IconThemeData(color: ColorValues.darkGrayColor),
       scaffoldBackgroundColor: ColorValues.darkBgColor,
       shadowColor: ColorValues.shadowColor.withAlpha(12),
@@ -227,11 +227,11 @@ class AppThemeController extends GetxController {
         contentTextStyle: TextStyle(
           color: ColorValues.lightBodyTextColor,
         ),
-        actionTextColor: ColorValues.primaryColor,
+        actionTextColor: Color.fromARGB(255, 71, 97, 243),
       ),
       elevatedButtonTheme: ElevatedButtonThemeData(
         style: const ButtonStyle().copyWith(
-          backgroundColor: MaterialStateProperty.all(ColorValues.primaryColor),
+          backgroundColor: MaterialStateProperty.all(const Color.fromARGB(255, 71, 97, 243)),
           foregroundColor: MaterialStateProperty.all(ColorValues.whiteColor),
           elevation: MaterialStateProperty.all(0.0),
         ),
@@ -253,7 +253,7 @@ class AppThemeController extends GetxController {
           color: ColorValues.darkBodyTextColor.withAlpha(140),
         ),
         errorStyle: AppStyles.style14Normal.copyWith(
-          color: ColorValues.errorColor,
+          color: const Color.fromARGB(255, 71, 97, 243),
         ),
         border: OutlineInputBorder(
           borderSide: BorderSide(
@@ -278,21 +278,21 @@ class AppThemeController extends GetxController {
         ),
         focusedBorder: OutlineInputBorder(
           borderSide: BorderSide(
-            color: ColorValues.primaryColor,
+            color:const Color.fromARGB(255, 71, 97, 243),
             width: Dimens.pointEight,
           ),
           borderRadius: BorderRadius.circular(Dimens.four),
         ),
         errorBorder: OutlineInputBorder(
           borderSide: BorderSide(
-            color: ColorValues.errorColor,
+            color: const Color.fromARGB(255, 71, 97, 243),
             width: Dimens.pointEight,
           ),
           borderRadius: BorderRadius.circular(Dimens.four),
         ),
         focusedErrorBorder: OutlineInputBorder(
           borderSide: BorderSide(
-            color: ColorValues.errorColor,
+            color: const Color.fromARGB(255, 71, 97, 243),
             width: Dimens.pointEight,
           ),
           borderRadius: BorderRadius.circular(Dimens.four),

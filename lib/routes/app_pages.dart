@@ -26,6 +26,7 @@ import 'package:my_ndu/modules/follower/views/followers_list_view.dart';
 import 'package:my_ndu/modules/follower/views/following_list_view.dart';
 import 'package:my_ndu/modules/home/bindings/initial_binding.dart';
 import 'package:my_ndu/modules/home/views/home_view.dart';
+import 'package:my_ndu/modules/lecturer/views/dashboard_screen.dart';
 import 'package:my_ndu/modules/no_network/no_network_view.dart';
 import 'package:my_ndu/modules/post/bindings/create_poll_binding.dart';
 import 'package:my_ndu/modules/post/bindings/create_post_binding.dart';
@@ -85,7 +86,7 @@ import 'package:my_ndu/modules/settings/views/pages/security/login_info_history_
 import 'package:my_ndu/modules/settings/views/privacy_settings_view.dart';
 import 'package:my_ndu/modules/settings/views/security_settings_view.dart';
 import 'package:my_ndu/modules/settings/views/theme_settings_view.dart';
-import 'package:my_ndu/modules/student/views/student_dashboard.dart';
+import 'package:my_ndu/modules/student/views/student_dashboard.dart'as student;
 import 'package:my_ndu/modules/user/user_details_binding.dart';
 import 'package:my_ndu/modules/user/user_profile_view.dart';
 import 'package:my_ndu/modules/verification/verification_binding.dart';
@@ -172,6 +173,14 @@ abstract class AppPages {
 
     GetPage(
       name: _Routes.student,
+      page: student.DashboardScreen.new,
+      transitionDuration: transitionDuration,
+      binding: InitialBinding(),
+      transition: defaultTransition,
+    ),
+
+    GetPage(
+      name: _Routes.lecturer,
       page: DashboardScreen.new,
       transitionDuration: transitionDuration,
       binding: InitialBinding(),

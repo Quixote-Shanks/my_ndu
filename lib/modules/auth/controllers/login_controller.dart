@@ -130,7 +130,7 @@ class LoginController extends GetxController {
               break;
             case 'Lecturer':
               // Add logic for lecturer role
-              // Example: RouteManagement.goToLecturerView();
+              RouteManagement.goToLecturerView();
               break;
             case 'Admin':
               // Add logic for admin role

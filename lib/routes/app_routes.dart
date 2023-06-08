@@ -4,6 +4,7 @@ abstract class AppRoutes {
   static const todo = _Routes.todo;
   static const studentRegistration = _Routes.studentRegistration;
   static const student = _Routes.student;
+  static const lecturer = _Routes.lecturer;
   static const aboutSettings = _Routes.aboutSettings;
   static const accountPrivacySettings = _Routes.accountPrivacySettings;
   static const accountSettings = _Routes.accountSettings;
@@ -86,6 +87,7 @@ abstract class _Routes {
   static const todo = "/todo";
   static const studentRegistration = "/studentRegistration";
   static const student = "/student";
+  static const lecturer = "/lecturer";
   static const aboutSettings = "/about_settings";
   static const accountPrivacySettings = '/account_privacy_settings';
   static const accountSettings = "/account_settings";
