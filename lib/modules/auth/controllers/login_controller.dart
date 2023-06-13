@@ -122,7 +122,7 @@ class LoginController extends GetxController {
 
               if (validateStudent!) {
                 AppUtility.log('Navigating to Student View');
-                RouteManagement.goToStudentView();
+                RouteManagement.goToStudentDashboard();
               } else {
                 AppUtility.log('Navigating to Student Registration');
                 RouteManagement.goToStudentRegistration();

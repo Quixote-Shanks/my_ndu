@@ -1,12 +1,13 @@
 abstract class AppUrls {
   static const createStudentEndpoint = '/createStudent';
+  static const updateStudentEndpoint = '/students/me';
   static const fetchStudentModelEndpoint = '/getStudent';
   static const checkStudentEndpoint = '/check-student-profile';
   static const acceptFollowRequestEndpoint = '/accept-follow-request';
   static const addChangePhoneEndpoint = '/add-change-phone';
   static const addCommentEndpoint = '/add-comment';
   static const addCommentReplyEndpoint = '/add-comment-reply';
-  static const baseUrl = 'http://192.168.35.185:3000/api/v1';
+  static const baseUrl = 'http://192.168.142.185:3000/api/v1';
   // static const baseUrl = 'http://startingpoint.festustarebi.repl.co/api/v1';
   // static const baseUrl = 'https://api.nixlab.co.in/api/v1';
   static const blockUserEndpoint = '/block-user';

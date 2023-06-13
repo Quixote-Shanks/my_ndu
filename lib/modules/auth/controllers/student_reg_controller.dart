@@ -1,14 +1,19 @@
 import 'package:get/get.dart';
 import 'package:http/http.dart' as http;
 import 'package:my_ndu/apis/providers/api_provider.dart';
+import 'package:my_ndu/app_services/auth_service.dart';
+import 'package:my_ndu/routes/route_management.dart';
+import 'package:my_ndu/utils/utility.dart';
 
 class StudentRegistrationController extends GetxController {
-  var selectedYear = '1'.obs;
+  var selectedYear = '100'.obs;
   var selectedDepartment = 'Agricultural Economics'.obs;
+  final _auth = AuthService.find;
+  
 
   final _apiProvider = ApiProvider(http.Client());
 
-  List<String> years = ['1', '2', '3', '4', '5', '6'];
+  List<String> years = ['100', '200', '300', '400', '500', '600'];
 
   List<String> departments = [
     'Agricultural Economics',
@@ -72,18 +77,21 @@ class StudentRegistrationController extends GetxController {
   ];
 
   void registerStudent() async {
-    if (selectedYear.value.isNotEmpty && selectedDepartment.value.isNotEmpty) {
-      final response = await _apiProvider.createStudent(
-        selectedYear.value,
-        selectedDepartment.value,
-      );
-      if (response.isSuccessful) {
-        await Get.offNamed('/nextScreen');
-      } else {
-        Get.snackbar('Error', 'Something went wrong!');
-      }
+  var token = _auth.token;
+  if (selectedYear.value.isNotEmpty && selectedDepartment.value.isNotEmpty) {
+    final data = {
+      'yearOfStudy': selectedYear.value,
+      'department': selectedDepartment.value,
+    };
+    final response = await _apiProvider.updateStudent(token, data);
+
+    if (response.isSuccessful) {
+      RouteManagement.goToStudentView();
     } else {
-      Get.snackbar('Error', 'Please select a year and department!');
+      Get.snackbar('Error', 'Something went wrong!');
     }
+  } else {
+    Get.snackbar('Error', 'Please select a year and department!');
   }
+}
 }

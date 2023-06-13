@@ -41,6 +41,15 @@ abstract class _$StudentCWProxy {
 
   Student customizationOptions(Map<String, dynamic>? customizationOptions);
 
+  Student courseRep(bool courseRep);
+
+  Student faculty(String faculty);
+
+  Student courseRepresentatives(
+      List<CourseRepresentative>? courseRepresentatives);
+
+  Student studentOffices(List<StudentOffice>? studentOffices);
+
   /// This function **does support** nullification of nullable fields. All `null` values passed to `non-nullable` fields will be ignored. You can also use `Student(...).copyWith.fieldName(...)` to override fields one at a time with nullification support.
   ///
   /// Usage
@@ -64,6 +73,10 @@ abstract class _$StudentCWProxy {
     Map<String, dynamic>? analyticsInsights,
     Map<String, List<dynamic>>? learningToolIntegration,
     Map<String, dynamic>? customizationOptions,
+    bool? courseRep,
+    String? faculty,
+    List<CourseRepresentative>? courseRepresentatives,
+    List<StudentOffice>? studentOffices,
   });
 }
 
@@ -134,6 +147,21 @@ class _$StudentCWProxyImpl implements _$StudentCWProxy {
       this(customizationOptions: customizationOptions);
 
   @override
+  Student courseRep(bool courseRep) => this(courseRep: courseRep);
+
+  @override
+  Student faculty(String faculty) => this(faculty: faculty);
+
+  @override
+  Student courseRepresentatives(
+          List<CourseRepresentative>? courseRepresentatives) =>
+      this(courseRepresentatives: courseRepresentatives);
+
+  @override
+  Student studentOffices(List<StudentOffice>? studentOffices) =>
+      this(studentOffices: studentOffices);
+
+  @override
 
   /// This function **does support** nullification of nullable fields. All `null` values passed to `non-nullable` fields will be ignored. You can also use `Student(...).copyWith.fieldName(...)` to override fields one at a time with nullification support.
   ///
@@ -158,6 +186,10 @@ class _$StudentCWProxyImpl implements _$StudentCWProxy {
     Object? analyticsInsights = const $CopyWithPlaceholder(),
     Object? learningToolIntegration = const $CopyWithPlaceholder(),
     Object? customizationOptions = const $CopyWithPlaceholder(),
+    Object? courseRep = const $CopyWithPlaceholder(),
+    Object? faculty = const $CopyWithPlaceholder(),
+    Object? courseRepresentatives = const $CopyWithPlaceholder(),
+    Object? studentOffices = const $CopyWithPlaceholder(),
   }) {
     return Student(
       yearOfStudy:
@@ -230,6 +262,23 @@ class _$StudentCWProxyImpl implements _$StudentCWProxy {
           ? _value.customizationOptions
           // ignore: cast_nullable_to_non_nullable
           : customizationOptions as Map<String, dynamic>?,
+      courseRep: courseRep == const $CopyWithPlaceholder() || courseRep == null
+          ? _value.courseRep
+          // ignore: cast_nullable_to_non_nullable
+          : courseRep as bool,
+      faculty: faculty == const $CopyWithPlaceholder() || faculty == null
+          ? _value.faculty
+          // ignore: cast_nullable_to_non_nullable
+          : faculty as String,
+      courseRepresentatives:
+          courseRepresentatives == const $CopyWithPlaceholder()
+              ? _value.courseRepresentatives
+              // ignore: cast_nullable_to_non_nullable
+              : courseRepresentatives as List<CourseRepresentative>?,
+      studentOffices: studentOffices == const $CopyWithPlaceholder()
+          ? _value.studentOffices
+          // ignore: cast_nullable_to_non_nullable
+          : studentOffices as List<StudentOffice>?,
     );
   }
 }
@@ -276,13 +325,18 @@ class StudentAdapter extends TypeAdapter<Student> {
           (dynamic k, dynamic v) =>
               MapEntry(k as String, (v as List).cast<dynamic>())),
       customizationOptions: (fields[15] as Map?)?.cast<String, dynamic>(),
+      courseRep: fields[16] as bool,
+      faculty: fields[17] as String,
+      courseRepresentatives:
+          (fields[18] as List?)?.cast<CourseRepresentative>(),
+      studentOffices: (fields[19] as List?)?.cast<StudentOffice>(),
     );
   }
 
   @override
   void write(BinaryWriter writer, Student obj) {
     writer
-      ..writeByte(16)
+      ..writeByte(20)
       ..writeByte(0)
       ..write(obj.yearOfStudy)
       ..writeByte(1)
@@ -314,7 +368,15 @@ class StudentAdapter extends TypeAdapter<Student> {
       ..writeByte(14)
       ..write(obj.learningToolIntegration)
       ..writeByte(15)
-      ..write(obj.customizationOptions);
+      ..write(obj.customizationOptions)
+      ..writeByte(16)
+      ..write(obj.courseRep)
+      ..writeByte(17)
+      ..write(obj.faculty)
+      ..writeByte(18)
+      ..write(obj.courseRepresentatives)
+      ..writeByte(19)
+      ..write(obj.studentOffices);
   }
 
   @override
@@ -373,6 +435,14 @@ Student _$StudentFromJson(Map<String, dynamic> json) => Student(
       ),
       customizationOptions:
           json['customizationOptions'] as Map<String, dynamic>?,
+      courseRep: json['courseRep'] as bool,
+      faculty: json['faculty'] as String,
+      courseRepresentatives: (json['courseRepresentatives'] as List<dynamic>?)
+          ?.map((e) => CourseRepresentative.fromJson(e as Map<String, dynamic>))
+          .toList(),
+      studentOffices: (json['studentOffices'] as List<dynamic>?)
+          ?.map((e) => StudentOffice.fromJson(e as Map<String, dynamic>))
+          .toList(),
     );
 
 Map<String, dynamic> _$StudentToJson(Student instance) => <String, dynamic>{
@@ -392,4 +462,40 @@ Map<String, dynamic> _$StudentToJson(Student instance) => <String, dynamic>{
       'analyticsInsights': instance.analyticsInsights,
       'learningToolIntegration': instance.learningToolIntegration,
       'customizationOptions': instance.customizationOptions,
+      'courseRep': instance.courseRep,
+      'faculty': instance.faculty,
+      'courseRepresentatives': instance.courseRepresentatives,
+      'studentOffices': instance.studentOffices,
+    };
+
+CourseRepresentative _$CourseRepresentativeFromJson(
+        Map<String, dynamic> json) =>
+    CourseRepresentative(
+      course: json['course'] as String,
+      responsibilities: (json['responsibilities'] as List<dynamic>)
+          .map((e) => e as String)
+          .toList(),
+    );
+
+Map<String, dynamic> _$CourseRepresentativeToJson(
+        CourseRepresentative instance) =>
+    <String, dynamic>{
+      'course': instance.course,
+      'responsibilities': instance.responsibilities,
+    };
+
+StudentOffice _$StudentOfficeFromJson(Map<String, dynamic> json) =>
+    StudentOffice(
+      name: json['name'] as String,
+      position: json['position'] as String,
+      startDate: DateTime.parse(json['startDate'] as String),
+      endDate: DateTime.parse(json['endDate'] as String),
+    );
+
+Map<String, dynamic> _$StudentOfficeToJson(StudentOffice instance) =>
+    <String, dynamic>{
+      'name': instance.name,
+      'position': instance.position,
+      'startDate': instance.startDate.toIso8601String(),
+      'endDate': instance.endDate.toIso8601String(),
     };

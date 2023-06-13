@@ -3,6 +3,7 @@ import 'dart:convert';
 import 'dart:io';
 
 import 'package:http/http.dart' as http;
+import 'package:my_ndu/apis/models/entities/student.dart';
 import 'package:my_ndu/app_services/network_controller.dart';
 import 'package:my_ndu/app_services/route_service.dart';
 import 'package:my_ndu/constants/enums.dart';
@@ -72,6 +73,12 @@ class ApiProvider {
     );
 
     return response;
+  }
+
+
+  updateStudentDashboard(Student student) {
+
+    
   }
 
   ///Check student
@@ -1282,10 +1289,15 @@ class ApiProvider {
     return response;
   }
 
-  Future<ResponseData> createStudent(String year, String department) async {
+  Future<ResponseData> createStudent(
+    String year,
+    String department,
+    String token,
+  ) async {
     final response = await _catchAsyncApiError(
       endPoint: AppUrls.createStudentEndpoint,
       method: 'POST',
+      headers: {"authorization": "Bearer $token"},
       feature: 'Create Student',
       body: {
         'year': year,
@@ -1293,6 +1305,18 @@ class ApiProvider {
       },
     );
 
+    return response;
+  }
+
+  Future<ResponseData> updateStudent(
+      String token, Map<String, dynamic> data) async {
+    final response = await _catchAsyncApiError(
+      endPoint: AppUrls.updateStudentEndpoint,
+      method: 'PUT',
+      headers: {"authorization": "Bearer $token"},
+      feature: 'update Student',
+      body: data,
+    );
     return response;
   }
 
@@ -1689,6 +1713,8 @@ class ApiProvider {
       throw AppException(exc.toString());
     }
   }
+
+
 }
 
 /// ----------------------------------------------------------------------------

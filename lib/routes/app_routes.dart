@@ -4,6 +4,7 @@ abstract class AppRoutes {
   static const todo = _Routes.todo;
   static const studentRegistration = _Routes.studentRegistration;
   static const student = _Routes.student;
+  static const studentdashboard = _Routes.studentdashboard;
   static const lecturer = _Routes.lecturer;
   static const aboutSettings = _Routes.aboutSettings;
   static const accountPrivacySettings = _Routes.accountPrivacySettings;
@@ -86,6 +87,7 @@ abstract class AppRoutes {
 abstract class _Routes {
   static const todo = "/todo";
   static const studentRegistration = "/studentRegistration";
+  static const studentdashboard = "/studentdashboard";
   static const student = "/student";
   static const lecturer = "/lecturer";
   static const aboutSettings = "/about_settings";
@@ -164,4 +166,5 @@ abstract class _Routes {
   static const verifyOtp = '/verifyOtp';
   static const verifyPassword = '/verify_password';
   static const welcome = '/welcome';
+  
 }

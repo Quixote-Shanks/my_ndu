@@ -1,12 +1,12 @@
 import 'dart:ui';
-
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:my_ndu/modules/student/views/course_management.dart';
 import 'package:my_ndu/modules/student/views/event.dart';
 import 'package:my_ndu/modules/student/views/feed.dart';
 import 'package:my_ndu/modules/student/views/tntoken.dart';
-
 import '../../classroom/views/ui/views/home_view.dart';
+import '../controllers/dashboard_controller.dart';
 import 'home_screen.dart';
 import 'p2p.dart';
 
@@ -16,43 +16,7 @@ class DashboardScreen extends StatefulWidget {
 }
 
 class _DashboardScreenState extends State<DashboardScreen> {
-  int _selectedIndex = 0;
-
-  final List<Widget> _screens = [
-    Home(),
-    CourseManagementScreen(),
-    ClassroomManagementScreen(),
-    P2PLearningApp(),
-    TaskListPage(),
-    EventListPage(),
-    FeedScreen(),
-    CornerScreen(),
-    NotificationsScreen(),
-    AnalyticsScreen(),
-    IntegrationScreen(),
-    ProfileScreen(),
-  ];
-
-  final List<String> _screenTitles = [
-    'Home',
-    'Course Management',
-    'Classroom Management',
-    'Peer-to-Peer Learning',
-    'Tasks and Tokenization',
-    'Events and Activities',
-    'Feed',
-    'Corner',
-    'Notifications',
-    'Analytics',
-    'Integration',
-    'Profile',
-  ];
-
-  void _onItemTapped(int index) {
-    setState(() {
-      _selectedIndex = index;
-    });
-  }
+  final DashboardController _dashboardController = Get.put(DashboardController());
 
   Widget _buildDrawer(BuildContext context) {
     const drawerHeaderText = TextStyle(
@@ -108,162 +72,20 @@ class _DashboardScreenState extends State<DashboardScreen> {
                     style: drawerHeaderText,
                   ),
                 ),
-                ListTile(
-                  leading: const Icon(Icons.home, color: Colors.white),
-                  title: const Text(
-                    'Home',
-                    style: drawerItemText,
+                for (int i = 0; i < _dashboardController.screenTitles.length; i++)
+                  ListTile(
+                    leading: const Icon(Icons.home, color: Colors.white),
+                    title: Text(
+                      _dashboardController.screenTitles[i],
+                      style: drawerItemText,
+                    ),
+                    selected: _dashboardController.selectedIndex.value == i,
+                    selectedTileColor: Colors.indigo[700],
+                    onTap: () {
+                      _dashboardController.selectScreen(i);
+                      Navigator.pop(context);
+                    },
                   ),
-                  selected: _selectedIndex == 0,
-                  selectedTileColor: Colors.indigo[700],
-                  onTap: () {
-                    _onItemTapped(0);
-                    Navigator.pop(context);
-                  },
-                ),
-                ListTile(
-                  leading: const Icon(Icons.school, color: Colors.white),
-                  title: const Text(
-                    'Course Management',
-                    style: drawerItemText,
-                  ),
-                  selected: _selectedIndex == 1,
-                  selectedTileColor: Colors.indigo[700],
-                  onTap: () {
-                    _onItemTapped(1);
-                    Navigator.pop(context);
-                  },
-                ),
-                ListTile(
-                  leading: const Icon(Icons.class_, color: Colors.white),
-                  title: const Text(
-                    'Classroom Management',
-                    style: drawerItemText,
-                  ),
-                  selected: _selectedIndex == 2,
-                  selectedTileColor: Colors.indigo[700],
-                  onTap: () {
-                    _onItemTapped(2);
-                    Navigator.pop(context);
-                  },
-                ),
-                ListTile(
-                  leading: const Icon(Icons.people, color: Colors.white),
-                  title: const Text(
-                    'Peer-to-Peer Learning',
-                    style: drawerItemText,
-                  ),
-                  selected: _selectedIndex == 3,
-                  selectedTileColor: Colors.indigo[700],
-                  onTap: () {
-                    _onItemTapped(3);
-                    Navigator.pop(context);
-                  },
-                ),
-                ListTile(
-                  leading: const Icon(Icons.assignment, color: Colors.white),
-                  title: const Text(
-                    'Tasks and Tokenization',
-                    style: drawerItemText,
-                  ),
-                  selected: _selectedIndex == 4,
-                  selectedTileColor: Colors.indigo[700],
-                  onTap: () {
-                    _onItemTapped(4);
-                    Navigator.pop(context);
-                  },
-                ),
-                ListTile(
-                  leading: const Icon(Icons.event, color: Colors.white),
-                  title: const Text(
-                    'Events and Activities',
-                    style: drawerItemText,
-                  ),
-                  selected: _selectedIndex == 5,
-                  selectedTileColor: Colors.indigo[700],
-                  onTap: () {
-                    _onItemTapped(5);
-                    Navigator.pop(context);
-                  },
-                ),
-                ListTile(
-                  leading: const Icon(Icons.forum, color: Colors.white),
-                  title: const Text(
-                    'Feed',
-                    style: drawerItemText,
-                  ),
-                  selected: _selectedIndex == 6,
-                  selectedTileColor: Colors.indigo[700],
-                  onTap: () {
-                    _onItemTapped(6);
-                    Navigator.pop(context);
-                  },
-                ),
-                ListTile(
-                  leading: const Icon(Icons.chair, color: Colors.white),
-                  title: const Text(
-                    'Corner',
-                    style: drawerItemText,
-                  ),
-                  selected: _selectedIndex == 7,
-                  selectedTileColor: Colors.indigo[700],
-                  onTap: () {
-                    _onItemTapped(7);
-                    Navigator.pop(context);
-                  },
-                ),
-                ListTile(
-                  leading: const Icon(Icons.notifications, color: Colors.white),
-                  title: const Text(
-                    'Notifications',
-                    style: drawerItemText,
-                  ),
-                  selected: _selectedIndex == 8,
-                  selectedTileColor: Colors.indigo[700],
-                  onTap: () {
-                    _onItemTapped(8);
-                    Navigator.pop(context);
-                  },
-                ),
-                ListTile(
-                  leading: const Icon(Icons.analytics, color: Colors.white),
-                  title: const Text(
-                    'Analytics',
-                    style: drawerItemText,
-                  ),
-                  selected: _selectedIndex == 9,
-                  selectedTileColor: Colors.indigo[700],
-                  onTap: () {
-                    _onItemTapped(9);
-                    Navigator.pop(context);
-                  },
-                ),
-                ListTile(
-                  leading: const Icon(Icons.integration_instructions, color: Colors.white),
-                  title: const Text(
-                    'Integration',
-                    style: drawerItemText,
-                  ),
-                  selected: _selectedIndex == 10,
-                  selectedTileColor: Colors.indigo[700],
-                  onTap: () {
-                    _onItemTapped(10);
-                    Navigator.pop(context);
-                  },
-                ),
-                ListTile(
-                  leading: const Icon(Icons.person, color: Colors.white),
-                  title: const Text(
-                    'Profile',
-                    style: drawerItemText,
-                  ),
-                  selected: _selectedIndex == 11,
-                  selectedTileColor: Colors.indigo[700],
-                  onTap: () {
-                    _onItemTapped(11);
-                    Navigator.pop(context);
-                  },
-                ),
               ],
             ),
           ],
@@ -272,24 +94,25 @@ class _DashboardScreenState extends State<DashboardScreen> {
     );
   }
 
-@override
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(_screenTitles[_selectedIndex]), // Updated line
+        title: Obx(() => Text(_dashboardController.screenTitles[_dashboardController.selectedIndex.value])),
         actions: [],
       ),
       drawer: _buildDrawer(context),
-      body: _screens[_selectedIndex],
+      body: Obx(() => _dashboardController.screens[_dashboardController.selectedIndex.value]),
     );
   }
 }
 
-class Home extends StatelessWidget {
+
+class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: HomeScreen(),
+    return const Scaffold(
+      body: HomeView(),
     );
   }
 }
@@ -298,7 +121,7 @@ class CourseManagementScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body:  Center(
+      body: Center(
         child: CourseListScreen(),
       ),
     );
@@ -308,15 +131,11 @@ class CourseManagementScreen extends StatelessWidget {
 class ClassroomManagementScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    // ignore: prefer_const_constructors
-    return Scaffold(
-      // body: VirtualClassroom(),
-      body: const HomeView(),
+    return const Scaffold(
+      body: HomeView(),
     );
   }
 }
-
-
 
 class FeedScreen extends StatelessWidget {
   @override
@@ -396,4 +215,3 @@ class ProfileScreen extends StatelessWidget {
     );
   }
 }
-

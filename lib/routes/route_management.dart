@@ -24,6 +24,10 @@ abstract class RouteManagement {
     Get.offAllNamed(AppRoutes.student);
   }
 
+  static void goToStudentDashboard() {
+    Get.offAllNamed(AppRoutes.studentdashboard);
+  }
+
   static void goToLecturerView() {
     Get.offAllNamed(AppRoutes.lecturer);
   }
@@ -38,6 +42,10 @@ abstract class RouteManagement {
 
   static void gotToErrorView() {
     Get.offAllNamed(AppRoutes.error);
+  }
+
+  static void goToStudentRegistration() {
+    Get.offAllNamed(AppRoutes.studentRegistration);
   }
 
   static void goToNetworkErrorView() {
@@ -105,9 +113,7 @@ abstract class RouteManagement {
     Get.toNamed(AppRoutes.reactivateAccount);
   }
 
-  static void goToStudentRegistration() {
-    Get.toNamed(AppRoutes.studentRegistration);
-  }
+  
 
   /// OTP ----------------------------------------------------------------------
 
