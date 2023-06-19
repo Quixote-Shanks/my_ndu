@@ -7,6 +7,8 @@ list(APPEND FLUTTER_PLUGIN_LIST
   emoji_picker_flutter
   firebase_core
   geolocator_windows
+  image_compression_flutter
+  nb_utils
   permission_handler_windows
   rive_common
   share_plus

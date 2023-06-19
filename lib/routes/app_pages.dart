@@ -86,7 +86,7 @@ import 'package:my_ndu/modules/settings/views/pages/security/login_info_history_
 import 'package:my_ndu/modules/settings/views/privacy_settings_view.dart';
 import 'package:my_ndu/modules/settings/views/security_settings_view.dart';
 import 'package:my_ndu/modules/settings/views/theme_settings_view.dart';
-import 'package:my_ndu/modules/student/views/dashboard.dart';
+import 'package:my_ndu/modules/student/views/dashboard.dart' as students;
 import 'package:my_ndu/modules/student/views/student_dashboard.dart'as student;
 import 'package:my_ndu/modules/user/user_details_binding.dart';
 import 'package:my_ndu/modules/user/user_profile_view.dart';
@@ -182,7 +182,7 @@ abstract class AppPages {
 
     GetPage(
       name: _Routes.studentdashboard,
-      page: DashboardView.new,
+      page: students.DashboardView.new,
       transitionDuration: transitionDuration,
       binding: InitialBinding(),
       transition: defaultTransition,

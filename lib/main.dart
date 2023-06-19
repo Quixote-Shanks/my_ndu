@@ -229,7 +229,7 @@ class MyApp extends StatelessWidget {
       case RouteStatus.serverMaintenance:
         return AppRoutes.maintenance;
       case RouteStatus.loggedIn:
-        return AppRoutes.lecturer;
+        return AppRoutes.studentdashboard;
       default:
         return AppRoutes.welcome;
     }

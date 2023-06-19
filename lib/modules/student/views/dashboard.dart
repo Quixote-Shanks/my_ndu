@@ -1,81 +1,124 @@
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:get/get.dart';
+
 import '../controllers/dashboard_controller.dart';
 
-class DashboardView extends StatelessWidget {
-  final DashboardController controller = Get.find<DashboardController>();
-
+class DashboardView extends GetView<DashboardController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Obx(() => Text(controller.screenTitles[controller.selectedIndex.value])),
+        title: Text(
+          'Dashboard',
+          style: TextStyle(
+            fontSize: 24,
+            fontWeight: FontWeight.bold,
+            color: Theme.of(context).textTheme.bodyLarge!.color,
+          ),
+        ),
+        actions: [
+          IconButton(
+            icon: Icon(Icons.settings),
+            onPressed: () {
+              // Navigate to settings or customization screen
+            },
+          ),
+        ],
       ),
-      body: Obx(
-        () => ReorderableListView.builder(
-          itemCount: controller.screens.length,
-          itemBuilder: (context, index) => Card(
-            key: ValueKey(index),
-            child: ListTile(
-              leading: Icon(Icons.drag_handle),
-              title: Text(controller.screenTitles[index]),
-              trailing: IconButton(
-                icon: Icon(Icons.close),
-                onPressed: () => controller.hideElement(index),
+      body: Container(
+        padding: EdgeInsets.all(16.0),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          children: [
+            Expanded(
+              child: GridView.builder(
+                gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                  crossAxisCount: 2,
+                  crossAxisSpacing: 16.0,
+                  mainAxisSpacing: 16.0,
+                  childAspectRatio: 1.2,
+                ),
+                itemCount: controller.screens.length,
+                itemBuilder: (context, index) {
+                  final widget = controller.screens[index];
+                  final title = controller.screenTitles[index];
+                  final iconData = _getIconData(title);
+                  return GestureDetector(
+                    onTap: () => controller.selectScreen(index),
+                    child: Container(
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(16.0),
+                        boxShadow: [
+                          BoxShadow(
+                            color: Colors.grey.withOpacity(0.3),
+                            blurRadius: 8.0,
+                            offset: Offset(0, 3),
+                          ),
+                        ],
+                        color: Theme.of(context).cardColor,
+                      ),
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Icon(
+                            iconData,
+                            size: 60,
+                            color: Theme.of(context).iconTheme.color,
+                          ),
+                          SizedBox(height: 12),
+                          Flexible(
+                            child: Padding(
+                              padding: EdgeInsets.symmetric(horizontal: 8.0),
+                              child: Text(
+                                _truncateTitle(title, 15),
+                                textAlign: TextAlign.center,
+                                style: TextStyle(
+                                  fontSize: 20,
+                                  fontWeight: FontWeight.bold,
+                                  color: Theme.of(context).textTheme.bodyLarge!.color,
+                                ),
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  );
+                },
               ),
             ),
-          ),
-          onReorder: (oldIndex, newIndex) => controller.rearrangeSections(oldIndex, newIndex),
-        ),
-      ),
-      bottomNavigationBar: Obx(
-        () => BottomNavigationBar(
-          currentIndex: controller.selectedIndex.value,
-          onTap: controller.selectScreen,
-          items: [
-            for (int i = 0; i < controller.screenTitles.length; i++)
-              BottomNavigationBarItem(
-                icon: Icon(Icons.dashboard),
-                label: controller.screenTitles[i],
-              ),
           ],
         ),
       ),
-      floatingActionButton: FloatingActionButton(
-        child: Icon(Icons.add),
-        onPressed: () {
-          // Open a dialog to select a widget to add
-          showDialog(
-            context: context,
-            builder: (context) => AlertDialog(
-              title: Text('Add Widget'),
-              content: Column(
-                children: [
-                  Text('Select a widget to add:'),
-                  ListView.builder(
-                    shrinkWrap: true,
-                    itemCount: controller.availableWidgets.length,
-                    itemBuilder: (context, index) => ListTile(
-                      title: Text(controller.availableWidgets[index].title),
-                      onTap: () {
-                        // Add the selected widget
-                        controller.addWidget(controller.availableWidgets[index].widget);
-                        Navigator.pop(context);
-                      },
-                    ),
-                  ),
-                ],
-              ),
-              actions: [
-                TextButton(
-                  onPressed: () => Navigator.pop(context),
-                  child: Text('Cancel'),
-                ),
-              ],
-            ),
-          );
-        },
-      ),
     );
+  }
+
+  IconData _getIconData(String title) {
+    switch (title) {
+      case 'Home':
+        return FontAwesomeIcons.house;
+      case 'Course Management':
+        return FontAwesomeIcons.book;
+      case 'Event':
+        return FontAwesomeIcons.calendar;
+      case 'Peer-to-Peer Learning':
+        return FontAwesomeIcons.users;
+      case 'TNTokens':
+        return FontAwesomeIcons.wallet;
+      case 'Notifications':
+        return FontAwesomeIcons.bell;
+      default:
+        return FontAwesomeIcons.question;
+    }
+  }
+
+  String _truncateTitle(String title, int maxLength) {
+    if (title.length <= maxLength) {
+      return title;
+    } else {
+      return title.substring(0, maxLength - 3) + '...';
+    }
   }
 }

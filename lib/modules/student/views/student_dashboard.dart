@@ -1,21 +1,9 @@
 import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:my_ndu/modules/student/views/course_management.dart';
-import 'package:my_ndu/modules/student/views/event.dart';
-import 'package:my_ndu/modules/student/views/feed.dart';
-import 'package:my_ndu/modules/student/views/tntoken.dart';
-import '../../classroom/views/ui/views/home_view.dart';
 import '../controllers/dashboard_controller.dart';
-import 'home_screen.dart';
-import 'p2p.dart';
 
-class DashboardScreen extends StatefulWidget {
-  @override
-  _DashboardScreenState createState() => _DashboardScreenState();
-}
-
-class _DashboardScreenState extends State<DashboardScreen> {
+class DashboardScreen extends StatelessWidget {
   final DashboardController _dashboardController = Get.put(DashboardController());
 
   Widget _buildDrawer(BuildContext context) {
@@ -102,116 +90,11 @@ class _DashboardScreenState extends State<DashboardScreen> {
         actions: [],
       ),
       drawer: _buildDrawer(context),
-      body: Obx(() => _dashboardController.screens[_dashboardController.selectedIndex.value]),
-    );
-  }
-}
-
-
-class HomeScreen extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return const Scaffold(
-      body: HomeView(),
-    );
-  }
-}
-
-class CourseManagementScreen extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      body: Center(
-        child: CourseListScreen(),
-      ),
-    );
-  }
-}
-
-class ClassroomManagementScreen extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return const Scaffold(
-      body: HomeView(),
-    );
-  }
-}
-
-class FeedScreen extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return const Scaffold(
-      body: PostTopic(),
-    );
-  }
-}
-
-class CornerScreen extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text('Corner'),
-      ),
-      body: const Center(
-        child: Text('Corner Screen'),
-      ),
-    );
-  }
-}
-
-class NotificationsScreen extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text('Notifications'),
-      ),
-      body: const Center(
-        child: Text('Notifications Screen'),
-      ),
-    );
-  }
-}
-
-class AnalyticsScreen extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text('Analytics'),
-      ),
-      body: const Center(
-        child: Text('Analytics Screen'),
-      ),
-    );
-  }
-}
-
-class IntegrationScreen extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text('Integration'),
-      ),
-      body: const Center(
-        child: Text('Integration Screen'),
-      ),
-    );
-  }
-}
-
-class ProfileScreen extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text('Profile'),
-      ),
-      body: const Center(
-        child: Text('Profile Screen'),
-      ),
+      body: Obx(() {
+        final selectedScreen = _dashboardController.screens[_dashboardController.selectedIndex.value];
+        // ignore: unnecessary_type_check
+        return selectedScreen is Widget ? selectedScreen : Container();
+      }),
     );
   }
 }
