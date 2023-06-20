@@ -179,46 +179,6 @@ class ProfileDetailsView extends StatelessWidget {
 
                     /// Profession
 
-                    NxListTile(
-                      padding: Dimens.edgeInsets12,
-                      bgColor: Theme.of(Get.context!).cardColor,
-                      borderRadius: BorderRadius.circular(Dimens.four),
-                      leading: const Icon(Icons.work_outline),
-                      title: Text(
-                        StringValues.profession,
-                        style: AppStyles.style12Normal.copyWith(
-                          color: Theme.of(Get.context!)
-                              .textTheme
-                              .titleMedium!
-                              .color,
-                        ),
-                      ),
-                      subtitle: Text(
-                        (logic.profileDetails!.user!.profession == null ||
-                                !StaticData.occupationList.contains(logic
-                                    .profileDetails!.user!.profession!
-                                    .toLowerCase()))
-                            ? 'Add your profession'
-                            : logic.profileDetails!.user!.profession!
-                                .toTitleCase(),
-                        style: AppStyles.style16Normal.copyWith(
-                          color:
-                              (logic.profileDetails!.user!.profession == null ||
-                                      logic.profileDetails!.user!.profession ==
-                                          'user')
-                                  ? Theme.of(Get.context!)
-                                      .textTheme
-                                      .titleMedium
-                                      ?.color
-                                  : Theme.of(Get.context!)
-                                      .textTheme
-                                      .bodyLarge
-                                      ?.color,
-                        ),
-                      ),
-                      onTap: RouteManagement.goToEditProfessionView,
-                    ),
-
                     Dimens.boxHeight8,
 
                     /// DOB
@@ -358,40 +318,6 @@ class ProfileDetailsView extends StatelessWidget {
                     Dimens.boxHeight8,
 
                     /// Website
-
-                    NxListTile(
-                      padding: Dimens.edgeInsets12,
-                      bgColor: Theme.of(Get.context!).cardColor,
-                      borderRadius: BorderRadius.circular(Dimens.four),
-                      leading: const Icon(Icons.link),
-                      title: Text(
-                        StringValues.website,
-                        style: AppStyles.style12Normal.copyWith(
-                          color: Theme.of(Get.context!)
-                              .textTheme
-                              .titleMedium!
-                              .color,
-                        ),
-                      ),
-                      subtitle: Text(
-                        logic.profileDetails!.user!.website != null
-                            ? Uri.parse(logic.profileDetails!.user!.website!)
-                                .host
-                            : 'Add website',
-                        style: AppStyles.style16Normal.copyWith(
-                          color: logic.profileDetails!.user!.website == null
-                              ? Theme.of(Get.context!)
-                                  .textTheme
-                                  .titleMedium
-                                  ?.color
-                              : Theme.of(Get.context!)
-                                  .textTheme
-                                  .bodyLarge!
-                                  .color,
-                        ),
-                      ),
-                      onTap: RouteManagement.goToEditWebsiteView,
-                    ),
 
                     Dimens.boxHeight16,
                   ],

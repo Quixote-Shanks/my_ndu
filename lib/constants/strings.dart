@@ -407,6 +407,7 @@ abstract class StringValues {
   static const resetYourPassword = 'Reset your password';
   static const resume = 'Resume';
   static const right = 'Right';
+  static const role = 'role';
   static const save = 'Save';
   static const search = 'Search';
   static const security = 'Security';

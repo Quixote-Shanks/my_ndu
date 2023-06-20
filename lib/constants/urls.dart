@@ -85,5 +85,5 @@ abstract class AppUrls {
   static const verifyOtpFromPhoneEndpoint = '/verify-phone-otp';
   static const verifyPasswordEndpoint = '/verify-password';
   static const voteToPollEndpoint = '/vote-to-poll';
-  static const webSocketUrl = 'wss://api.nixlab.co.in/api/v1/ws';
+  static const webSocketUrl = 'wss://192.168.178.185:3000/api/v1/ws';
 }

@@ -43,17 +43,17 @@ import 'package:my_ndu/modules/profile/bindings/edit_about_binding.dart';
 import 'package:my_ndu/modules/profile/bindings/edit_dob_binding.dart';
 import 'package:my_ndu/modules/profile/bindings/edit_gender_binding.dart';
 import 'package:my_ndu/modules/profile/bindings/edit_name_binding.dart';
-import 'package:my_ndu/modules/profile/bindings/edit_profession_binding.dart';
+// import 'package:my_ndu/modules/profile/bindings/edit_profession_binding.dart';
 import 'package:my_ndu/modules/profile/bindings/edit_profile_picture_binding.dart';
 import 'package:my_ndu/modules/profile/bindings/edit_username_binding.dart';
-import 'package:my_ndu/modules/profile/bindings/edit_website_binding.dart';
+// import 'package:my_ndu/modules/profile/bindings/edit_website_binding.dart';
 import 'package:my_ndu/modules/profile/views/edit_views/edit_about_view.dart';
 import 'package:my_ndu/modules/profile/views/edit_views/edit_dob_view.dart';
 import 'package:my_ndu/modules/profile/views/edit_views/edit_gender_view.dart';
 import 'package:my_ndu/modules/profile/views/edit_views/edit_name_view.dart';
-import 'package:my_ndu/modules/profile/views/edit_views/edit_profession_view.dart';
+// import 'package:my_ndu/modules/profile/views/edit_views/edit_profession_view.dart';
 import 'package:my_ndu/modules/profile/views/edit_views/edit_username_view.dart';
-import 'package:my_ndu/modules/profile/views/edit_views/edit_website_view.dart';
+// import 'package:my_ndu/modules/profile/views/edit_views/edit_website_view.dart';
 import 'package:my_ndu/modules/profile/views/profile_details_view.dart';
 import 'package:my_ndu/modules/profile/views/profile_view.dart';
 import 'package:my_ndu/modules/report/report_binding.dart';
@@ -341,21 +341,21 @@ abstract class AppPages {
       transition: defaultTransition,
     ),
 
-    GetPage(
-      name: _Routes.editProfession,
-      page: EditProfessionView.new,
-      binding: EditProfessionBinding(),
-      transitionDuration: transitionDuration,
-      transition: defaultTransition,
-    ),
+    // GetPage(
+    //   name: _Routes.editProfession,
+    //   page: EditProfessionView.new,
+    //   binding: EditProfessionBinding(),
+    //   transitionDuration: transitionDuration,
+    //   transition: defaultTransition,
+    // ),
 
-    GetPage(
-      name: _Routes.editWebsite,
-      page: EditWebsiteView.new,
-      binding: EditWebsiteBinding(),
-      transitionDuration: transitionDuration,
-      transition: defaultTransition,
-    ),
+    // GetPage(
+    //   name: _Routes.editWebsite,
+    //   page: EditWebsiteView.new,
+    //   binding: EditWebsiteBinding(),
+    //   transitionDuration: transitionDuration,
+    //   transition: defaultTransition,
+    // ),
 
     /// ------------------------------------------------------------------------
 

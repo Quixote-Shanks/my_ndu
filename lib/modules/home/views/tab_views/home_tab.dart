@@ -24,81 +24,48 @@ import 'package:my_ndu/utils/utility.dart';
 class HomeTabView extends StatelessWidget {
   const HomeTabView({Key? key}) : super(key: key);
 
-  @override
-  Widget build(BuildContext context) {
-    return AnimatedContainer(
-      duration: const Duration(milliseconds: 500),
-      width: Dimens.screenWidth,
-      height: Dimens.screenHeight,
-      child: NxRefreshIndicator(
-        onRefresh: () => PostController.find.fetchPosts(),
-        showProgress: false,
-        child: CustomScrollView(
-          physics: const BouncingScrollPhysics(
-            parent: AlwaysScrollableScrollPhysics(),
-          ),
-          slivers: [
-            _buildAppBar(context),
-            _buildBody(),
-          ],
-        ),
-      ),
-    );
-  }
-
   NxSliverAppBar _buildAppBar(BuildContext context) {
     return NxSliverAppBar(
       padding: Dimens.edgeInsetsDefault,
       height: Dimens.fourtyEight,
       leading: Expanded(
         child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          crossAxisAlignment: CrossAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.end,
           children: [
-            NxAssetImage(
-              imgAsset: AssetValues.appIcon,
-              width: Dimens.twentyFour,
-              height: Dimens.twentyFour,
+            InkWell(
+              onTap: () => _showCreatePostOptions(context),
+              child: Icon(
+                Icons.add_circle_outline_rounded,
+                size: Dimens.thirtyTwo,
+                color: Theme.of(context).textTheme.bodyLarge!.color,
+              ),
             ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.start,
-              children: [
-                InkWell(
-                  onTap: () => _showCreatePostOptions(context),
-                  child: Icon(
-                    Icons.add_circle_outline_rounded,
-                    size: Dimens.thirtyTwo,
-                    color: Theme.of(context).textTheme.bodyLarge!.color,
-                  ),
-                ),
-                Dimens.boxWidth12,
-                GestureDetector(
-                  onTap: RouteManagement.goToProfileView,
-                  child: GetBuilder<ProfileController>(
-                    builder: (logic) {
-                      if (logic.profileDetails == null ||
-                          logic.profileDetails!.user == null ||
-                          logic.profileDetails!.user!.avatar == null ||
-                          logic.profileDetails!.user!.avatar!.url == null) {
-                        return Hero(
-                          tag: logic.profileDetails!.user!.id,
-                          child: AvatarWidget(
-                            avatar: logic.profileDetails!.user!.avatar,
-                            size: Dimens.sixTeen,
-                          ),
-                        );
-                      }
-                      return Hero(
-                        tag: logic.profileDetails!.user!.id,
-                        child: AvatarWidget(
-                          avatar: logic.profileDetails!.user!.avatar!,
-                          size: Dimens.sixTeen,
-                        ),
-                      );
-                    },
-                  ),
-                ),
-              ],
+            Dimens.boxWidth12,
+            GestureDetector(
+              onTap: RouteManagement.goToProfileView,
+              child: GetBuilder<ProfileController>(
+                builder: (logic) {
+                  if (logic.profileDetails == null ||
+                      logic.profileDetails!.user == null ||
+                      logic.profileDetails!.user!.avatar == null ||
+                      logic.profileDetails!.user!.avatar!.url == null) {
+                    return Hero(
+                      tag: logic.profileDetails?.user?.id ?? '',
+                      child: AvatarWidget(
+                        avatar: logic.profileDetails?.user?.avatar,
+                        size: Dimens.sixTeen,
+                      ),
+                    );
+                  }
+                  return Hero(
+                    tag: logic.profileDetails!.user!.id,
+                    child: AvatarWidget(
+                      avatar: logic.profileDetails!.user!.avatar!,
+                      size: Dimens.sixTeen,
+                    ),
+                  );
+                },
+              ),
             ),
           ],
         ),
@@ -345,6 +312,28 @@ class HomeTabView extends StatelessWidget {
         }
         return const SizedBox();
       },
+    );
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return AnimatedContainer(
+      duration: const Duration(milliseconds: 500),
+      width: Dimens.screenWidth,
+      height: Dimens.screenHeight,
+      child: NxRefreshIndicator(
+        onRefresh: () => PostController.find.fetchPosts(),
+        showProgress: false,
+        child: CustomScrollView(
+          physics: const BouncingScrollPhysics(
+            parent: AlwaysScrollableScrollPhysics(),
+          ),
+          slivers: [
+            _buildAppBar(context),
+            _buildBody(),
+          ],
+        ),
+      ),
     );
   }
 }

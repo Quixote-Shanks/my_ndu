@@ -120,7 +120,7 @@ class LoginController extends GetxController {
               var validateStudent = await authService.validateStudent();
 
               if (validateStudent!) {
-                RouteManagement.goToStudentView();
+                RouteManagement.goToStudentDashboard();
               } else {
                 RouteManagement.goToStudentRegistration();
               }

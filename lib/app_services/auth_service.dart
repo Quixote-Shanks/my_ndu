@@ -22,8 +22,8 @@ class AuthService extends GetxService {
   int _expiresAt = 0;
   bool _isLoggedIn = false;
   AuthResponse _loginData = AuthResponse();
-  String _token = '';
   String _role = '';
+  String _token = '';
 
   @override
   void onInit() {
@@ -49,7 +49,7 @@ class AuthService extends GetxService {
   AuthResponse get loginData => _loginData;
 
   /// Setters
-  set setLoginData(AuthResponse value) => _loginData = value;
+set setLoginData(AuthResponse value) => _loginData = value;
 
   set setToken(String value) => _token = value;
 
@@ -69,6 +69,28 @@ class AuthService extends GetxService {
       _isLoggedIn = true;
     }
     return authToken;
+  }
+
+  Future<String> getRole() async {
+    var authRole = '';
+    final decodedData = await readLoginDataFromLocalStorage();
+    AppUtility.log('getRole method in action');
+    AppUtility.log(decodedData);
+
+    if (decodedData != null) {
+      authRole = decodedData[StringValues.role];
+    } else {
+      AppUtility.log('Error: Unable to decode login data from local storage.');
+      // You can also throw an exception or handle the error in a different way if needed.
+    }
+
+    AppUtility.log('Response from getRole():');
+    AppUtility.log(json.encode({
+      'authRole': authRole,
+      'isLoggedIn': _isLoggedIn,
+    }));
+
+    return authRole;
   }
 
   Future<void> deleteAllLocalDataAndCache() async {
@@ -102,6 +124,7 @@ class AuthService extends GetxService {
     final data = {
       StringValues.token: token,
       StringValues.expiresAt: expiresAt,
+      StringValues.role: role,
     };
 
     await StorageService.write('loginData', data);

@@ -110,9 +110,7 @@ class LoginController extends GetxController {
           await _auth.saveLoginInfo();
           _clearLoginTextControllers();
 
-          _isLoading.value = false;
-          update();
-          AppUtility.closeDialog();
+        
 
           switch (_auth.loginData.role) {
             case 'Student':
@@ -143,6 +141,9 @@ class LoginController extends GetxController {
                   .goToDo(); // Assuming goToDo() is the default navigation route
               break;
           }
+          _isLoading.value = false;
+          update();
+          AppUtility.closeDialog();
 
           AppUtility.showSnackBar(
             StringValues.loginSuccessful,

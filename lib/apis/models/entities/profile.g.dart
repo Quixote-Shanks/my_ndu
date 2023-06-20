@@ -33,11 +33,7 @@ abstract class _$ProfileCWProxy {
 
   Profile about(String? about);
 
-  Profile profession(String? profession);
-
   Profile location(String? location);
-
-  Profile website(String? website);
 
   Profile postsCount(int postsCount);
 
@@ -85,9 +81,7 @@ abstract class _$ProfileCWProxy {
     String? gender,
     String? dob,
     String? about,
-    String? profession,
     String? location,
-    String? website,
     int? postsCount,
     int? followersCount,
     int? followingCount,
@@ -152,13 +146,7 @@ class _$ProfileCWProxyImpl implements _$ProfileCWProxy {
   Profile about(String? about) => this(about: about);
 
   @override
-  Profile profession(String? profession) => this(profession: profession);
-
-  @override
   Profile location(String? location) => this(location: location);
-
-  @override
-  Profile website(String? website) => this(website: website);
 
   @override
   Profile postsCount(int postsCount) => this(postsCount: postsCount);
@@ -226,9 +214,7 @@ class _$ProfileCWProxyImpl implements _$ProfileCWProxy {
     Object? gender = const $CopyWithPlaceholder(),
     Object? dob = const $CopyWithPlaceholder(),
     Object? about = const $CopyWithPlaceholder(),
-    Object? profession = const $CopyWithPlaceholder(),
     Object? location = const $CopyWithPlaceholder(),
-    Object? website = const $CopyWithPlaceholder(),
     Object? postsCount = const $CopyWithPlaceholder(),
     Object? followersCount = const $CopyWithPlaceholder(),
     Object? followingCount = const $CopyWithPlaceholder(),
@@ -297,18 +283,10 @@ class _$ProfileCWProxyImpl implements _$ProfileCWProxy {
           ? _value.about
           // ignore: cast_nullable_to_non_nullable
           : about as String?,
-      profession: profession == const $CopyWithPlaceholder()
-          ? _value.profession
-          // ignore: cast_nullable_to_non_nullable
-          : profession as String?,
       location: location == const $CopyWithPlaceholder()
           ? _value.location
           // ignore: cast_nullable_to_non_nullable
           : location as String?,
-      website: website == const $CopyWithPlaceholder()
-          ? _value.website
-          // ignore: cast_nullable_to_non_nullable
-          : website as String?,
       postsCount:
           postsCount == const $CopyWithPlaceholder() || postsCount == null
               ? _value.postsCount
@@ -404,29 +382,27 @@ class ProfileAdapter extends TypeAdapter<Profile> {
       gender: fields[10] as String?,
       dob: fields[11] as String?,
       about: fields[12] as String?,
-      profession: fields[13] as String?,
-      location: fields[14] as String?,
-      website: fields[15] as String?,
-      postsCount: fields[16] as int,
-      followersCount: fields[17] as int,
-      followingCount: fields[18] as int,
-      role: fields[24] as String,
-      isPrivate: fields[20] as bool,
-      accountStatus: fields[19] as String,
-      isValid: fields[21] as bool,
-      isVerified: fields[22] as bool,
-      verifiedCategory: fields[23] as String?,
-      showOnlineStatus: fields[25] as bool?,
-      lastSeen: fields[26] as DateTime?,
-      createdAt: fields[27] as DateTime,
-      updatedAt: fields[28] as DateTime,
+      location: fields[13] as String?,
+      postsCount: fields[14] as int,
+      followersCount: fields[15] as int,
+      followingCount: fields[16] as int,
+      role: fields[22] as String,
+      isPrivate: fields[18] as bool,
+      accountStatus: fields[17] as String,
+      isValid: fields[19] as bool,
+      isVerified: fields[20] as bool,
+      verifiedCategory: fields[21] as String?,
+      showOnlineStatus: fields[23] as bool?,
+      lastSeen: fields[24] as DateTime?,
+      createdAt: fields[25] as DateTime,
+      updatedAt: fields[26] as DateTime,
     );
   }
 
   @override
   void write(BinaryWriter writer, Profile obj) {
     writer
-      ..writeByte(29)
+      ..writeByte(27)
       ..writeByte(0)
       ..write(obj.id)
       ..writeByte(1)
@@ -454,36 +430,32 @@ class ProfileAdapter extends TypeAdapter<Profile> {
       ..writeByte(12)
       ..write(obj.about)
       ..writeByte(13)
-      ..write(obj.profession)
-      ..writeByte(14)
       ..write(obj.location)
-      ..writeByte(15)
-      ..write(obj.website)
-      ..writeByte(16)
+      ..writeByte(14)
       ..write(obj.postsCount)
-      ..writeByte(17)
+      ..writeByte(15)
       ..write(obj.followersCount)
-      ..writeByte(18)
+      ..writeByte(16)
       ..write(obj.followingCount)
-      ..writeByte(19)
+      ..writeByte(17)
       ..write(obj.accountStatus)
-      ..writeByte(20)
+      ..writeByte(18)
       ..write(obj.isPrivate)
-      ..writeByte(21)
+      ..writeByte(19)
       ..write(obj.isValid)
-      ..writeByte(22)
+      ..writeByte(20)
       ..write(obj.isVerified)
-      ..writeByte(23)
+      ..writeByte(21)
       ..write(obj.verifiedCategory)
-      ..writeByte(24)
+      ..writeByte(22)
       ..write(obj.role)
-      ..writeByte(25)
+      ..writeByte(23)
       ..write(obj.showOnlineStatus)
-      ..writeByte(26)
+      ..writeByte(24)
       ..write(obj.lastSeen)
-      ..writeByte(27)
+      ..writeByte(25)
       ..write(obj.createdAt)
-      ..writeByte(28)
+      ..writeByte(26)
       ..write(obj.updatedAt);
   }
 
@@ -518,9 +490,7 @@ Profile _$ProfileFromJson(Map<String, dynamic> json) => Profile(
       gender: json['gender'] as String?,
       dob: json['dob'] as String?,
       about: json['about'] as String?,
-      profession: json['profession'] as String?,
       location: json['location'] as String?,
-      website: json['website'] as String?,
       postsCount: json['postsCount'] as int,
       followersCount: json['followersCount'] as int,
       followingCount: json['followingCount'] as int,
@@ -552,9 +522,7 @@ Map<String, dynamic> _$ProfileToJson(Profile instance) => <String, dynamic>{
       'gender': instance.gender,
       'dob': instance.dob,
       'about': instance.about,
-      'profession': instance.profession,
       'location': instance.location,
-      'website': instance.website,
       'postsCount': instance.postsCount,
       'followersCount': instance.followersCount,
       'followingCount': instance.followingCount,

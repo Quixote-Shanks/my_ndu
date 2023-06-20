@@ -361,36 +361,6 @@ class ProfileView extends StatelessWidget {
             ],
           ),
           Dimens.boxHeight16,
-          if (logic.profileDetails!.user!.about != null)
-            NxExpandableText(text: logic.profileDetails!.user!.about!),
-          if (logic.profileDetails!.user!.website != null) Dimens.boxHeight8,
-          if (logic.profileDetails!.user!.website != null)
-            Row(
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                Icon(
-                  Icons.link_outlined,
-                  size: Dimens.sixTeen,
-                  color: Theme.of(Get.context!).textTheme.titleMedium!.color,
-                ),
-                Dimens.boxWidth8,
-                InkWell(
-                  onTap: () => AppUtility.openUrl(
-                      Uri.parse(logic.profileDetails!.user!.website!)),
-                  child: Text(
-                    logic.profileDetails!.user!.website!.contains('https://') ||
-                            logic.profileDetails!.user!.website!
-                                .contains('http://')
-                        ? Uri.parse(logic.profileDetails!.user!.website!).host
-                        : logic.profileDetails!.user!.website!,
-                    style: AppStyles.style13Bold.copyWith(
-                      color: ColorValues.linkColor,
-                    ),
-                  ),
-                ),
-              ],
-            ),
-          Dimens.boxHeight8,
           Row(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [

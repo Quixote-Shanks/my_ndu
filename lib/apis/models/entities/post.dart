@@ -16,6 +16,7 @@ class Post {
     this.id,
     this.postType,
     this.caption,
+    this.description,
     this.mediaFiles,
     this.pollQuestion,
     this.pollOptions,
@@ -41,6 +42,8 @@ class Post {
     this.status,
     this.createdAt,
     this.updatedAt,
+    this.upvotesCount,
+    this.downvotesCount,
   });
 
   factory Post.fromJson(Map<String, dynamic> json) => _$PostFromJson(json);
@@ -59,107 +62,119 @@ class Post {
   @HiveField(2)
   String? caption;
 
-  @JsonKey(name: 'mediaFiles')
+  @JsonKey(name: 'description')
   @HiveField(3)
+  String? description;
+
+  @JsonKey(name: 'mediaFiles')
+  @HiveField(4)
   List<PostMediaFile>? mediaFiles;
 
   @JsonKey(name: 'pollQuestion')
-  @HiveField(4)
+  @HiveField(5)
   String? pollQuestion;
 
   @JsonKey(name: 'pollOptions')
-  @HiveField(5)
+  @HiveField(6)
   List<PollOption>? pollOptions;
 
   @JsonKey(name: 'pollEndsAt')
-  @HiveField(6)
+  @HiveField(7)
   DateTime? pollEndsAt;
 
   @JsonKey(name: 'totalVotes')
-  @HiveField(7)
+  @HiveField(8)
   int? totalVotes;
 
   @JsonKey(name: 'owner')
-  @HiveField(8)
+  @HiveField(9)
   User? owner;
 
   @JsonKey(name: 'hashtags')
-  @HiveField(9)
+  @HiveField(10)
   List<String>? hashtags;
 
   @JsonKey(name: 'userMentions')
-  @HiveField(10)
+  @HiveField(11)
   List<String>? userMentions;
 
   @JsonKey(name: 'likesCount')
-  @HiveField(11)
+  @HiveField(12)
   int? likesCount;
 
   @JsonKey(name: 'commentsCount')
-  @HiveField(12)
+  @HiveField(13)
   int? commentsCount;
 
   @JsonKey(name: 'repostsCount')
-  @HiveField(13)
+  @HiveField(14)
   int? repostsCount;
 
   @JsonKey(name: 'sharesCount')
-  @HiveField(14)
+  @HiveField(15)
   int? sharesCount;
 
   @JsonKey(name: 'savesCount')
-  @HiveField(15)
+  @HiveField(16)
   int? savesCount;
 
   @JsonKey(name: 'isLiked')
-  @HiveField(16)
+  @HiveField(17)
   bool? isLiked;
 
   @JsonKey(name: 'isVoted')
-  @HiveField(17)
+  @HiveField(18)
   bool? isVoted;
 
   @JsonKey(name: 'allowComments')
-  @HiveField(18)
+  @HiveField(19)
   bool? allowComments;
 
   @JsonKey(name: 'allowLikes')
-  @HiveField(19)
+  @HiveField(20)
   bool? allowLikes;
 
   @JsonKey(name: 'allowReposts')
-  @HiveField(20)
+  @HiveField(21)
   bool? allowReposts;
 
   @JsonKey(name: 'allowShare')
-  @HiveField(21)
+  @HiveField(22)
   bool? allowShare;
 
   @JsonKey(name: 'allowSave')
-  @HiveField(22)
+  @HiveField(23)
   bool? allowSave;
 
   @JsonKey(name: 'allowDownload')
-  @HiveField(23)
+  @HiveField(24)
   bool? allowDownload;
 
   @JsonKey(name: 'visibility')
-  @HiveField(24)
+  @HiveField(25)
   String? visibility;
 
   @JsonKey(name: 'status')
-  @HiveField(25)
+  @HiveField(26)
   String? status;
 
   @JsonKey(name: 'createdAt')
-  @HiveField(26)
+  @HiveField(27)
   DateTime? createdAt;
 
   @JsonKey(name: 'updatedAt')
-  @HiveField(27)
+  @HiveField(28)
   DateTime? updatedAt;
 
   @JsonKey(name: 'votedOption')
-  @HiveField(28)
+  @HiveField(29)
   String? votedOption;
+
+  @JsonKey(name: 'upvotesCount')
+  @HiveField(30)
+  int? upvotesCount;
+
+  @JsonKey(name: 'downvotesCount')
+  @HiveField(31)
+  int? downvotesCount;
 }

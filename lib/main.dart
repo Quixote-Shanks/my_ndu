@@ -41,6 +41,7 @@ import 'package:my_ndu/utils/utility.dart';
 import 'Bloc/Notes/notes_bloc.dart';
 import 'Bloc/general/general_bloc.dart';
 import 'Models/NoteModels.dart';
+import 'services/storage_service.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -136,15 +137,52 @@ Future<void> _initPreAppServices() async {
       var isValid = await authService.validateLocalAuthToken();
 
       if (isValid) {
-        RouteService.set(RouteStatus.loggedIn);
-        return;
+        AppUtility.log('Checking Role');
+        // Check role and route accordingly
+        var role = await authService.getRole();
+        if (role == 'Student') {
+          RouteService.set(RouteStatus.student);
+        } else if (role == 'Lecturer') {
+          RouteService.set(RouteStatus.lecturer);
+        } else {
+          AppUtility.log('Invalid role: $role', tag: 'error');
+        }
+        AppUtility.log('Role found: $role');
       }
-    }
 
-    if (RouteService.routeStatus != RouteStatus.notLoggedIn) {
-      RouteService.set(RouteStatus.notLoggedIn);
+      var hasData = await ProfileController.find.loadProfileDetails();
+      if (hasData) {
+        await PostController.find.loadLocalPosts();
+        await ChatController.find.loadLocalMessages();
+        await NotificationController.find.loadLocalNotification();
+
+        if (RouteService.routeStatus != RouteStatus.loggedIn) {
+          AppUtility.log('Checking Role');
+          // Check role and route accordingly
+          var role = await authService.getRole();
+          if (role == 'Student') {
+            RouteService.set(RouteStatus.student);
+          } else if (role == 'Lecturer') {
+            RouteService.set(RouteStatus.lecturer);
+          } else {
+            AppUtility.log('Invalid role: $role', tag: 'error');
+          }
+          AppUtility.log('Role found: $role');
+        }
+
+        AppUtility.log("User is logged in");
+      } else {
+        if (RouteService.routeStatus != RouteStatus.error) {
+          RouteService.set(RouteStatus.error);
+        }
+        await StorageService.remove('profileData');
+      }
+    } else {
+      if (RouteService.routeStatus != RouteStatus.notLoggedIn) {
+        RouteService.set(RouteStatus.notLoggedIn);
+      }
+      AppUtility.log("User is not logged in", tag: 'error');
     }
-    AppUtility.log("User is not logged in", tag: 'error');
   });
 
   AppUtility.log('Token Checked');
@@ -206,7 +244,7 @@ Future<void> validateSessionAndGetData() async {
 
   if (tokenValid == true) {
     // RouteManagement.goToDo();
-    // await PostController.find.getData();
+    await PostController.find.getData();
   }
 
   AppUtility.log('Session Validated and Data Fetched');
@@ -228,7 +266,9 @@ class MyApp extends StatelessWidget {
         return AppRoutes.offline;
       case RouteStatus.serverMaintenance:
         return AppRoutes.maintenance;
-      case RouteStatus.loggedIn:
+      case RouteStatus.lecturer:
+        return AppRoutes.lecturer;
+      case RouteStatus.student:
         return AppRoutes.studentdashboard;
       default:
         return AppRoutes.welcome;

@@ -24,9 +24,7 @@ class Profile {
     this.gender,
     this.dob,
     this.about,
-    this.profession,
     this.location,
-    this.website,
     required this.postsCount,
     required this.followersCount,
     required this.followingCount,
@@ -99,67 +97,59 @@ class Profile {
   @HiveField(12)
   String? about;
 
-  @JsonKey(name: 'profession')
-  @HiveField(13)
-  String? profession;
-
   @JsonKey(name: 'location')
-  @HiveField(14)
+  @HiveField(13)
   String? location;
 
-  @JsonKey(name: 'website')
-  @HiveField(15)
-  String? website;
-
   @JsonKey(name: 'postsCount')
-  @HiveField(16)
+  @HiveField(14)
   int postsCount;
 
   @JsonKey(name: 'followersCount')
-  @HiveField(17)
+  @HiveField(15)
   int followersCount;
 
   @JsonKey(name: 'followingCount')
-  @HiveField(18)
+  @HiveField(16)
   int followingCount;
 
   @JsonKey(name: 'accountStatus')
-  @HiveField(19)
+  @HiveField(17)
   String accountStatus;
 
   @JsonKey(name: 'isPrivate')
-  @HiveField(20)
+  @HiveField(18)
   bool isPrivate;
 
   @JsonKey(name: 'isValid')
-  @HiveField(21)
+  @HiveField(19)
   bool isValid;
 
   @JsonKey(name: 'isVerified')
-  @HiveField(22)
+  @HiveField(20)
   bool isVerified;
 
   @JsonKey(name: 'verifiedCategory')
-  @HiveField(23)
+  @HiveField(21)
   String? verifiedCategory;
 
   @JsonKey(name: 'role')
-  @HiveField(24)
+  @HiveField(22)
   String role;
 
   @JsonKey(name: 'showOnlineStatus')
-  @HiveField(25)
+  @HiveField(23)
   bool? showOnlineStatus;
 
   @JsonKey(name: 'lastSeen')
-  @HiveField(26)
+  @HiveField(24)
   DateTime? lastSeen;
 
   @JsonKey(name: 'createdAt')
-  @HiveField(27)
+  @HiveField(25)
   DateTime createdAt;
 
   @JsonKey(name: 'updatedAt')
-  @HiveField(28)
-  final DateTime updatedAt;
+  @HiveField(26)
+  DateTime updatedAt;
 }

@@ -13,6 +13,8 @@ abstract class _$PostCWProxy {
 
   Post caption(String? caption);
 
+  Post description(String? description);
+
   Post mediaFiles(List<PostMediaFile>? mediaFiles);
 
   Post pollQuestion(String? pollQuestion);
@@ -63,6 +65,10 @@ abstract class _$PostCWProxy {
 
   Post updatedAt(DateTime? updatedAt);
 
+  Post upvotesCount(int? upvotesCount);
+
+  Post downvotesCount(int? downvotesCount);
+
   /// This function **does support** nullification of nullable fields. All `null` values passed to `non-nullable` fields will be ignored. You can also use `Post(...).copyWith.fieldName(...)` to override fields one at a time with nullification support.
   ///
   /// Usage
@@ -73,6 +79,7 @@ abstract class _$PostCWProxy {
     String? id,
     String? postType,
     String? caption,
+    String? description,
     List<PostMediaFile>? mediaFiles,
     String? pollQuestion,
     List<PollOption>? pollOptions,
@@ -98,6 +105,8 @@ abstract class _$PostCWProxy {
     String? status,
     DateTime? createdAt,
     DateTime? updatedAt,
+    int? upvotesCount,
+    int? downvotesCount,
   });
 }
 
@@ -115,6 +124,9 @@ class _$PostCWProxyImpl implements _$PostCWProxy {
 
   @override
   Post caption(String? caption) => this(caption: caption);
+
+  @override
+  Post description(String? description) => this(description: description);
 
   @override
   Post mediaFiles(List<PostMediaFile>? mediaFiles) =>
@@ -195,6 +207,13 @@ class _$PostCWProxyImpl implements _$PostCWProxy {
   Post updatedAt(DateTime? updatedAt) => this(updatedAt: updatedAt);
 
   @override
+  Post upvotesCount(int? upvotesCount) => this(upvotesCount: upvotesCount);
+
+  @override
+  Post downvotesCount(int? downvotesCount) =>
+      this(downvotesCount: downvotesCount);
+
+  @override
 
   /// This function **does support** nullification of nullable fields. All `null` values passed to `non-nullable` fields will be ignored. You can also use `Post(...).copyWith.fieldName(...)` to override fields one at a time with nullification support.
   ///
@@ -206,6 +225,7 @@ class _$PostCWProxyImpl implements _$PostCWProxy {
     Object? id = const $CopyWithPlaceholder(),
     Object? postType = const $CopyWithPlaceholder(),
     Object? caption = const $CopyWithPlaceholder(),
+    Object? description = const $CopyWithPlaceholder(),
     Object? mediaFiles = const $CopyWithPlaceholder(),
     Object? pollQuestion = const $CopyWithPlaceholder(),
     Object? pollOptions = const $CopyWithPlaceholder(),
@@ -231,6 +251,8 @@ class _$PostCWProxyImpl implements _$PostCWProxy {
     Object? status = const $CopyWithPlaceholder(),
     Object? createdAt = const $CopyWithPlaceholder(),
     Object? updatedAt = const $CopyWithPlaceholder(),
+    Object? upvotesCount = const $CopyWithPlaceholder(),
+    Object? downvotesCount = const $CopyWithPlaceholder(),
   }) {
     return Post(
       id: id == const $CopyWithPlaceholder()
@@ -245,6 +267,10 @@ class _$PostCWProxyImpl implements _$PostCWProxy {
           ? _value.caption
           // ignore: cast_nullable_to_non_nullable
           : caption as String?,
+      description: description == const $CopyWithPlaceholder()
+          ? _value.description
+          // ignore: cast_nullable_to_non_nullable
+          : description as String?,
       mediaFiles: mediaFiles == const $CopyWithPlaceholder()
           ? _value.mediaFiles
           // ignore: cast_nullable_to_non_nullable
@@ -345,6 +371,14 @@ class _$PostCWProxyImpl implements _$PostCWProxy {
           ? _value.updatedAt
           // ignore: cast_nullable_to_non_nullable
           : updatedAt as DateTime?,
+      upvotesCount: upvotesCount == const $CopyWithPlaceholder()
+          ? _value.upvotesCount
+          // ignore: cast_nullable_to_non_nullable
+          : upvotesCount as int?,
+      downvotesCount: downvotesCount == const $CopyWithPlaceholder()
+          ? _value.downvotesCount
+          // ignore: cast_nullable_to_non_nullable
+          : downvotesCount as int?,
     );
   }
 }
@@ -373,38 +407,41 @@ class PostAdapter extends TypeAdapter<Post> {
       id: fields[0] as String?,
       postType: fields[1] as String?,
       caption: fields[2] as String?,
-      mediaFiles: (fields[3] as List?)?.cast<PostMediaFile>(),
-      pollQuestion: fields[4] as String?,
-      pollOptions: (fields[5] as List?)?.cast<PollOption>(),
-      pollEndsAt: fields[6] as DateTime?,
-      totalVotes: fields[7] as int?,
-      owner: fields[8] as User?,
-      hashtags: (fields[9] as List?)?.cast<String>(),
-      userMentions: (fields[10] as List?)?.cast<String>(),
-      likesCount: fields[11] as int?,
-      commentsCount: fields[12] as int?,
-      repostsCount: fields[13] as int?,
-      sharesCount: fields[14] as int?,
-      savesCount: fields[15] as int?,
-      isLiked: fields[16] as bool?,
-      isVoted: fields[17] as bool?,
-      allowComments: fields[18] as bool?,
-      allowLikes: fields[19] as bool?,
-      allowReposts: fields[20] as bool?,
-      allowShare: fields[21] as bool?,
-      allowSave: fields[22] as bool?,
-      allowDownload: fields[23] as bool?,
-      visibility: fields[24] as String?,
-      status: fields[25] as String?,
-      createdAt: fields[26] as DateTime?,
-      updatedAt: fields[27] as DateTime?,
-    )..votedOption = fields[28] as String?;
+      description: fields[3] as String?,
+      mediaFiles: (fields[4] as List?)?.cast<PostMediaFile>(),
+      pollQuestion: fields[5] as String?,
+      pollOptions: (fields[6] as List?)?.cast<PollOption>(),
+      pollEndsAt: fields[7] as DateTime?,
+      totalVotes: fields[8] as int?,
+      owner: fields[9] as User?,
+      hashtags: (fields[10] as List?)?.cast<String>(),
+      userMentions: (fields[11] as List?)?.cast<String>(),
+      likesCount: fields[12] as int?,
+      commentsCount: fields[13] as int?,
+      repostsCount: fields[14] as int?,
+      sharesCount: fields[15] as int?,
+      savesCount: fields[16] as int?,
+      isLiked: fields[17] as bool?,
+      isVoted: fields[18] as bool?,
+      allowComments: fields[19] as bool?,
+      allowLikes: fields[20] as bool?,
+      allowReposts: fields[21] as bool?,
+      allowShare: fields[22] as bool?,
+      allowSave: fields[23] as bool?,
+      allowDownload: fields[24] as bool?,
+      visibility: fields[25] as String?,
+      status: fields[26] as String?,
+      createdAt: fields[27] as DateTime?,
+      updatedAt: fields[28] as DateTime?,
+      upvotesCount: fields[30] as int?,
+      downvotesCount: fields[31] as int?,
+    )..votedOption = fields[29] as String?;
   }
 
   @override
   void write(BinaryWriter writer, Post obj) {
     writer
-      ..writeByte(29)
+      ..writeByte(32)
       ..writeByte(0)
       ..write(obj.id)
       ..writeByte(1)
@@ -412,57 +449,63 @@ class PostAdapter extends TypeAdapter<Post> {
       ..writeByte(2)
       ..write(obj.caption)
       ..writeByte(3)
-      ..write(obj.mediaFiles)
+      ..write(obj.description)
       ..writeByte(4)
-      ..write(obj.pollQuestion)
+      ..write(obj.mediaFiles)
       ..writeByte(5)
-      ..write(obj.pollOptions)
+      ..write(obj.pollQuestion)
       ..writeByte(6)
-      ..write(obj.pollEndsAt)
+      ..write(obj.pollOptions)
       ..writeByte(7)
-      ..write(obj.totalVotes)
+      ..write(obj.pollEndsAt)
       ..writeByte(8)
-      ..write(obj.owner)
+      ..write(obj.totalVotes)
       ..writeByte(9)
-      ..write(obj.hashtags)
+      ..write(obj.owner)
       ..writeByte(10)
-      ..write(obj.userMentions)
+      ..write(obj.hashtags)
       ..writeByte(11)
-      ..write(obj.likesCount)
+      ..write(obj.userMentions)
       ..writeByte(12)
-      ..write(obj.commentsCount)
+      ..write(obj.likesCount)
       ..writeByte(13)
-      ..write(obj.repostsCount)
+      ..write(obj.commentsCount)
       ..writeByte(14)
-      ..write(obj.sharesCount)
+      ..write(obj.repostsCount)
       ..writeByte(15)
-      ..write(obj.savesCount)
+      ..write(obj.sharesCount)
       ..writeByte(16)
-      ..write(obj.isLiked)
+      ..write(obj.savesCount)
       ..writeByte(17)
-      ..write(obj.isVoted)
+      ..write(obj.isLiked)
       ..writeByte(18)
-      ..write(obj.allowComments)
+      ..write(obj.isVoted)
       ..writeByte(19)
-      ..write(obj.allowLikes)
+      ..write(obj.allowComments)
       ..writeByte(20)
-      ..write(obj.allowReposts)
+      ..write(obj.allowLikes)
       ..writeByte(21)
-      ..write(obj.allowShare)
+      ..write(obj.allowReposts)
       ..writeByte(22)
-      ..write(obj.allowSave)
+      ..write(obj.allowShare)
       ..writeByte(23)
-      ..write(obj.allowDownload)
+      ..write(obj.allowSave)
       ..writeByte(24)
-      ..write(obj.visibility)
+      ..write(obj.allowDownload)
       ..writeByte(25)
-      ..write(obj.status)
+      ..write(obj.visibility)
       ..writeByte(26)
-      ..write(obj.createdAt)
+      ..write(obj.status)
       ..writeByte(27)
-      ..write(obj.updatedAt)
+      ..write(obj.createdAt)
       ..writeByte(28)
-      ..write(obj.votedOption);
+      ..write(obj.updatedAt)
+      ..writeByte(29)
+      ..write(obj.votedOption)
+      ..writeByte(30)
+      ..write(obj.upvotesCount)
+      ..writeByte(31)
+      ..write(obj.downvotesCount);
   }
 
   @override
@@ -484,6 +527,7 @@ Post _$PostFromJson(Map<String, dynamic> json) => Post(
       id: json['_id'] as String?,
       postType: json['postType'] as String?,
       caption: json['caption'] as String?,
+      description: json['description'] as String?,
       mediaFiles: (json['mediaFiles'] as List<dynamic>?)
           ?.map((e) => PostMediaFile.fromJson(e as Map<String, dynamic>))
           .toList(),
@@ -525,12 +569,15 @@ Post _$PostFromJson(Map<String, dynamic> json) => Post(
       updatedAt: json['updatedAt'] == null
           ? null
           : DateTime.parse(json['updatedAt'] as String),
+      upvotesCount: json['upvotesCount'] as int?,
+      downvotesCount: json['downvotesCount'] as int?,
     )..votedOption = json['votedOption'] as String?;
 
 Map<String, dynamic> _$PostToJson(Post instance) => <String, dynamic>{
       '_id': instance.id,
       'postType': instance.postType,
       'caption': instance.caption,
+      'description': instance.description,
       'mediaFiles': instance.mediaFiles,
       'pollQuestion': instance.pollQuestion,
       'pollOptions': instance.pollOptions,
@@ -557,4 +604,6 @@ Map<String, dynamic> _$PostToJson(Post instance) => <String, dynamic>{
       'createdAt': instance.createdAt?.toIso8601String(),
       'updatedAt': instance.updatedAt?.toIso8601String(),
       'votedOption': instance.votedOption,
+      'upvotesCount': instance.upvotesCount,
+      'downvotesCount': instance.downvotesCount,
     };
