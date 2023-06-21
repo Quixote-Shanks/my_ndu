@@ -49,6 +49,26 @@ class DashboardController extends GetxController {
     ];
   }
 
+  // void loadStudentData() async {
+  //   await Hive.initFlutter();
+  //   Hive.registerAdapter(StudentAdapter());
+  //   studentBox = await Hive.openBox<Student>(boxName);
+
+  //   final student = studentBox.get(0);
+
+  //   if (student != null && student.personalizedDashboard != null) {
+  //     final personalizedLayout = student.personalizedDashboard!;
+
+  //     screens.value = personalizedLayout.map<Widget>((title) {
+  //       final widgetData = availableWidgets.firstWhere(
+  //         (widget) => widget.title == title,
+  //         orElse: () => availableWidgets.first,
+  //       );
+  //       return widgetData.widget;
+  //     } as MapEntry Function(String key, dynamic value)).toList();
+  //   }
+  // }
+
   void selectScreen(int index) {
     selectedIndex.value = index;
     Get.to(() => screens[index]);
@@ -92,10 +112,8 @@ class DashboardController extends GetxController {
   @override
   Future<void> onInit() async {
     super.onInit();
-    await Hive.initFlutter();
-    Hive.registerAdapter(StudentAdapter());
-    studentBox = await Hive.openBox<Student>(boxName);
     initializeDefaultLayout();
+    // loadStudentData();
   }
 
   @override

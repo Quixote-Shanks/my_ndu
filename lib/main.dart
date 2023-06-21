@@ -16,6 +16,7 @@ import 'package:my_ndu/apis/models/entities/poll_option.dart';
 import 'package:my_ndu/apis/models/entities/post.dart';
 import 'package:my_ndu/apis/models/entities/post_media_file.dart';
 import 'package:my_ndu/apis/models/entities/profile.dart';
+import 'package:my_ndu/apis/models/entities/student.dart';
 import 'package:my_ndu/apis/models/entities/user.dart';
 import 'package:my_ndu/apis/models/responses/auth_response.dart';
 import 'package:my_ndu/apis/models/responses/post_response.dart';
@@ -87,6 +88,7 @@ Future<void> _initPreAppServices() async {
   Hive.registerAdapter(ProfileAdapter());
   Hive.registerAdapter(PollOptionAdapter());
   Hive.registerAdapter(PostAdapter());
+  Hive.registerAdapter(StudentAdapter());
   Hive.registerAdapter(MediaFileAdapter());
   Hive.registerAdapter(PostMediaFileAdapter());
   Hive.registerAdapter(UserAdapter());
@@ -108,6 +110,7 @@ Future<void> _initPreAppServices() async {
   await Hive.openBox<User>(HiveBoxNames.recommendedUsers);
   await Hive.openBox<NotificationModel>(HiveBoxNames.notifications);
   await Hive.openBox<Post>(HiveBoxNames.profilePosts);
+  await Hive.openBox<Student>(HiveBoxNames.students);
   await Hive.openBox<Follower>(HiveBoxNames.followers);
   await Hive.openBox<Follower>(HiveBoxNames.followings);
   await Hive.openBox<User>(HiveBoxNames.blockedUsers);
