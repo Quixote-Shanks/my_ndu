@@ -137,7 +137,7 @@ class FollowRequestWidget extends StatelessWidget {
           mainAxisSize: MainAxisSize.min,
           children: [
             Dimens.boxWidth16,
-            NxIconButton(
+            MyIconButton(
               bgColor: Theme.of(context).cardColor,
               borderRadius: Dimens.four,
               padding: Dimens.edgeInsets4,
@@ -148,7 +148,7 @@ class FollowRequestWidget extends StatelessWidget {
                   .acceptFollowRequest(followRequest.id),
             ),
             Dimens.boxWidth8,
-            NxIconButton(
+            MyIconButton(
               bgColor: Theme.of(context).cardColor,
               borderRadius: Dimens.four,
               padding: Dimens.edgeInsets4,

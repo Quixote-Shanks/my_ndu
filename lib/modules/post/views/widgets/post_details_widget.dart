@@ -110,7 +110,7 @@ class PostDetailsWidget extends StatelessWidget {
               mainAxisSize: MainAxisSize.min,
               children: [
                 Dimens.boxWidth12,
-                NxIconButton(
+                MyIconButton(
                   icon: Icons.more_vert,
                   iconSize: Dimens.sixTeen,
                   iconColor: Theme.of(context).textTheme.bodyLarge!.color,
@@ -169,7 +169,7 @@ class PostDetailsWidget extends StatelessWidget {
               top: Dimens.zero,
               bottom: Dimens.zero,
             ),
-            child: NxExpandableText(text: post.pollQuestion!),
+            child: MyExpandableText(text: post.pollQuestion!),
           ),
         Dimens.boxHeight4,
         Column(
@@ -239,7 +239,7 @@ class PostDetailsWidget extends StatelessWidget {
             items: post.mediaFiles!.map(
               (media) {
                 if (media.mediaType == "video") {
-                  return NxVideoPlayerWidget(
+                  return MyVideoPlayerWidget(
                     url: media.url!,
                     thumbnailUrl: media.thumbnail?.url,
                     isSmallPlayer: true,
@@ -250,7 +250,7 @@ class PostDetailsWidget extends StatelessWidget {
                 }
                 return GestureDetector(
                   onTap: () => Get.to(() => PostViewWidget(post: post)),
-                  child: NxNetworkImage(
+                  child: MyNetworkImage(
                     imageUrl: media.url!,
                     imageFit: BoxFit.cover,
                     width: Dimens.screenWidth,
@@ -280,7 +280,7 @@ class PostDetailsWidget extends StatelessWidget {
       padding: Dimens.edgeInsets8.copyWith(
         top: Dimens.zero,
       ),
-      child: NxExpandableText(text: post.caption!),
+      child: MyExpandableText(text: post.caption!),
     );
   }
 

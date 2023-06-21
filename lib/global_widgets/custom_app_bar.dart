@@ -4,8 +4,8 @@ import 'package:my_ndu/constants/dimens.dart';
 import 'package:my_ndu/constants/styles.dart';
 import 'package:my_ndu/routes/route_management.dart';
 
-class NxAppBar extends StatelessWidget {
-  const NxAppBar({
+class MyAppBar extends StatelessWidget {
+  const MyAppBar({
     Key? key,
     this.title,
     this.showDivider = false,

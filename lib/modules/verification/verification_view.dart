@@ -27,7 +27,7 @@ class VerificationView extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                NxAppBar(
+                MyAppBar(
                   title: StringValues.verificationRequest,
                   padding: Dimens.edgeInsetsDefault,
                 ),
@@ -640,8 +640,8 @@ class VerificationView extends StatelessWidget {
     );
   }
 
-  NxFilledButton _buildSubmitBtn(VerificationController logic) {
-    return NxFilledButton(
+  MyFilledButton _buildSubmitBtn(VerificationController logic) {
+    return MyFilledButton(
       onTap: () => logic.changePassword(),
       label: StringValues.send.toUpperCase(),
       height: Dimens.fiftySix,
@@ -663,7 +663,7 @@ class VerificationView extends StatelessWidget {
             mainAxisSize: MainAxisSize.min,
             children: categoriesList
                 .map(
-                  (item) => NxListTile(
+                  (item) => MyListTile(
                     showBorder: false,
                     title: Text(
                       item,

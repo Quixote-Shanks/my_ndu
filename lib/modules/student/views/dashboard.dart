@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:get/get.dart';
+import 'package:my_ndu/constants/dimens.dart';
 
 import '../controllers/dashboard_controller.dart';
 
@@ -34,7 +35,7 @@ class DashboardView extends GetView<DashboardController> {
           children: [
             Expanded(
               child: GridView.builder(
-                gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                   crossAxisCount: 2,
                   crossAxisSpacing: 16.0,
                   mainAxisSpacing: 16.0,
@@ -42,7 +43,6 @@ class DashboardView extends GetView<DashboardController> {
                 ),
                 itemCount: controller.screens.length,
                 itemBuilder: (context, index) {
-                  final widget = controller.screens[index];
                   final title = controller.screenTitles[index];
                   final iconData = _getIconData(title);
                   return GestureDetector(
@@ -67,7 +67,7 @@ class DashboardView extends GetView<DashboardController> {
                             size: 60,
                             color: Theme.of(context).iconTheme.color,
                           ),
-                          SizedBox(height: 12),
+                          Dimens.boxHeight12,
                           Flexible(
                             child: Padding(
                               padding: EdgeInsets.symmetric(horizontal: 8.0),
@@ -118,7 +118,7 @@ class DashboardView extends GetView<DashboardController> {
     if (title.length <= maxLength) {
       return title;
     } else {
-      return title.substring(0, maxLength - 3) + '...';
+      return '${title.substring(0, maxLength - 3)}...';
     }
   }
 }

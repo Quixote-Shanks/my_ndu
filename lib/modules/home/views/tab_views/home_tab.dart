@@ -24,8 +24,8 @@ import 'package:my_ndu/utils/utility.dart';
 class HomeTabView extends StatelessWidget {
   const HomeTabView({Key? key}) : super(key: key);
 
-  NxSliverAppBar _buildAppBar(BuildContext context) {
-    return NxSliverAppBar(
+  MySliverAppBar _buildAppBar(BuildContext context) {
+    return MySliverAppBar(
       padding: Dimens.edgeInsetsDefault,
       height: Dimens.fourtyEight,
       leading: Expanded(
@@ -79,7 +79,7 @@ class HomeTabView extends StatelessWidget {
         if (logic.isLoading &&
             (logic.postData == null || logic.postList.isEmpty)) {
           return const SliverFillRemaining(
-            child: Center(child: NxCircularProgressIndicator()),
+            child: Center(child: MyCircularProgressIndicator()),
           );
         }
 
@@ -119,7 +119,7 @@ class HomeTabView extends StatelessWidget {
                     mainAxisSize: MainAxisSize.min,
                     children: [
                       Dimens.boxHeight8,
-                      const NxCircularProgressIndicator(),
+                      const MyCircularProgressIndicator(),
                       Dimens.boxHeight8,
                     ],
                   ),
@@ -155,7 +155,7 @@ class HomeTabView extends StatelessWidget {
       AppUtility.showBottomSheet(
         children: [
           /// Post
-          NxListTile(
+          MyListTile(
             bgColor: ColorValues.transparent,
             padding: Dimens.edgeInsets12,
             showBorder: false,
@@ -177,7 +177,7 @@ class HomeTabView extends StatelessWidget {
           ),
 
           /// Poll
-          NxListTile(
+          MyListTile(
             bgColor: ColorValues.transparent,
             padding: Dimens.edgeInsets12,
             showBorder: false,
@@ -199,7 +199,7 @@ class HomeTabView extends StatelessWidget {
           ),
 
           /// Story
-          NxListTile(
+          MyListTile(
             bgColor: ColorValues.transparent,
             padding: Dimens.edgeInsets12,
             showBorder: false,
@@ -259,7 +259,7 @@ class HomeTabView extends StatelessWidget {
                                     ),
                                   ),
                                   Dimens.boxWidth2,
-                                  NxIconButton(
+                                  MyIconButton(
                                     icon: Icons.clear_outlined,
                                     onTap: () =>
                                         bannerLogic.deleteBanner(currentItem),
@@ -321,7 +321,7 @@ class HomeTabView extends StatelessWidget {
       duration: const Duration(milliseconds: 500),
       width: Dimens.screenWidth,
       height: Dimens.screenHeight,
-      child: NxRefreshIndicator(
+      child: MyRefreshIndicator(
         onRefresh: () => PostController.find.fetchPosts(),
         showProgress: false,
         child: CustomScrollView(

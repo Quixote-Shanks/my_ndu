@@ -110,7 +110,7 @@ class _ChatBubbleState extends State<ChatBubble> {
     var isYourMessage =
         widget.message.senderId == profile.profileDetails!.user!.id;
 
-    return NxSwipeableWidget(
+    return MySwipeableWidget(
       onLeftSwipe: (details) => widget.onSwipeLeft?.call(),
       onRightSwipe: (details) => widget.onSwipeRight?.call(),
       iconOnLeftSwipe: Icons.reply,
@@ -296,7 +296,7 @@ class _ChatBubbleState extends State<ChatBubble> {
         crossAxisAlignment: CrossAxisAlignment.start,
         mainAxisSize: MainAxisSize.min,
         children: [
-          NxCircularProgressIndicator(
+          MyCircularProgressIndicator(
             size: Dimens.twelve,
             strokeWidth: Dimens.two,
             color: Theme.of(context).textTheme.bodyLarge!.color,
@@ -368,7 +368,7 @@ class _ChatBubbleState extends State<ChatBubble> {
 
   Widget _buildMediaFile() {
     if (widget.message.mediaFile!.mediaType == "video") {
-      return NxVideoPlayerWidget(
+      return MyVideoPlayerWidget(
         url: widget.message.mediaFile!.url!,
         thumbnailUrl: widget.message.mediaFile!.thumbnail!.url,
         showControls: true,
@@ -392,7 +392,7 @@ class _ChatBubbleState extends State<ChatBubble> {
               color: ColorValues.grayColor.withOpacity(0.25),
             ),
             child: Center(
-              child: NxCircularProgressIndicator(
+              child: MyCircularProgressIndicator(
                 value: downloadProgress.progress,
               ),
             ),

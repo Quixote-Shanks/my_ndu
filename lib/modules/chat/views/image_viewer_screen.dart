@@ -27,7 +27,7 @@ class ImageViewerScreen extends StatelessWidget {
                   top: Dimens.zero,
                   left: Dimens.zero,
                   right: Dimens.zero,
-                  child: NxAppBar(
+                  child: MyAppBar(
                     padding: Dimens.edgeInsets8_16,
                     bgColor: Theme.of(context).scaffoldBackgroundColor,
                   ),
@@ -59,7 +59,7 @@ class ImageViewerScreen extends StatelessWidget {
             color: ColorValues.grayColor.withOpacity(0.25),
           ),
           child: Center(
-            child: NxCircularProgressIndicator(
+            child: MyCircularProgressIndicator(
               value: chunkEvt == null
                   ? 0
                   : chunkEvt.cumulativeBytesLoaded /

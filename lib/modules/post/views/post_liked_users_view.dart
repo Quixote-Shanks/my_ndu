@@ -17,14 +17,14 @@ class PostLikedUsersView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: SafeArea(
-        child: NxRefreshIndicator(
+        child: MyRefreshIndicator(
           onRefresh: PostLikedUsersController.find.fetchPostLikedUsers,
           showProgress: false,
           child: Column(
             mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
-              NxAppBar(
+              MyAppBar(
                 title: StringValues.likes,
                 padding: Dimens.edgeInsetsDefault,
               ),
@@ -52,7 +52,7 @@ class PostLikedUsersView extends StatelessWidget {
                 builder: (logic) {
                   if (logic.isLoading) {
                     return const Center(
-                      child: NxCircularProgressIndicator(),
+                      child: MyCircularProgressIndicator(),
                     );
                   }
                   if (logic.postLikedUsersList.isEmpty) {

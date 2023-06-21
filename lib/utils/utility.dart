@@ -98,7 +98,7 @@ abstract class AppUtility {
                 crossAxisAlignment: CrossAxisAlignment.center,
                 mainAxisSize: MainAxisSize.min,
                 children: [
-                  NxCircularProgressIndicator(
+                  MyCircularProgressIndicator(
                     size: Dimens.thirtyTwo,
                     strokeWidth: Dimens.four,
                     value: value,
@@ -232,7 +232,7 @@ abstract class AppUtility {
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          NxTextButton(
+                          MyTextButton(
                             label: StringValues.no,
                             labelStyle: AppStyles.style16Bold.copyWith(
                               color: ColorValues.errorColor,
@@ -241,7 +241,7 @@ abstract class AppUtility {
                             padding: Dimens.edgeInsets8,
                           ),
                           Dimens.boxWidth16,
-                          NxTextButton(
+                          MyTextButton(
                             label: StringValues.yes,
                             labelStyle: AppStyles.style16Bold.copyWith(
                               color: ColorValues.successColor,
@@ -416,7 +416,7 @@ abstract class AppUtility {
         ),
         mainButton: Padding(
           padding: Dimens.edgeInsets0_8,
-          child: NxTextButton(
+          child: MyTextButton(
             label: StringValues.ok.toUpperCase(),
             labelStyle: AppStyles.style13Bold.copyWith(
               color: ColorValues.linkColor,

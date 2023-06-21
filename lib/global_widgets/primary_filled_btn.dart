@@ -3,8 +3,8 @@ import 'package:my_ndu/constants/colors.dart';
 import 'package:my_ndu/constants/dimens.dart';
 import 'package:my_ndu/constants/styles.dart';
 
-class NxFilledButton extends StatelessWidget {
-  const NxFilledButton({
+class MyFilledButton extends StatelessWidget {
+  const MyFilledButton({
     Key? key,
     required this.label,
     this.bgColor,

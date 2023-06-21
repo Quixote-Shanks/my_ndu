@@ -21,14 +21,14 @@ class PostDetailsView extends StatelessWidget {
     return UnFocusWidget(
       child: Scaffold(
         body: SafeArea(
-          child: NxRefreshIndicator(
+          child: MyRefreshIndicator(
             onRefresh: PostDetailsController.find.fetchPostDetails,
             showProgress: false,
             child: Column(
               mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
-                NxAppBar(
+                MyAppBar(
                   title: StringValues.post,
                   padding: Dimens.edgeInsetsDefault,
                 ),
@@ -46,7 +46,7 @@ class PostDetailsView extends StatelessWidget {
       child: GetBuilder<PostDetailsController>(
         builder: (logic) {
           if (logic.isLoading) {
-            return const Center(child: NxCircularProgressIndicator());
+            return const Center(child: MyCircularProgressIndicator());
           }
 
           if (logic.postDetailsData == null ||
@@ -105,7 +105,7 @@ class PostDetailsView extends StatelessWidget {
           init: CommentController(postId: postId),
           builder: (logic) {
             if (logic.isLoading) {
-              return const Center(child: NxCircularProgressIndicator());
+              return const Center(child: MyCircularProgressIndicator());
             }
 
             if (logic.commentsData == null || logic.commentList.isEmpty) {

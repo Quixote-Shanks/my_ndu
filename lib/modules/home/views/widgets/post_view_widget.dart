@@ -27,7 +27,7 @@ class PostViewWidget extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
-              NxAppBar(
+              MyAppBar(
                 padding: Dimens.edgeInsetsDefault.copyWith(
                   bottom: Dimens.zero,
                 ),
@@ -57,7 +57,7 @@ class PostViewWidget extends StatelessWidget {
               items: post.mediaFiles!.map(
                 (media) {
                   if (media.mediaType == "video") {
-                    return NxVideoPlayerWidget(
+                    return MyVideoPlayerWidget(
                       url: media.url!,
                       thumbnailUrl: media.thumbnail?.url,
                       showControls: true,
@@ -82,7 +82,7 @@ class PostViewWidget extends StatelessWidget {
                         color: ColorValues.grayColor.withOpacity(0.25),
                       ),
                       child: Center(
-                        child: NxCircularProgressIndicator(
+                        child: MyCircularProgressIndicator(
                           value: chunkEvt == null
                               ? 0
                               : chunkEvt.cumulativeBytesLoaded /

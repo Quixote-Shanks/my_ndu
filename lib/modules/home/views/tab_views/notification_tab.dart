@@ -23,15 +23,15 @@ class NotificationTabView extends StatelessWidget {
       curve: Curves.fastOutSlowIn,
       width: Dimens.screenWidth,
       height: Dimens.screenHeight,
-      child: NxRefreshIndicator(
+      child: MyRefreshIndicator(
         onRefresh: NotificationController.find.getNotifications,
         showProgress: false,
-        triggerMode: NxRefreshIndicatorTriggerMode.anywhere,
+        triggerMode: MyRefreshIndicatorTriggerMode.anywhere,
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
-            NxAppBar(
+            MyAppBar(
               title: StringValues.notifications,
               padding: Dimens.edgeInsetsDefault,
               showBackBtn: false,
@@ -52,7 +52,7 @@ class NotificationTabView extends StatelessWidget {
             (logic.notificationData == null ||
                 logic.notificationList.isEmpty)) {
           return const Expanded(
-            child: Center(child: NxCircularProgressIndicator()),
+            child: Center(child: MyCircularProgressIndicator()),
           );
         }
 
@@ -103,7 +103,7 @@ class NotificationTabView extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
                       Dimens.boxHeight8,
-                      const NxCircularProgressIndicator(),
+                      const MyCircularProgressIndicator(),
                     ],
                   ),
                 if (profile.isPrivate) Dimens.boxHeight8,

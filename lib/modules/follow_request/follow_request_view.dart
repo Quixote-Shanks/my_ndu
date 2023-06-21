@@ -21,7 +21,7 @@ class FollowRequestView extends StatelessWidget {
     return UnFocusWidget(
       child: Scaffold(
         body: SafeArea(
-          child: NxRefreshIndicator(
+          child: MyRefreshIndicator(
             onRefresh: FollowRequestController.find.fetchFollowRequests,
             showProgress: false,
             child: SizedBox(
@@ -31,7 +31,7 @@ class FollowRequestView extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.start,
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
-                  NxAppBar(
+                  MyAppBar(
                     title: StringValues.followRequests,
                     padding: Dimens.edgeInsetsDefault,
                   ),
@@ -50,7 +50,7 @@ class FollowRequestView extends StatelessWidget {
       child: GetBuilder<FollowRequestController>(
         builder: (logic) {
           if (logic.isLoadingFollowRequest) {
-            return const Center(child: NxCircularProgressIndicator());
+            return const Center(child: MyCircularProgressIndicator());
           }
 
           if (logic.followRequestData == null ||
@@ -70,7 +70,7 @@ class FollowRequestView extends StatelessWidget {
                     textAlign: TextAlign.center,
                   ),
                   Dimens.boxHeight16,
-                  NxOutlinedButton(
+                  MyOutlinedButton(
                     width: Dimens.hundred,
                     height: Dimens.thirtySix,
                     label: StringValues.refresh,
@@ -112,7 +112,7 @@ class FollowRequestView extends StatelessWidget {
                 if (!logic.isMoreLoadingFollowRequest &&
                     logic.followRequestData!.hasNextPage!)
                   Center(
-                    child: NxTextButton(
+                    child: MyTextButton(
                       label: 'Load more follow requests',
                       onTap: logic.loadMoreFollowRequests,
                       labelStyle: AppStyles.style14Bold.copyWith(

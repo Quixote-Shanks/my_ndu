@@ -22,7 +22,7 @@ class OnlineStatusView extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              NxAppBar(
+              MyAppBar(
                 title: StringValues.onlineStatus,
                 padding: Dimens.edgeInsetsDefault,
               ),
@@ -48,7 +48,7 @@ class OnlineStatusView extends StatelessWidget {
                 Dimens.boxHeight8,
 
                 /// Public
-                NxRadioTile(
+                MyRadioTile(
                   padding: Dimens.edgeInsets12,
                   bgColor: Theme.of(context).cardColor,
                   showBorder: true,
@@ -85,7 +85,7 @@ class OnlineStatusView extends StatelessWidget {
                 Dimens.boxHeight8,
 
                 /// Private
-                NxRadioTile(
+                MyRadioTile(
                   padding: Dimens.edgeInsets12,
                   bgColor: Theme.of(context).cardColor,
                   showBorder: true,

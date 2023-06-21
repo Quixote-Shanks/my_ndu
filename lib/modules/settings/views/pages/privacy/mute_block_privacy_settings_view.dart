@@ -20,7 +20,7 @@ class MuteBlockPrivacySettingsView extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              NxAppBar(
+              MyAppBar(
                 title: StringValues.muteAndBlock,
                 padding: Dimens.edgeInsetsDefault,
               ),
@@ -48,7 +48,7 @@ class MuteBlockPrivacySettingsView extends StatelessWidget {
               Dimens.boxHeight8,
 
               /// Blocked Users
-              NxListTile(
+              MyListTile(
                 padding: Dimens.edgeInsets12,
                 bgColor: Theme.of(context).cardColor,
                 borderRadius: BorderRadius.circular(Dimens.four),

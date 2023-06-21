@@ -23,14 +23,14 @@ class BlockedUsersView extends StatelessWidget {
         child: SizedBox(
           width: Dimens.screenWidth,
           height: Dimens.screenHeight,
-          child: NxRefreshIndicator(
+          child: MyRefreshIndicator(
             onRefresh: () => ProfileController.find.fetchBlockedUsers(),
             showProgress: false,
             child: Column(
               mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                NxAppBar(
+                MyAppBar(
                   title: StringValues.blockedUsers,
                   padding: Dimens.edgeInsetsDefault,
                 ),
@@ -50,7 +50,7 @@ class BlockedUsersView extends StatelessWidget {
         child: GetBuilder<ProfileController>(
           builder: (logic) {
             if (logic.loadingBlockedUsers) {
-              return const Center(child: NxCircularProgressIndicator());
+              return const Center(child: MyCircularProgressIndicator());
             }
 
             return SingleChildScrollView(
@@ -94,7 +94,7 @@ class BlockedUsersView extends StatelessWidget {
           itemCount: logic.blockedUsers.length,
           itemBuilder: (ctx, index) {
             var user = logic.blockedUsers[index];
-            return NxListTile(
+            return MyListTile(
               padding: Dimens.edgeInsets12,
               bgColor: Theme.of(context).cardColor,
               borderRadius: BorderRadius.circular(Dimens.four),
@@ -112,7 +112,7 @@ class BlockedUsersView extends StatelessWidget {
                   color: Theme.of(context).textTheme.titleSmall!.color,
                 ),
               ),
-              trailing: NxFilledButton(
+              trailing: MyFilledButton(
                 label: StringValues.unblock,
                 labelStyle: AppStyles.style12Bold,
                 padding: Dimens.edgeInsets4_12,

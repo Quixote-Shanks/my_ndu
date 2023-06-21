@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:my_ndu/constants/colors.dart';
 import 'package:my_ndu/constants/dimens.dart';
 
-class NxCircularProgressIndicator extends StatelessWidget {
-  const NxCircularProgressIndicator({
+class MyCircularProgressIndicator extends StatelessWidget {
+  const MyCircularProgressIndicator({
     Key? key,
     this.size,
     this.strokeWidth,

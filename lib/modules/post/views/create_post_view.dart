@@ -45,8 +45,8 @@ class CreatePostView extends StatelessWidget {
     );
   }
 
-  NxAppBar _buildAppBar(Profile profile, BuildContext context) {
-    return NxAppBar(
+  MyAppBar _buildAppBar(Profile profile, BuildContext context) {
+    return MyAppBar(
       child: Expanded(
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -246,12 +246,12 @@ class CreatePostView extends StatelessWidget {
         return ClipRRect(
           borderRadius: BorderRadius.circular(Dimens.four),
           child: FileUtility.isVideoFile(logic.pickedFileList[itemIndex].path)
-              ? NxVideoPlayerWidget(
+              ? MyVideoPlayerWidget(
                   url: logic.pickedFileList[itemIndex].path,
                   showControls: true,
                   startVideoWithAudio: true,
                 )
-              : NxFileImage(
+              : MyFileImage(
                   file: logic.pickedFileList[itemIndex],
                 ),
         );
@@ -338,7 +338,7 @@ class CreatePostView extends StatelessWidget {
                 Dimens.boxWidth16,
                 Row(
                   children: [
-                    NxCircleBorder(
+                    MyCircleBorder(
                       child: Text(
                         logic.caption.length.toString(),
                         style: AppStyles.style12Bold.copyWith(
@@ -366,8 +366,8 @@ class CreatePostView extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            NxCircleBorder(
-              child: NxIconButton(
+            MyCircleBorder(
+              child: MyIconButton(
                 icon: Icons.photo_library_outlined,
                 iconSize: Dimens.twenty,
                 iconColor: Theme.of(context).textTheme.bodyLarge!.color,
@@ -385,8 +385,8 @@ class CreatePostView extends StatelessWidget {
               ),
             ),
             Dimens.boxWidth32,
-            NxCircleBorder(
-              child: NxIconButton(
+            MyCircleBorder(
+              child: MyIconButton(
                 icon: Icons.video_library_outlined,
                 iconSize: Dimens.twenty,
                 iconColor: Theme.of(context).textTheme.bodyLarge!.color,
@@ -403,8 +403,8 @@ class CreatePostView extends StatelessWidget {
               ),
             ),
             Dimens.boxWidth32,
-            NxCircleBorder(
-              child: NxIconButton(
+            MyCircleBorder(
+              child: MyIconButton(
                 icon: Icons.camera_alt_outlined,
                 iconSize: Dimens.twenty,
                 iconColor: Theme.of(context).textTheme.bodyLarge!.color,
@@ -421,8 +421,8 @@ class CreatePostView extends StatelessWidget {
               ),
             ),
             Dimens.boxWidth32,
-            NxCircleBorder(
-              child: NxIconButton(
+            MyCircleBorder(
+              child: MyIconButton(
                 icon: Icons.videocam_outlined,
                 iconSize: Dimens.twenty,
                 iconColor: Theme.of(context).textTheme.bodyLarge!.color,

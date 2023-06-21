@@ -7,8 +7,8 @@ import 'package:my_ndu/modules/home/controllers/notification_controller.dart';
 import 'package:my_ndu/modules/home/controllers/profile_controller.dart';
 import 'package:my_ndu/modules/home/views/widgets/bottom_nav_item.dart';
 
-class NxBottomNavBar extends StatelessWidget {
-  const NxBottomNavBar({
+class MyBottomNavBar extends StatelessWidget {
+  const MyBottomNavBar({
     Key? key,
     this.height,
     this.bgColor,

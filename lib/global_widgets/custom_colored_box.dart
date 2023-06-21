@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class NxColoredBox extends StatelessWidget {
-  const NxColoredBox({
+class MyColoredBox extends StatelessWidget {
+  const MyColoredBox({
     Key? key,
     this.color,
     this.width,

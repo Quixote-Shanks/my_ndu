@@ -44,8 +44,8 @@ class PollPreviewView extends StatelessWidget {
     );
   }
 
-  NxAppBar _buildAppBar(Profile profile, BuildContext context) {
-    return NxAppBar(
+  MyAppBar _buildAppBar(Profile profile, BuildContext context) {
+    return MyAppBar(
       child: Expanded(
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -124,7 +124,7 @@ class PollPreviewView extends StatelessWidget {
               top: Dimens.zero,
               bottom: Dimens.zero,
             ),
-            child: NxExpandableText(text: logic.pollQuestion),
+            child: MyExpandableText(text: logic.pollQuestion),
           ),
           Dimens.boxHeight4,
           Column(

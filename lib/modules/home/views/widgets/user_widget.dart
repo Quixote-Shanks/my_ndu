@@ -109,7 +109,7 @@ class UserWidget extends StatelessWidget {
           mainAxisSize: MainAxisSize.min,
           children: [
             Dimens.boxWidth12,
-            NxFilledButton(
+            MyFilledButton(
               label: getFollowStatus(user.followingStatus, context),
               bgColor: getButtonColor(user.followingStatus, context),
               onTap: onActionTap,

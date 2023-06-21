@@ -22,7 +22,7 @@ class PrivacySettingsView extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              NxAppBar(
+              MyAppBar(
                 title: StringValues.privacy,
                 padding: Dimens.edgeInsetsDefault,
               ),
@@ -51,7 +51,7 @@ class PrivacySettingsView extends StatelessWidget {
 
               /// Account Privacy
               GetBuilder<ProfileController>(
-                builder: (logic) => NxListTile(
+                builder: (logic) => MyListTile(
                   padding: Dimens.edgeInsets12,
                   bgColor: Theme.of(context).cardColor,
                   borderRadius: BorderRadius.circular(Dimens.four),
@@ -84,7 +84,7 @@ class PrivacySettingsView extends StatelessWidget {
               /// Online Status
               GetBuilder<ProfileController>(
                 builder: (logic) {
-                  return NxListTile(
+                  return MyListTile(
                     padding: Dimens.edgeInsets12,
                     bgColor: Theme.of(context).cardColor,
                     borderRadius: BorderRadius.circular(Dimens.four),
@@ -117,7 +117,7 @@ class PrivacySettingsView extends StatelessWidget {
               Dimens.boxHeight8,
 
               /// Mute and Block
-              NxListTile(
+              MyListTile(
                 padding: Dimens.edgeInsets12,
                 bgColor: Theme.of(context).cardColor,
                 borderRadius: BorderRadius.circular(Dimens.four),
@@ -137,7 +137,7 @@ class PrivacySettingsView extends StatelessWidget {
               Dimens.boxHeight8,
 
               /// Posts
-              NxListTile(
+              MyListTile(
                 padding: Dimens.edgeInsets12,
                 bgColor: Theme.of(context).cardColor,
                 borderRadius: BorderRadius.circular(Dimens.four),
@@ -156,7 +156,7 @@ class PrivacySettingsView extends StatelessWidget {
               Dimens.boxHeight8,
 
               /// Comments
-              NxListTile(
+              MyListTile(
                 padding: Dimens.edgeInsets12,
                 bgColor: Theme.of(context).cardColor,
                 borderRadius: BorderRadius.circular(Dimens.four),
@@ -175,7 +175,7 @@ class PrivacySettingsView extends StatelessWidget {
               // Dimens.boxHeight8,
 
               // /// Messages
-              // NxListTile(
+              // MyListTile(
               //   padding: Dimens.edgeInsets12,
               //   bgColor: Theme.of(context).cardColor,
               //   borderRadius: BorderRadius.circular(Dimens.four),
@@ -194,7 +194,7 @@ class PrivacySettingsView extends StatelessWidget {
               // Dimens.boxHeight8,
 
               // /// Moments
-              // NxListTile(
+              // MyListTile(
               //   padding: Dimens.edgeInsets12,
               //   bgColor: Theme.of(context).cardColor,
               //   borderRadius: BorderRadius.circular(Dimens.four),

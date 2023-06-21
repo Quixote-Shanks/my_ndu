@@ -23,7 +23,7 @@ class SendOtpToEmailView extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
-                NxAppBar(
+                MyAppBar(
                   title: StringValues.sendOtp,
                   padding: Dimens.edgeInsetsDefault,
                 ),
@@ -98,8 +98,8 @@ class SendOtpToEmailView extends StatelessWidget {
     );
   }
 
-  NxFilledButton _buildSendEmailButton(VerifyOtpController logic) {
-    return NxFilledButton(
+  MyFilledButton _buildSendEmailButton(VerifyOtpController logic) {
+    return MyFilledButton(
       width: Dimens.screenWidth,
       onTap: () => logic.sendOtpToEmail(),
       label: StringValues.sendOtp.toUpperCase(),

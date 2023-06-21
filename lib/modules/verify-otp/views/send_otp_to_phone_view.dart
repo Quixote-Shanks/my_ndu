@@ -30,7 +30,7 @@ class SendOtpToPhoneView extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
-                NxAppBar(
+                MyAppBar(
                   title: StringValues.sendOtp,
                   padding: Dimens.edgeInsetsDefault,
                 ),
@@ -145,8 +145,8 @@ class SendOtpToPhoneView extends StatelessWidget {
     );
   }
 
-  NxFilledButton _buildSendEmailButton(VerifyOtpController logic) {
-    return NxFilledButton(
+  MyFilledButton _buildSendEmailButton(VerifyOtpController logic) {
+    return MyFilledButton(
       width: Dimens.screenWidth,
       onTap: () => logic.sendOtpToPhone(),
       label: StringValues.sendOtp.toUpperCase(),
@@ -228,7 +228,7 @@ class SendOtpToPhoneView extends StatelessWidget {
                             mainAxisSize: MainAxisSize.min,
                             children: countryCodes
                                 .map(
-                                  (e) => NxListTile(
+                                  (e) => MyListTile(
                                     leading: Text(
                                       e.name.toTitleCase(),
                                       style: AppStyles.style14Normal.copyWith(
@@ -260,7 +260,7 @@ class SendOtpToPhoneView extends StatelessWidget {
                           Center(
                             child: Padding(
                               padding: Dimens.edgeInsets8_16,
-                              child: NxTextButton(
+                              child: MyTextButton(
                                 label: 'Load more',
                                 onTap: () {
                                   lastIndex += 20;

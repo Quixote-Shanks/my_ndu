@@ -26,7 +26,7 @@ class ThemeSettingsView extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              NxAppBar(
+              MyAppBar(
                 title: StringValues.theme,
                 padding: Dimens.edgeInsetsDefault,
               ),
@@ -52,7 +52,7 @@ class ThemeSettingsView extends StatelessWidget {
                 Dimens.boxHeight8,
 
                 /// System
-                NxRadioTile(
+                MyRadioTile(
                   padding: Dimens.edgeInsets12,
                   showBorder: true,
                   bgColor: Theme.of(context).cardColor,
@@ -78,7 +78,7 @@ class ThemeSettingsView extends StatelessWidget {
                 Dimens.boxHeight8,
 
                 /// Light
-                NxRadioTile(
+                MyRadioTile(
                   padding: Dimens.edgeInsets12,
                   showBorder: true,
                   bgColor: Theme.of(context).cardColor,
@@ -104,7 +104,7 @@ class ThemeSettingsView extends StatelessWidget {
                 Dimens.boxHeight8,
 
                 /// Dark
-                NxRadioTile(
+                MyRadioTile(
                   padding: Dimens.edgeInsets12,
                   showBorder: true,
                   bgColor: Theme.of(context).cardColor,

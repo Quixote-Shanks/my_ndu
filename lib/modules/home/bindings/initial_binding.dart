@@ -16,6 +16,7 @@ class InitialBinding extends Bindings {
     Get.lazyPut(DashboardController.new, fenix: true);
     Get.lazyPut(RecommendedUsersController.new, fenix: true);
     Get.lazyPut(EditProfilePictureController.new, fenix: true);
+    Get.lazyPut(DashboardController.new, fenix: true);
     Get.lazyPut(BannerController.new, fenix: true);
   }
 }

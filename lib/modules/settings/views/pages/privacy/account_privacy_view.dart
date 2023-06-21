@@ -23,7 +23,7 @@ class AccountPrivacyView extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              NxAppBar(
+              MyAppBar(
                 title: StringValues.accountPrivacy,
                 padding: Dimens.edgeInsetsDefault,
               ),
@@ -52,7 +52,7 @@ class AccountPrivacyView extends StatelessWidget {
                   Dimens.boxHeight8,
 
                   /// Public
-                  NxRadioTile(
+                  MyRadioTile(
                     padding: Dimens.edgeInsets12,
                     bgColor: Theme.of(context).cardColor,
                     showBorder: true,
@@ -76,7 +76,7 @@ class AccountPrivacyView extends StatelessWidget {
                   Dimens.boxHeight8,
 
                   /// Private
-                  NxRadioTile(
+                  MyRadioTile(
                     padding: Dimens.edgeInsets12,
                     bgColor: Theme.of(context).cardColor,
                     showBorder: true,

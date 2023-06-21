@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:my_ndu/constants/dimens.dart';
 
-class NxListTile extends StatelessWidget {
-  const NxListTile({
+class MyListTile extends StatelessWidget {
+  const MyListTile({
     Key? key,
     this.leading,
     this.title,

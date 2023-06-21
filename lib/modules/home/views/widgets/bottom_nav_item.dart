@@ -80,7 +80,7 @@ class _BottomNavItemState extends State<BottomNavItem>
                     height: widget.iconSize ?? Dimens.twentyFour,
                     child: Opacity(
                       opacity: widget.isActive ? 1.0 : 0.5,
-                      child: NxAnimatedIcon(
+                      child: MyAnimatedIcon(
                         icon: widget.icon,
                         size: widget.iconSize ?? Dimens.twentyFour,
                         color: widget.iconColor ??

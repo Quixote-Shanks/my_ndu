@@ -18,7 +18,7 @@ class PeopleTab extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return UnFocusWidget(
-      child: NxRefreshIndicator(
+      child: MyRefreshIndicator(
         onRefresh: RecommendedUsersController.find.getUsers,
         showProgress: false,
         child: GetBuilder<RecommendedUsersController>(
@@ -87,7 +87,7 @@ class PeopleTab extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          const Center(child: NxCircularProgressIndicator()),
+          const Center(child: MyCircularProgressIndicator()),
           Dimens.boxHeight16,
         ],
       );
@@ -122,7 +122,7 @@ class PeopleTab extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              const NxCircularProgressIndicator(),
+              const MyCircularProgressIndicator(),
               Dimens.boxHeight16,
             ],
           ),

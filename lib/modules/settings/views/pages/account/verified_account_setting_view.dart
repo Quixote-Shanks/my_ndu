@@ -23,7 +23,7 @@ class VerifiedAccountSettingView extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                NxAppBar(
+                MyAppBar(
                   title: StringValues.verification,
                   padding: Dimens.edgeInsetsDefault,
                 ),
@@ -123,7 +123,7 @@ class VerifiedAccountSettingView extends StatelessWidget {
 
             Dimens.boxHeight16,
 
-            NxFilledButton(
+            MyFilledButton(
               label: StringValues.apply.toUpperCase(),
               height: Dimens.fiftySix,
               onTap: () {

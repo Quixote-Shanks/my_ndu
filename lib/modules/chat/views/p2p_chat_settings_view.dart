@@ -23,7 +23,7 @@ class P2PChatSettingsView extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
-                NxAppBar(
+                MyAppBar(
                   padding: Dimens.edgeInsetsDefault,
                 ),
                 Dimens.boxHeight8,

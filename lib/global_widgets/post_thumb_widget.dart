@@ -62,7 +62,7 @@ class PostThumbnailWidget extends StatelessWidget {
       return Stack(
         children: [
           if (post.mediaFiles!.first.thumbnail != null)
-            NxNetworkImage(imageUrl: post.mediaFiles!.first.thumbnail!.url!)
+            MyNetworkImage(imageUrl: post.mediaFiles!.first.thumbnail!.url!)
           else
             Container(color: Theme.of(context).dividerColor),
           Positioned(
@@ -78,7 +78,7 @@ class PostThumbnailWidget extends StatelessWidget {
       );
     }
 
-    return NxNetworkImage(
+    return MyNetworkImage(
       imageUrl: post.mediaFiles!.first.url!,
     );
   }

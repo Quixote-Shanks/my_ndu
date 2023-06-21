@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:my_ndu/constants/colors.dart';
 import 'package:my_ndu/constants/dimens.dart';
 
-class NxCircleBorder extends StatelessWidget {
-  const NxCircleBorder({
+class MyCircleBorder extends StatelessWidget {
+  const MyCircleBorder({
     super.key,
     this.child,
     this.radius,

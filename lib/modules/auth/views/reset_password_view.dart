@@ -27,7 +27,7 @@ class ResetPasswordView extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
-                NxAppBar(
+                MyAppBar(
                   title: StringValues.resetPassword,
                   padding: Dimens.edgeInsetsDefault,
                 ),
@@ -126,7 +126,7 @@ class ResetPasswordView extends StatelessWidget {
                       onEditingComplete: logic.focusNode.unfocus,
                     ),
                     Dimens.heightedBox(Dimens.twentyEight),
-                    NxTextButton(
+                    MyTextButton(
                       label: StringValues.loginToAccount,
                       onTap: () {
                         RouteManagement.goToBack();
@@ -134,7 +134,7 @@ class ResetPasswordView extends StatelessWidget {
                       },
                     ),
                     Dimens.boxHeight32,
-                    NxFilledButton(
+                    MyFilledButton(
                       onTap: () => logic.resetPassword(),
                       label: StringValues.resetPassword.toUpperCase(),
                       height: Dimens.fiftySix,
@@ -149,7 +149,7 @@ class ResetPasswordView extends StatelessWidget {
                           style: AppStyles.style14Normal,
                         ),
                         Dimens.boxWidth4,
-                        NxTextButton(
+                        MyTextButton(
                           label: StringValues.getOtp,
                           onTap: () {
                             RouteManagement.goToBack();

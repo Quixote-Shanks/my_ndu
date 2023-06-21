@@ -25,14 +25,14 @@ class LoginInfoHistoryView extends StatelessWidget {
           child: SizedBox(
             width: Dimens.screenWidth,
             height: Dimens.screenHeight,
-            child: NxRefreshIndicator(
+            child: MyRefreshIndicator(
               onRefresh: LoginInfoController.find.getLoginHisory,
               showProgress: false,
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.start,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  NxAppBar(
+                  MyAppBar(
                     title: StringValues.loginActivity,
                     padding: Dimens.edgeInsetsDefault,
                   ),
@@ -53,7 +53,7 @@ class LoginInfoHistoryView extends StatelessWidget {
         child: GetBuilder<LoginInfoController>(
           builder: (logic) {
             if (logic.isLoading) {
-              return const Center(child: NxCircularProgressIndicator());
+              return const Center(child: MyCircularProgressIndicator());
             }
 
             return SingleChildScrollView(
@@ -116,7 +116,7 @@ class LoginInfoHistoryView extends StatelessWidget {
                     loadMore: logic.loadMore,
                   ),
                   Dimens.boxHeight8,
-                  NxTextButton(
+                  MyTextButton(
                     label: StringValues.logoutAllDevices,
                     onTap: () => logic.logoutAllOtherDevices(
                         AuthService.find.deviceId.toString()),

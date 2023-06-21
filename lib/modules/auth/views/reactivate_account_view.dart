@@ -25,7 +25,7 @@ class ReactivateAccountView extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
-                NxAppBar(
+                MyAppBar(
                   title: StringValues.reactivateAccount,
                   padding: Dimens.edgeInsetsDefault,
                 ),
@@ -113,7 +113,7 @@ class ReactivateAccountView extends StatelessWidget {
                         onEditingComplete: logic.focusNode.nextFocus,
                       ),
                     Dimens.boxHeight32,
-                    NxFilledButton(
+                    MyFilledButton(
                       onTap: () => logic.otpSent
                           ? logic.reactivateAccount()
                           : logic.sendReactivateAccountOtp(),

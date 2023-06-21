@@ -30,7 +30,7 @@ class RegisterView extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
-                NxAppBar(
+                MyAppBar(
                   title: StringValues.register,
                   showBackBtn: true,
                   padding: Dimens.edgeInsetsDefault,
@@ -358,7 +358,7 @@ class RegisterView extends StatelessWidget {
     return Row(
       children: [
         Expanded(
-          child: NxTextButton(
+          child: MyTextButton(
             enabled: logic.resendTimerSec == 0 && logic.resendTimerMin == 0,
             label: StringValues.resendOtp,
             onTap: () => logic.resendOtpToEmail(),
@@ -383,7 +383,7 @@ class RegisterView extends StatelessWidget {
       children: [
         _buildAgreeTerms(context),
         Dimens.boxHeight12,
-        NxFilledButton(
+        MyFilledButton(
           onTap: () => logic.register(),
           label: StringValues.register.toUpperCase(),
           width: Dimens.screenWidth,
@@ -393,9 +393,9 @@ class RegisterView extends StatelessWidget {
     );
   }
 
-  NxFilledButton _buildActionBtn(
+  MyFilledButton _buildActionBtn(
       BuildContext context, RegisterController logic) {
-    return NxFilledButton(
+    return MyFilledButton(
       width: Dimens.screenWidth,
       height: Dimens.fiftySix,
       label: logic.isOtpSent
@@ -467,7 +467,7 @@ class RegisterView extends StatelessWidget {
           style: AppStyles.style14Normal,
         ),
         Dimens.boxWidth4,
-        NxTextButton(
+        MyTextButton(
           label: StringValues.login,
           onTap: () {
             RouteManagement.goToBack();

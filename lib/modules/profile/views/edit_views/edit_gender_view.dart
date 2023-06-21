@@ -25,7 +25,7 @@ class EditGenderView extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                NxAppBar(
+                MyAppBar(
                   title: StringValues.gender,
                   padding: Dimens.edgeInsetsDefault,
                 ),
@@ -53,7 +53,7 @@ class EditGenderView extends StatelessWidget {
                   Dimens.boxHeight8,
 
                   /// Male
-                  NxRadioTile(
+                  MyRadioTile(
                     padding: Dimens.edgeInsets12,
                     showBorder: true,
                     bgColor: Theme.of(context).cardColor,
@@ -73,7 +73,7 @@ class EditGenderView extends StatelessWidget {
                   Dimens.boxHeight8,
 
                   /// Female
-                  NxRadioTile(
+                  MyRadioTile(
                     padding: Dimens.edgeInsets12,
                     showBorder: true,
                     bgColor: Theme.of(context).cardColor,
@@ -93,7 +93,7 @@ class EditGenderView extends StatelessWidget {
                   Dimens.boxHeight8,
 
                   /// Others
-                  NxRadioTile(
+                  MyRadioTile(
                     padding: Dimens.edgeInsets12,
                     showBorder: true,
                     bgColor: Theme.of(context).cardColor,
@@ -110,7 +110,7 @@ class EditGenderView extends StatelessWidget {
                     groupValue: logic.gender,
                   ),
                   Dimens.boxHeight40,
-                  NxFilledButton(
+                  MyFilledButton(
                     onTap: logic.updateGender,
                     label: StringValues.save.toUpperCase(),
                     height: Dimens.fiftySix,

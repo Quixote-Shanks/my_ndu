@@ -9,8 +9,8 @@ import 'package:my_ndu/routes/route_management.dart';
 import 'package:my_ndu/utils/utility.dart';
 import 'package:url_launcher/url_launcher.dart';
 
-class NxExpandableText extends StatefulWidget {
-  const NxExpandableText({
+class MyExpandableText extends StatefulWidget {
+  const MyExpandableText({
     super.key,
     required this.text,
     this.textStyle,
@@ -22,10 +22,10 @@ class NxExpandableText extends StatefulWidget {
   final TextStyle? linkStyle;
 
   @override
-  NxExpandableTextState createState() => NxExpandableTextState();
+  MyExpandableTextState createState() => MyExpandableTextState();
 }
 
-class NxExpandableTextState extends State<NxExpandableText> {
+class MyExpandableTextState extends State<MyExpandableText> {
   String? text;
   bool canExpand = false;
   bool isExpand = false;

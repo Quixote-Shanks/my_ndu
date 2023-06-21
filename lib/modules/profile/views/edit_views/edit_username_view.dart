@@ -24,7 +24,7 @@ class EditUsernameView extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                NxAppBar(
+                MyAppBar(
                   title: StringValues.username,
                   padding: Dimens.edgeInsetsDefault,
                 ),
@@ -91,7 +91,7 @@ class EditUsernameView extends StatelessWidget {
                         ),
                       ),
                     Dimens.boxHeight40,
-                    NxFilledButton(
+                    MyFilledButton(
                       onTap: logic.updateUsername,
                       label: StringValues.save.toUpperCase(),
                       height: Dimens.fiftySix,

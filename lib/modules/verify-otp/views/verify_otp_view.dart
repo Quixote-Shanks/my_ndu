@@ -25,7 +25,7 @@ class VerifyOtpView extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
-                NxAppBar(
+                MyAppBar(
                   padding: Dimens.edgeInsetsDefault,
                   title: '${StringValues.verify} ${StringValues.otp}',
                 ),
@@ -168,7 +168,7 @@ class VerifyOtpView extends StatelessWidget {
     return Row(
       children: [
         Expanded(
-          child: NxTextButton(
+          child: MyTextButton(
             enabled: logic.resendTimerSec == 0 && logic.resendTimerMin == 0,
             label: StringValues.resendOtp,
             onTap: () => logic.isEmailVerification
@@ -187,8 +187,8 @@ class VerifyOtpView extends StatelessWidget {
     );
   }
 
-  NxFilledButton _buildVerifyOtpBtn(VerifyOtpController logic) {
-    return NxFilledButton(
+  MyFilledButton _buildVerifyOtpBtn(VerifyOtpController logic) {
+    return MyFilledButton(
       width: Dimens.screenWidth,
       height: Dimens.fiftySix,
       label: StringValues.verify.toUpperCase(),

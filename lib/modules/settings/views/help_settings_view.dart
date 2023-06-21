@@ -24,7 +24,7 @@ class HelpSettingsView extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              NxAppBar(
+              MyAppBar(
                 title: StringValues.help,
                 padding: Dimens.edgeInsetsDefault,
               ),
@@ -50,7 +50,7 @@ class HelpSettingsView extends StatelessWidget {
               Dimens.boxHeight8,
 
               /// Report an issue
-              NxListTile(
+              MyListTile(
                 padding: Dimens.edgeInsets12,
                 bgColor: Theme.of(context).cardColor,
                 borderRadius: BorderRadius.circular(Dimens.four),
@@ -71,7 +71,7 @@ class HelpSettingsView extends StatelessWidget {
               Dimens.boxHeight8,
 
               /// Send us suggestions
-              NxListTile(
+              MyListTile(
                 padding: Dimens.edgeInsets12,
                 bgColor: Theme.of(context).cardColor,
                 borderRadius: BorderRadius.circular(Dimens.four),
@@ -92,7 +92,7 @@ class HelpSettingsView extends StatelessWidget {
               Dimens.boxHeight8,
 
               /// Privacy Policy
-              NxListTile(
+              MyListTile(
                 padding: Dimens.edgeInsets12,
                 bgColor: Theme.of(context).cardColor,
                 borderRadius: BorderRadius.circular(Dimens.four),
@@ -113,7 +113,7 @@ class HelpSettingsView extends StatelessWidget {
               Dimens.boxHeight8,
 
               /// Terms of Use
-              NxListTile(
+              MyListTile(
                 padding: Dimens.edgeInsets12,
                 bgColor: Theme.of(context).cardColor,
                 borderRadius: BorderRadius.circular(Dimens.four),
@@ -134,7 +134,7 @@ class HelpSettingsView extends StatelessWidget {
               Dimens.boxHeight8,
 
               /// Community Guidelines
-              NxListTile(
+              MyListTile(
                 padding: Dimens.edgeInsets12,
                 bgColor: Theme.of(context).cardColor,
                 borderRadius: BorderRadius.circular(Dimens.four),
@@ -156,7 +156,7 @@ class HelpSettingsView extends StatelessWidget {
 
               /// View Logs
               if (kDebugMode)
-                NxListTile(
+                MyListTile(
                   padding: Dimens.edgeInsets12,
                   bgColor: Theme.of(context).cardColor,
                   borderRadius: BorderRadius.circular(Dimens.four),

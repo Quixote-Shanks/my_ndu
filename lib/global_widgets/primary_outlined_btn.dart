@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:my_ndu/constants/dimens.dart';
 import 'package:my_ndu/constants/styles.dart';
 
-class NxOutlinedButton extends StatelessWidget {
-  const NxOutlinedButton({
+class MyOutlinedButton extends StatelessWidget {
+  const MyOutlinedButton({
     Key? key,
     this.bgColor,
     this.borderRadius,

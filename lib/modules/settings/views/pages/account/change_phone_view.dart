@@ -30,7 +30,7 @@ class ChangePhoneView extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                NxAppBar(
+                MyAppBar(
                   title: StringValues.changePhone,
                   padding: Dimens.edgeInsetsDefault,
                 ),
@@ -224,7 +224,7 @@ class ChangePhoneView extends StatelessWidget {
                         ),
                       ),
                     Dimens.boxHeight40,
-                    NxFilledButton(
+                    MyFilledButton(
                       onTap: logic.otpSent
                           ? logic.addChangePhone
                           : logic.sendAddChangePhoneOtp,
@@ -311,7 +311,7 @@ class ChangePhoneView extends StatelessWidget {
                             mainAxisSize: MainAxisSize.min,
                             children: countryCodes
                                 .map(
-                                  (e) => NxListTile(
+                                  (e) => MyListTile(
                                     showBorder: false,
                                     leading: Text(
                                       e.name.toTitleCase(),
@@ -344,7 +344,7 @@ class ChangePhoneView extends StatelessWidget {
                           Center(
                             child: Padding(
                               padding: Dimens.edgeInsets8_16,
-                              child: NxTextButton(
+                              child: MyTextButton(
                                 label: StringValues.loadMore,
                                 onTap: () {
                                   lastIndex += 20;

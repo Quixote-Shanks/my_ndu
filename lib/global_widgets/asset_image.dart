@@ -2,8 +2,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:my_ndu/constants/colors.dart';
 import 'package:my_ndu/constants/dimens.dart';
 
-class NxAssetImage extends StatelessWidget {
-  const NxAssetImage({
+class MyAssetImage extends StatelessWidget {
+  const MyAssetImage({
     Key? key,
     required this.imgAsset,
     this.width,

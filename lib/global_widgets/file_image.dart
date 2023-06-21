@@ -4,8 +4,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:my_ndu/constants/colors.dart';
 import 'package:my_ndu/constants/dimens.dart';
 
-class NxFileImage extends StatelessWidget {
-  const NxFileImage({
+class MyFileImage extends StatelessWidget {
+  const MyFileImage({
     Key? key,
     required this.file,
     this.width,

@@ -47,8 +47,8 @@ class PostPreviewView extends StatelessWidget {
     );
   }
 
-  NxAppBar _buildAppBar(Profile profile, BuildContext context) {
-    return NxAppBar(
+  MyAppBar _buildAppBar(Profile profile, BuildContext context) {
+    return MyAppBar(
       child: Expanded(
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -127,7 +127,7 @@ class PostPreviewView extends StatelessWidget {
               padding: Dimens.edgeInsets8.copyWith(
                 top: Dimens.zero,
               ),
-              child: NxExpandableText(text: logic.caption),
+              child: MyExpandableText(text: logic.caption),
             ),
           Dimens.boxHeight4,
           _buildPostMedia(context, logic),
@@ -236,14 +236,14 @@ class PostPreviewView extends StatelessWidget {
       items: logic.pickedFileList.map(
         (media) {
           if (FileUtility.isVideoFile(media.path)) {
-            return NxVideoPlayerWidget(
+            return MyVideoPlayerWidget(
               url: media.path,
               isSmallPlayer: true,
               showControls: true,
               startVideoWithAudio: true,
             );
           }
-          return NxFileImage(
+          return MyFileImage(
             file: media,
             width: Dimens.screenWidth,
           );

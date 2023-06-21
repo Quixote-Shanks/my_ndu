@@ -21,11 +21,11 @@ const Duration _kIndicatorSnapDuration = Duration(milliseconds: 150);
 const Duration _kIndicatorScaleDuration = Duration(milliseconds: 200);
 
 /// The signature for a function that's called when the user has dragged a
-/// [NxRefreshIndicator] far enough to demonstrate that they want the app to
+/// [MyRefreshIndicator] far enough to demonstrate that they want the app to
 /// refresh. The returned [Future] must complete when the refresh operation is
 /// finished.
 ///
-/// Used by [NxRefreshIndicator.onRefresh].
+/// Used by [MyRefreshIndicator.onRefresh].
 typedef RefreshCallback = Future<void> Function();
 
 // The state machine moves through these modes only when the scrollable
@@ -39,8 +39,8 @@ enum _RefreshIndicatorMode {
   canceled, // Animating the indicator's fade-out after not arming.
 }
 
-/// Used to configure how [NxRefreshIndicator] can be triggered.
-enum NxRefreshIndicatorTriggerMode {
+/// Used to configure how [MyRefreshIndicator] can be triggered.
+enum MyRefreshIndicatorTriggerMode {
   /// The indicator can be triggered regardless of the scroll position
   /// of the [Scrollable] when the drag starts.
   anywhere,
@@ -61,16 +61,16 @@ enum NxRefreshIndicatorTriggerMode {
 /// scrollable's contents and then complete the [Future] it returns. The refresh
 /// indicator disappears after the callback's [Future] has completed.
 ///
-/// The trigger mode is configured by [NxRefreshIndicator.triggerMode].
+/// The trigger mode is configured by [MyRefreshIndicator.triggerMode].
 ///
 /// {@tool dartpad}
-/// This example shows how [NxRefreshIndicator] can be triggered in different ways.
+/// This example shows how [MyRefreshIndicator] can be triggered in different ways.
 ///
 /// ** See code in examples/api/lib/material/refresh_indicator/refresh_indicator.0.dart **
 /// {@end-tool}
 ///
 /// {@tool dartpad}
-/// This example shows how to trigger [NxRefreshIndicator] in a nested scroll view using
+/// This example shows how to trigger [MyRefreshIndicator] in a nested scroll view using
 /// the [notificationPredicate] property.
 ///
 /// ** See code in examples/api/lib/material/refresh_indicator/refresh_indicator.1.dart **
@@ -80,9 +80,9 @@ enum NxRefreshIndicatorTriggerMode {
 ///
 /// ### Refresh indicator does not show up
 ///
-/// The [NxRefreshIndicator] will appear if its scrollable descendant can be
+/// The [MyRefreshIndicator] will appear if its scrollable descendant can be
 /// overscrolled, i.e. if the scrollable's content is bigger than its viewport.
-/// To ensure that the [NxRefreshIndicator] will always appear, even if the
+/// To ensure that the [MyRefreshIndicator] will always appear, even if the
 /// scrollable's content fits within its viewport, set the scrollable's
 /// [Scrollable.physics] property to [AlwaysScrollableScrollPhysics]:
 ///
@@ -93,19 +93,19 @@ enum NxRefreshIndicatorTriggerMode {
 /// )
 /// ```
 ///
-/// A [NxRefreshIndicator] can only be used with a vertical scroll view.
+/// A [MyRefreshIndicator] can only be used with a vertical scroll view.
 ///
 /// See also:
 ///
 ///  * <https://material.io/design/platform-guidance/android-swipe-to-refresh.html>
-///  * [NxRefreshIndicatorState], can be used to programmatically show the refresh indicator.
-///  * [RefreshProgressIndicator], widget used by [NxRefreshIndicator] to show
+///  * [MyRefreshIndicatorState], can be used to programmatically show the refresh indicator.
+///  * [RefreshProgressIndicator], widget used by [MyRefreshIndicator] to show
 ///    the inner circular progress spinner during refreshes.
 ///  * [CupertinoSliverRefreshControl], an iOS equivalent of the pull-to-refresh pattern.
 ///    Must be used as a sliver inside a [CustomScrollView] instead of wrapping
 ///    around a [ScrollView] because it's a part of the scrollable instead of
 ///    being overlaid on top of it.
-class NxRefreshIndicator extends StatefulWidget {
+class MyRefreshIndicator extends StatefulWidget {
   /// Creates a refresh indicator.
   ///
   /// The [onRefresh], [child], and [notificationPredicate] arguments must be
@@ -116,7 +116,7 @@ class NxRefreshIndicator extends StatefulWidget {
   /// If it is null, it will be defaulted to [MaterialLocalizations.refreshIndicatorSemanticLabel].
   /// An empty string may be passed to avoid having anything read by screen reading software.
   /// The [semanticsValue] may be used to specify progress on the widget.
-  const NxRefreshIndicator({
+  const MyRefreshIndicator({
     super.key,
     required this.child,
     this.displacement = 40.0,
@@ -128,7 +128,7 @@ class NxRefreshIndicator extends StatefulWidget {
     this.semanticsLabel,
     this.semanticsValue,
     this.strokeWidth = RefreshProgressIndicator.defaultStrokeWidth,
-    this.triggerMode = NxRefreshIndicatorTriggerMode.onEdge,
+    this.triggerMode = MyRefreshIndicatorTriggerMode.onEdge,
     this.showProgress = true,
   });
 
@@ -199,31 +199,31 @@ class NxRefreshIndicator extends StatefulWidget {
   /// By default, the value of `strokeWidth` is 2.0 pixels.
   final double strokeWidth;
 
-  /// Defines how this [NxRefreshIndicator] can be triggered when users overscroll.
+  /// Defines how this [MyRefreshIndicator] can be triggered when users overscroll.
   ///
-  /// The [NxRefreshIndicator] can be pulled out in two cases,
+  /// The [MyRefreshIndicator] can be pulled out in two cases,
   /// 1, Keep dragging if the scrollable widget at the edge with zero scroll position
   ///    when the drag starts.
   /// 2, Keep dragging after overscroll occurs if the scrollable widget has
   ///    a non-zero scroll position when the drag starts.
   ///
-  /// If this is [NxRefreshIndicatorTriggerMode.anywhere], both of the cases above can be triggered.
+  /// If this is [MyRefreshIndicatorTriggerMode.anywhere], both of the cases above can be triggered.
   ///
-  /// If this is [NxRefreshIndicatorTriggerMode.onEdge], only case 1 can be triggered.
+  /// If this is [MyRefreshIndicatorTriggerMode.onEdge], only case 1 can be triggered.
   ///
-  /// Defaults to [NxRefreshIndicatorTriggerMode.onEdge].
-  final NxRefreshIndicatorTriggerMode triggerMode;
+  /// Defaults to [MyRefreshIndicatorTriggerMode.onEdge].
+  final MyRefreshIndicatorTriggerMode triggerMode;
 
   final bool? showProgress;
 
   @override
-  NxRefreshIndicatorState createState() => NxRefreshIndicatorState();
+  MyRefreshIndicatorState createState() => MyRefreshIndicatorState();
 }
 
-/// Contains the state for a [NxRefreshIndicator]. This class can be used to
+/// Contains the state for a [MyRefreshIndicator]. This class can be used to
 /// programmatically show the refresh indicator, see the [show] method.
-class NxRefreshIndicatorState extends State<NxRefreshIndicator>
-    with TickerProviderStateMixin<NxRefreshIndicator> {
+class MyRefreshIndicatorState extends State<MyRefreshIndicator>
+    with TickerProviderStateMixin<MyRefreshIndicator> {
   late AnimationController _positionController;
   late AnimationController _scaleController;
   late Animation<double> _positionFactor;
@@ -270,7 +270,7 @@ class NxRefreshIndicatorState extends State<NxRefreshIndicator>
   }
 
   @override
-  void didUpdateWidget(covariant NxRefreshIndicator oldWidget) {
+  void didUpdateWidget(covariant MyRefreshIndicator oldWidget) {
     super.didUpdateWidget(oldWidget);
     if (oldWidget.color != widget.color) {
       final theme = Theme.of(context);
@@ -301,7 +301,7 @@ class NxRefreshIndicatorState extends State<NxRefreshIndicator>
             (notification is ScrollUpdateNotification &&
                 notification.dragDetails != null &&
                 widget.triggerMode ==
-                    NxRefreshIndicatorTriggerMode.anywhere)) &&
+                    MyRefreshIndicatorTriggerMode.anywhere)) &&
         ((notification.metrics.axisDirection == AxisDirection.up &&
                 notification.metrics.extentAfter == 0.0) ||
             (notification.metrics.axisDirection == AxisDirection.down &&
@@ -505,11 +505,11 @@ class NxRefreshIndicatorState extends State<NxRefreshIndicator>
   /// been started interactively. If this method is called while the refresh
   /// callback is running, it quietly does nothing.
   ///
-  /// Creating the [NxRefreshIndicator] with a [GlobalKey<RefreshIndicatorState>]
-  /// makes it possible to refer to the [NxRefreshIndicatorState].
+  /// Creating the [MyRefreshIndicator] with a [GlobalKey<RefreshIndicatorState>]
+  /// makes it possible to refer to the [MyRefreshIndicatorState].
   ///
   /// The future returned from this method completes when the
-  /// [NxRefreshIndicator.onRefresh] callback's future completes.
+  /// [MyRefreshIndicator.onRefresh] callback's future completes.
   ///
   /// If you await the future returned by this function from a [State], you
   /// should check that the state is still [mounted] before calling [setState].

@@ -9,8 +9,8 @@ import 'package:my_ndu/global_widgets/cached_network_image.dart';
 import 'package:my_ndu/global_widgets/custom_colored_box.dart';
 import 'package:my_ndu/global_widgets/custom_video_controls.dart';
 
-class NxVideoPlayerWidget extends StatefulWidget {
-  const NxVideoPlayerWidget({
+class MyVideoPlayerWidget extends StatefulWidget {
+  const MyVideoPlayerWidget({
     Key? key,
     required this.url,
     this.configuration,
@@ -30,10 +30,10 @@ class NxVideoPlayerWidget extends StatefulWidget {
   final String url;
 
   @override
-  State<NxVideoPlayerWidget> createState() => _NxVideoPlayerWidgetState();
+  State<MyVideoPlayerWidget> createState() => _MyVideoPlayerWidgetState();
 }
 
-class _NxVideoPlayerWidgetState extends State<NxVideoPlayerWidget> {
+class _MyVideoPlayerWidgetState extends State<MyVideoPlayerWidget> {
   final StreamController<bool> _placeholderStreamController =
       StreamController.broadcast();
 
@@ -65,7 +65,7 @@ class _NxVideoPlayerWidgetState extends State<NxVideoPlayerWidget> {
             ? widget.thumbnailUrl != null
                 ? widget.thumbnailUrl!.startsWith("http") ||
                         widget.thumbnailUrl!.startsWith("https")
-                    ? NxNetworkImage(
+                    ? MyNetworkImage(
                         imageUrl: widget.thumbnailUrl!,
                         imageFit: BoxFit.contain,
                       )
@@ -73,7 +73,7 @@ class _NxVideoPlayerWidgetState extends State<NxVideoPlayerWidget> {
                         File(widget.thumbnailUrl!),
                         fit: BoxFit.contain,
                       )
-                : const NxColoredBox()
+                : const MyColoredBox()
             : const SizedBox();
       },
     );

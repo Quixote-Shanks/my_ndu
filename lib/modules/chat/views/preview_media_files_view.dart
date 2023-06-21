@@ -36,7 +36,7 @@ class PreviewMediaFilesView extends StatelessWidget {
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             crossAxisAlignment: CrossAxisAlignment.center,
                             children: [
-                              NxIconButton(
+                              MyIconButton(
                                 icon: Icons.arrow_back,
                                 iconColor: Theme.of(context)
                                     .textTheme
@@ -47,7 +47,7 @@ class PreviewMediaFilesView extends StatelessWidget {
                               Row(
                                 mainAxisSize: MainAxisSize.min,
                                 children: [
-                                  NxIconButton(
+                                  MyIconButton(
                                     icon: Icons.delete,
                                     iconColor: Theme.of(context)
                                         .textTheme
@@ -56,7 +56,7 @@ class PreviewMediaFilesView extends StatelessWidget {
                                     onTap: () => logic.removeFile(currentItem),
                                   ),
                                   Dimens.boxWidth8,
-                                  NxIconButton(
+                                  MyIconButton(
                                     icon: Icons.crop,
                                     iconColor: Theme.of(context)
                                         .textTheme
@@ -127,7 +127,7 @@ class PreviewMediaFilesView extends StatelessWidget {
                                                         itemIndex]
                                                     .file
                                                     .path)
-                                                ? NxVideoPlayerWidget(
+                                                ? MyVideoPlayerWidget(
                                                     url: logic
                                                         .mediaFileMessages![
                                                             itemIndex]
@@ -136,7 +136,7 @@ class PreviewMediaFilesView extends StatelessWidget {
                                                     showControls: true,
                                                     startVideoWithAudio: true,
                                                   )
-                                                : NxFileImage(
+                                                : MyFileImage(
                                                     file: logic
                                                         .mediaFileMessages![
                                                             itemIndex]
@@ -235,7 +235,7 @@ class PreviewMediaFilesView extends StatelessWidget {
                           shape: BoxShape.circle,
                         ),
                         padding: Dimens.edgeInsets12,
-                        child: NxIconButton(
+                        child: MyIconButton(
                           icon: Icons.send,
                           iconColor: ColorValues.primaryColor,
                           iconSize: Dimens.twentyFour,

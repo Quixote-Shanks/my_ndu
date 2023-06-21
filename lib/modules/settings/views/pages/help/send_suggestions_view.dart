@@ -22,7 +22,7 @@ class SendSuggestionsView extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              NxAppBar(
+              MyAppBar(
                 title: StringValues.sendSuggestions,
                 padding: Dimens.edgeInsets8_16,
               ),
@@ -69,7 +69,7 @@ class SendSuggestionsView extends StatelessWidget {
                   ),
                 ),
                 Dimens.boxHeight40,
-                NxFilledButton(
+                MyFilledButton(
                   onTap: logic.sendSuggestionsEmail,
                   label: StringValues.next.toUpperCase(),
                   height: Dimens.fiftySix,

@@ -24,7 +24,7 @@ class EditAboutView extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                NxAppBar(
+                MyAppBar(
                   title: StringValues.about,
                   padding: Dimens.edgeInsetsDefault,
                 ),
@@ -75,7 +75,7 @@ class EditAboutView extends StatelessWidget {
                       ),
                     ),
                     Dimens.boxHeight40,
-                    NxFilledButton(
+                    MyFilledButton(
                       onTap: logic.updateAbout,
                       label: StringValues.save.toUpperCase(),
                       height: Dimens.fiftySix,

@@ -41,8 +41,8 @@ class CreatePollView extends StatelessWidget {
     );
   }
 
-  NxAppBar _buildAppBar(Profile profile, BuildContext context) {
-    return NxAppBar(
+  MyAppBar _buildAppBar(Profile profile, BuildContext context) {
+    return MyAppBar(
       child: Expanded(
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -553,7 +553,7 @@ class CreatePollView extends StatelessWidget {
 
   Widget _buildPollQuestionLength(
       BuildContext context, CreatePollController logic) {
-    return NxCircleBorder(
+    return MyCircleBorder(
       child: Center(
         child: Text(
           logic.pollQuestion.length.toString(),

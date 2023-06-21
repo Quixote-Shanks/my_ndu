@@ -37,7 +37,7 @@ class P2PChatView extends StatelessWidget {
         child: GetBuilder<P2PChatController>(
           builder: (logic) {
             if (!logic.initialized) {
-              return const Center(child: NxCircularProgressIndicator());
+              return const Center(child: MyCircularProgressIndicator());
             }
             return KeyboardVisibilityBuilder(
               builder: (_, child, isKeyboardVisible) {
@@ -103,8 +103,8 @@ class P2PChatView extends StatelessWidget {
     );
   }
 
-  NxAppBar _buildAppBar(BuildContext context, P2PChatController logic) {
-    return NxAppBar(
+  MyAppBar _buildAppBar(BuildContext context, P2PChatController logic) {
+    return MyAppBar(
       padding: Dimens.edgeInsetsDefault,
       child: Expanded(
         child: Row(
@@ -209,7 +209,7 @@ class P2PChatView extends StatelessWidget {
               ),
             )
           else
-            NxIconButton(
+            MyIconButton(
               icon: Icons.add_outlined,
               iconSize: Dimens.twentyFour,
               iconColor: Theme.of(Get.context!).textTheme.bodyLarge!.color,
@@ -234,7 +234,7 @@ class P2PChatView extends StatelessWidget {
             color: Theme.of(context).dividerColor,
           ),
         ),
-        child: NxIconButton(
+        child: MyIconButton(
           icon: Icons.arrow_downward,
           iconSize: Dimens.twenty,
           iconColor: Theme.of(context).textTheme.bodyLarge!.color,
@@ -261,7 +261,7 @@ class P2PChatView extends StatelessWidget {
       return Center(
           child: Padding(
         padding: Dimens.edgeInsetsOnlyTop8,
-        child: const NxCircularProgressIndicator(),
+        child: const MyCircularProgressIndicator(),
       ));
     }
 
@@ -309,7 +309,7 @@ class P2PChatView extends StatelessWidget {
                     logic.messageData!.hasNextPage != null &&
                     logic.messageData!.hasNextPage!)
                   Center(
-                    child: NxTextButton(
+                    child: MyTextButton(
                       label: StringValues.loadMore,
                       onTap: () => logic.loadMore(),
                       labelStyle: AppStyles.style14Bold.copyWith(
@@ -324,7 +324,7 @@ class P2PChatView extends StatelessWidget {
               ],
             ),
             if (logic.isLoading && logic.chatMessages.isNotEmpty)
-              const Center(child: NxCircularProgressIndicator()),
+              const Center(child: MyCircularProgressIndicator()),
             Dimens.boxHeight60,
           ],
         ),

@@ -3,8 +3,8 @@ import 'package:my_ndu/constants/dimens.dart';
 
 const double _kDefaultAnimationAngle = 2 * 3.14;
 
-class NxAnimatedIcon extends StatelessWidget {
-  const NxAnimatedIcon({
+class MyAnimatedIcon extends StatelessWidget {
+  const MyAnimatedIcon({
     super.key,
     required this.icon,
     required this.controller,

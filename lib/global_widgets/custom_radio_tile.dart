@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:my_ndu/constants/dimens.dart';
 
-class NxRadioTile extends StatelessWidget {
-  const NxRadioTile({
+class MyRadioTile extends StatelessWidget {
+  const MyRadioTile({
     Key? key,
     required this.onChanged,
     this.value,

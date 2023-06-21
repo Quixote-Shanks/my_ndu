@@ -95,7 +95,7 @@ class CommentWidget extends StatelessWidget {
                 Dimens.boxWidth12,
                 _buildPostTime(context),
                 Dimens.boxWidth4,
-                NxIconButton(
+                MyIconButton(
                   icon: Icons.more_vert,
                   iconSize: Dimens.sixTeen,
                   iconColor: Theme.of(context).textTheme.bodyLarge!.color,
@@ -135,7 +135,7 @@ class CommentWidget extends StatelessWidget {
   Widget _buildCommentBody(BuildContext context) {
     return Padding(
       padding: Dimens.edgeInsets0_8,
-      child: NxExpandableText(text: comment.comment!),
+      child: MyExpandableText(text: comment.comment!),
     );
   }
 

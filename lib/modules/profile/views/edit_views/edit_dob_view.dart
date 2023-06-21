@@ -24,7 +24,7 @@ class EditDOBView extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                NxAppBar(
+                MyAppBar(
                   title: StringValues.birthDate,
                   padding: Dimens.edgeInsetsDefault,
                 ),
@@ -80,7 +80,7 @@ class EditDOBView extends StatelessWidget {
                       ),
                     ),
                     Dimens.boxHeight40,
-                    NxFilledButton(
+                    MyFilledButton(
                       onTap: logic.updateDOB,
                       label: StringValues.save.toUpperCase(),
                       height: Dimens.fiftySix,

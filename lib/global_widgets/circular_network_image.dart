@@ -4,8 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:my_ndu/constants/colors.dart';
 import 'package:my_ndu/constants/dimens.dart';
 
-class NxCircleNetworkImage extends StatelessWidget {
-  const NxCircleNetworkImage({
+class MyCircleNetworkImage extends StatelessWidget {
+  const MyCircleNetworkImage({
     Key? key,
     required this.imageUrl,
     this.radius,

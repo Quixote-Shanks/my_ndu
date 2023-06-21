@@ -25,7 +25,7 @@ class AccountSettingsView extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
-              NxAppBar(
+              MyAppBar(
                 padding: Dimens.edgeInsetsDefault,
                 title: StringValues.account,
               ),
@@ -51,7 +51,7 @@ class AccountSettingsView extends StatelessWidget {
             Dimens.boxHeight8,
 
             /// Change Email Address
-            NxListTile(
+            MyListTile(
               padding: Dimens.edgeInsets12,
               bgColor: Theme.of(context).cardColor,
               borderRadius: BorderRadius.circular(Dimens.four),
@@ -73,7 +73,7 @@ class AccountSettingsView extends StatelessWidget {
             Dimens.boxHeight8,
 
             /// Add or Change Phone Number
-            NxListTile(
+            MyListTile(
               padding: Dimens.edgeInsets12,
               bgColor: Theme.of(context).cardColor,
               borderRadius: BorderRadius.circular(Dimens.four),
@@ -97,7 +97,7 @@ class AccountSettingsView extends StatelessWidget {
             Dimens.boxHeight8,
 
             /// Change Username
-            NxListTile(
+            MyListTile(
               padding: Dimens.edgeInsets12,
               bgColor: Theme.of(context).cardColor,
               borderRadius: BorderRadius.circular(Dimens.four),
@@ -119,7 +119,7 @@ class AccountSettingsView extends StatelessWidget {
             Dimens.boxHeight8,
 
             /// Apply for Blue Tick
-            NxListTile(
+            MyListTile(
               padding: Dimens.edgeInsets12,
               bgColor: Theme.of(context).cardColor,
               borderRadius: BorderRadius.circular(Dimens.four),
@@ -167,7 +167,7 @@ class AccountSettingsView extends StatelessWidget {
                         textAlign: TextAlign.center,
                       ),
                       Dimens.boxHeight12,
-                      NxFilledButton(
+                      MyFilledButton(
                         label:
                             '${StringValues.remove} ${StringValues.verification}',
                         padding: Dimens.edgeInsets12,
@@ -187,7 +187,7 @@ class AccountSettingsView extends StatelessWidget {
 
             /// Deactivate Account
 
-            NxListTile(
+            MyListTile(
               padding: Dimens.edgeInsets12,
               bgColor: Theme.of(context).cardColor,
               borderRadius: BorderRadius.circular(Dimens.four),

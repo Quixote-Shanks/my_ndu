@@ -37,7 +37,7 @@ class ProfileView extends StatelessWidget {
           height: Dimens.screenHeight,
           child: GetBuilder<ProfileController>(
             builder: (logic) {
-              return NxRefreshIndicator(
+              return MyRefreshIndicator(
                 onRefresh: logic.fetchProfileDetails,
                 showProgress: false,
                 child: Column(
@@ -57,7 +57,7 @@ class ProfileView extends StatelessWidget {
   }
 
   Widget _buildProfileHeader(ProfileController logic, BuildContext context) {
-    return NxAppBar(
+    return MyAppBar(
       padding: Dimens.edgeInsetsDefault,
       child: Expanded(
         child: Row(
@@ -98,7 +98,7 @@ class ProfileView extends StatelessWidget {
   _showSettingsBottomSheet(BuildContext context) => AppUtility.showBottomSheet(
         children: [
           /// Account
-          NxListTile(
+          MyListTile(
             bgColor: ColorValues.transparent,
             padding: Dimens.edgeInsets12,
             showBorder: false,
@@ -118,7 +118,7 @@ class ProfileView extends StatelessWidget {
           ),
 
           /// Security
-          NxListTile(
+          MyListTile(
             bgColor: ColorValues.transparent,
             padding: Dimens.edgeInsets12,
             showBorder: false,
@@ -138,7 +138,7 @@ class ProfileView extends StatelessWidget {
           ),
 
           /// Privacy
-          NxListTile(
+          MyListTile(
             bgColor: ColorValues.transparent,
             padding: Dimens.edgeInsets12,
             showBorder: false,
@@ -158,7 +158,7 @@ class ProfileView extends StatelessWidget {
           ),
 
           /// Help
-          NxListTile(
+          MyListTile(
             bgColor: ColorValues.transparent,
             padding: Dimens.edgeInsets12,
             showBorder: false,
@@ -178,7 +178,7 @@ class ProfileView extends StatelessWidget {
           ),
 
           /// Theme
-          NxListTile(
+          MyListTile(
             bgColor: ColorValues.transparent,
             padding: Dimens.edgeInsets12,
             showBorder: false,
@@ -198,7 +198,7 @@ class ProfileView extends StatelessWidget {
           ),
 
           /// About
-          NxListTile(
+          MyListTile(
             bgColor: ColorValues.transparent,
             padding: Dimens.edgeInsets12,
             showBorder: false,
@@ -218,7 +218,7 @@ class ProfileView extends StatelessWidget {
           ),
 
           /// Check for update
-          NxListTile(
+          MyListTile(
             bgColor: ColorValues.transparent,
             padding: Dimens.edgeInsets12,
             showBorder: false,
@@ -238,7 +238,7 @@ class ProfileView extends StatelessWidget {
           ),
 
           /// Logout
-          NxListTile(
+          MyListTile(
             bgColor: ColorValues.transparent,
             padding: Dimens.edgeInsets12,
             showBorder: false,
@@ -265,7 +265,7 @@ class ProfileView extends StatelessWidget {
   Widget _buildProfileBody(ProfileController logic, BuildContext context) {
     if (logic.isLoading) {
       return const Expanded(
-        child: Center(child: NxCircularProgressIndicator()),
+        child: Center(child: MyCircularProgressIndicator()),
       );
     } else if (logic.profileDetails == null ||
         logic.profileDetails!.user == null) {
@@ -386,7 +386,7 @@ class ProfileView extends StatelessWidget {
       );
 
   Widget _buildActionBtn(BuildContext context) {
-    return NxOutlinedButton(
+    return MyOutlinedButton(
       label: StringValues.editProfile.toTitleCase(),
       width: Dimens.screenWidth,
       padding: Dimens.edgeInsets8,
@@ -414,7 +414,7 @@ class ProfileView extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: [
           Expanded(
-            child: NxCountWidget(
+            child: MyCountWidget(
               title: StringValues.posts,
               valueStyle: AppStyles.style24Bold,
               value: logic.profileDetails!.user!.postsCount
@@ -423,7 +423,7 @@ class ProfileView extends StatelessWidget {
             ),
           ),
           Expanded(
-            child: NxCountWidget(
+            child: MyCountWidget(
               title: StringValues.followers,
               valueStyle: AppStyles.style24Bold,
               value: logic.profileDetails!.user!.followersCount
@@ -434,7 +434,7 @@ class ProfileView extends StatelessWidget {
             ),
           ),
           Expanded(
-            child: NxCountWidget(
+            child: MyCountWidget(
               title: StringValues.following,
               valueStyle: AppStyles.style24Bold,
               value: logic.profileDetails!.user!.followingCount
@@ -473,7 +473,7 @@ class ProfileView extends StatelessWidget {
         mainAxisSize: MainAxisSize.min,
         children: [
           if (logic.isPostLoading)
-            const Center(child: NxCircularProgressIndicator())
+            const Center(child: MyCircularProgressIndicator())
           else
             GridView.builder(
               shrinkWrap: true,
@@ -504,7 +504,7 @@ class ProfileView extends StatelessWidget {
       AppUtility.showBottomSheet(
         children: [
           /// View Profile Picture
-          NxListTile(
+          MyListTile(
             bgColor: ColorValues.transparent,
             padding: Dimens.edgeInsets12,
             showBorder: false,
@@ -534,7 +534,7 @@ class ProfileView extends StatelessWidget {
           ),
 
           /// Change Profile Picture
-          NxListTile(
+          MyListTile(
             bgColor: ColorValues.transparent,
             padding: Dimens.edgeInsets12,
             showBorder: false,
@@ -554,7 +554,7 @@ class ProfileView extends StatelessWidget {
           ),
 
           /// Remove Profile Picture
-          NxListTile(
+          MyListTile(
             bgColor: ColorValues.transparent,
             padding: Dimens.edgeInsets12,
             showBorder: false,

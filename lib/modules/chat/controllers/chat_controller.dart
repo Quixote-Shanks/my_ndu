@@ -244,7 +244,7 @@ class ChatController extends GetxController {
   // var decodedIdentityKeyPair = base64Decode(identityKeyPairString);
   // var identityKeyPair =
   //     IdentityKeyPair.fromSerialized(decodedIdentityKeyPair);
-  // var protocolStore = NxSignalProtocolStore(identityKeyPair, regId);
+  // var protocolStore = MySignalProtocolStore(identityKeyPair, regId);
   // var preKeys = secretKeys.preKeys;
   // var serializedPreKeys = <PreKeyRecord>[];
   // for (var item in preKeys) {

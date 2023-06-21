@@ -116,7 +116,7 @@ class PostWidget extends StatelessWidget {
                 Dimens.boxWidth12,
                 _buildPostTime(context),
                 Dimens.boxWidth4,
-                NxIconButton(
+                MyIconButton(
                   icon: Icons.more_vert,
                   iconSize: Dimens.twenty,
                   iconColor: Theme.of(context).textTheme.bodyLarge!.color,
@@ -189,7 +189,7 @@ class PostWidget extends StatelessWidget {
               top: Dimens.zero,
               bottom: Dimens.zero,
             ),
-            child: NxExpandableText(text: post.pollQuestion!),
+            child: MyExpandableText(text: post.pollQuestion!),
           ),
         Dimens.boxHeight4,
         Column(
@@ -257,7 +257,7 @@ class PostWidget extends StatelessWidget {
             items: post.mediaFiles!.map(
               (media) {
                 if (media.mediaType == "video") {
-                  return NxVideoPlayerWidget(
+                  return MyVideoPlayerWidget(
                     url: media.url!,
                     thumbnailUrl: media.thumbnail?.url,
                     isSmallPlayer: true,
@@ -268,7 +268,7 @@ class PostWidget extends StatelessWidget {
                 }
                 return GestureDetector(
                   onTap: () => Get.to(() => PostViewWidget(post: post)),
-                  child: NxNetworkImage(
+                  child: MyNetworkImage(
                     imageUrl: media.url!,
                     imageFit: BoxFit.cover,
                     width: Dimens.screenWidth,
@@ -298,7 +298,7 @@ class PostWidget extends StatelessWidget {
       padding: Dimens.edgeInsets8.copyWith(
         top: Dimens.zero,
       ),
-      child: NxExpandableText(text: post.caption!),
+      child: MyExpandableText(text: post.caption!),
     );
   }
 
@@ -422,7 +422,7 @@ class PostWidget extends StatelessWidget {
       children: [
         /// View Post
 
-        NxListTile(
+        MyListTile(
           bgColor: ColorValues.transparent,
           padding: Dimens.edgeInsets12,
           showBorder: false,
@@ -446,7 +446,7 @@ class PostWidget extends StatelessWidget {
         /// Delete Post
 
         if (post.owner!.id == currentUser.id)
-          NxListTile(
+          MyListTile(
             bgColor: ColorValues.transparent,
             padding: Dimens.edgeInsets12,
             showBorder: false,
@@ -476,7 +476,7 @@ class PostWidget extends StatelessWidget {
         /// Edit Post
 
         if (post.owner!.id == currentUser.id)
-          NxListTile(
+          MyListTile(
             bgColor: ColorValues.transparent,
             padding: Dimens.edgeInsets12,
             showBorder: false,
@@ -500,7 +500,7 @@ class PostWidget extends StatelessWidget {
 
         /// Share Post
 
-        NxListTile(
+        MyListTile(
           bgColor: ColorValues.transparent,
           padding: Dimens.edgeInsets12,
           showBorder: false,
@@ -526,7 +526,7 @@ class PostWidget extends StatelessWidget {
 
         /// Block User
         if (post.owner!.id != currentUser.id)
-          NxListTile(
+          MyListTile(
             bgColor: ColorValues.transparent,
             padding: Dimens.edgeInsets12,
             showBorder: false,
@@ -565,7 +565,7 @@ class PostWidget extends StatelessWidget {
 
         /// Report Post
 
-        NxListTile(
+        MyListTile(
           bgColor: ColorValues.transparent,
           padding: Dimens.edgeInsets12,
           showBorder: false,

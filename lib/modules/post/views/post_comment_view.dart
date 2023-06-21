@@ -21,7 +21,7 @@ class PostCommentView extends StatelessWidget {
     return UnFocusWidget(
       child: Scaffold(
         body: SafeArea(
-          child: NxRefreshIndicator(
+          child: MyRefreshIndicator(
             onRefresh: CommentController.find.fetchComments,
             showProgress: false,
             child: Stack(
@@ -31,7 +31,7 @@ class PostCommentView extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.start,
                   crossAxisAlignment: CrossAxisAlignment.stretch,
                   children: [
-                    NxAppBar(
+                    MyAppBar(
                       title: StringValues.comments,
                       padding: Dimens.edgeInsetsDefault,
                     ),
@@ -89,7 +89,7 @@ class PostCommentView extends StatelessWidget {
                   ),
                   Dimens.boxWidth4,
                   if (con.comment.isNotEmpty)
-                    NxIconButton(
+                    MyIconButton(
                       icon: Icons.send,
                       iconColor: ColorValues.primaryColor,
                       iconSize: Dimens.twentyFour,

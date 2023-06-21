@@ -114,9 +114,9 @@ class AppUpdateView extends StatelessWidget {
     );
   }
 
-  NxOutlinedButton _buildUpdateNowBtn(
+  MyOutlinedButton _buildUpdateNowBtn(
       AppUpdateController logic, BuildContext context) {
-    return NxOutlinedButton(
+    return MyOutlinedButton(
       label: StringValues.updateNow.toUpperCase(),
       bgColor: Theme.of(context).textTheme.bodyLarge!.color,
       borderColor: Theme.of(context).textTheme.bodyLarge!.color,
@@ -242,7 +242,7 @@ class AppUpdateView extends StatelessWidget {
             );
           } else {
             return const Center(
-              child: NxCircularProgressIndicator(),
+              child: MyCircularProgressIndicator(),
             );
           }
         },
@@ -269,9 +269,9 @@ class AppUpdateView extends StatelessWidget {
     );
   }
 
-  NxOutlinedButton _buildResumePauseBtn(
+  MyOutlinedButton _buildResumePauseBtn(
       AsyncSnapshot<DownloadInfo> snapshot, BuildContext context) {
-    return NxOutlinedButton(
+    return MyOutlinedButton(
       label: snapshot.data!.status == DownloadStatus.STATUS_RUNNING
           ? 'Pause'.toUpperCase()
           : 'Resume'.toUpperCase(),

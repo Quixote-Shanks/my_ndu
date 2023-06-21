@@ -40,8 +40,8 @@ class BlockUserView extends StatelessWidget {
     );
   }
 
-  NxListTile _buildUserDetails(BlockUserController logic) {
-    return NxListTile(
+  MyListTile _buildUserDetails(BlockUserController logic) {
+    return MyListTile(
       showBorder: false,
       padding: Dimens.edgeInsets12,
       borderRadius: BorderRadius.circular(Dimens.four),
@@ -56,9 +56,9 @@ class BlockUserView extends StatelessWidget {
     );
   }
 
-  NxFilledButton _buildActionBtn(
+  MyFilledButton _buildActionBtn(
       BuildContext context, BlockUserController logic) {
-    return NxFilledButton(
+    return MyFilledButton(
       onTap: () => BlockUserController.find.blockUser(),
       label: StringValues.block.toUpperCase(),
       padding: Dimens.edgeInsetsDefault,
@@ -82,8 +82,8 @@ class BlockUserView extends StatelessWidget {
     );
   }
 
-  NxAppBar _buildAppBar() {
-    return NxAppBar(
+  MyAppBar _buildAppBar() {
+    return MyAppBar(
       padding: Dimens.edgeInsetsDefault,
       title: StringValues.blockUser,
     );

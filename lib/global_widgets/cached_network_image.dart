@@ -4,8 +4,8 @@ import 'package:my_ndu/constants/colors.dart';
 import 'package:my_ndu/constants/dimens.dart';
 import 'package:my_ndu/global_widgets/custom_colored_box.dart';
 
-class NxNetworkImage extends StatelessWidget {
-  const NxNetworkImage({
+class MyNetworkImage extends StatelessWidget {
+  const MyNetworkImage({
     Key? key,
     required this.imageUrl,
     this.radius,
@@ -38,7 +38,7 @@ class NxNetworkImage extends StatelessWidget {
         child: CachedNetworkImage(
           imageUrl: imageUrl,
           fit: imageFit ?? BoxFit.cover,
-          placeholder: (ctx, url) => NxColoredBox(
+          placeholder: (ctx, url) => MyColoredBox(
             width: width,
             height: height,
           ),

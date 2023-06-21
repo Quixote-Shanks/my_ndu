@@ -17,8 +17,8 @@ import 'package:my_ndu/routes/route_management.dart';
 class ChatsTabView extends StatelessWidget {
   const ChatsTabView({Key? key}) : super(key: key);
 
-  NxAppBar _buildAppBar(BuildContext context) {
-    return NxAppBar(
+  MyAppBar _buildAppBar(BuildContext context) {
+    return MyAppBar(
       padding: Dimens.edgeInsetsDefault,
       showBackBtn: false,
       child: Expanded(
@@ -50,7 +50,7 @@ class ChatsTabView extends StatelessWidget {
       child: GetBuilder<ChatController>(
         builder: (logic) {
           if (!logic.initialized) {
-            return const Center(child: NxCircularProgressIndicator());
+            return const Center(child: MyCircularProgressIndicator());
           }
 
           return SingleChildScrollView(
@@ -63,7 +63,7 @@ class ChatsTabView extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 if (logic.isLoading)
-                  const Center(child: NxCircularProgressIndicator()),
+                  const Center(child: MyCircularProgressIndicator()),
                 if (logic.isLoading) Dimens.boxHeight16,
                 if (logic.socketApiProvider.isConnecting)
                   Center(
@@ -174,7 +174,7 @@ class ChatsTabView extends StatelessWidget {
       curve: Curves.fastOutSlowIn,
       width: Dimens.screenWidth,
       height: Dimens.screenHeight,
-      child: NxRefreshIndicator(
+      child: MyRefreshIndicator(
         onRefresh: ChatController.find.fetchLastMessages,
         showProgress: false,
         child: Column(

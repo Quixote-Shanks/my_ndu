@@ -21,7 +21,7 @@ class AvatarWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     if (avatar != null && avatar!.url != null) {
-      return NxCircleNetworkImage(
+      return MyCircleNetworkImage(
         imageUrl: avatar!.url!,
         radius: size ?? Dimens.eighty,
         fit: fit,

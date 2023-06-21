@@ -28,7 +28,7 @@ class ProfileDetailsView extends StatelessWidget {
           child: SizedBox(
             width: Dimens.screenWidth,
             height: Dimens.screenHeight,
-            child: NxRefreshIndicator(
+            child: MyRefreshIndicator(
               onRefresh: () =>
                   ProfileController.find.fetchProfileDetails(fetchPost: false),
               showProgress: false,
@@ -36,7 +36,7 @@ class ProfileDetailsView extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.start,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  NxAppBar(
+                  MyAppBar(
                     title: StringValues.editProfile,
                     padding: Dimens.edgeInsetsDefault,
                   ),
@@ -86,7 +86,7 @@ class ProfileDetailsView extends StatelessWidget {
 
                     /// Name
 
-                    NxListTile(
+                    MyListTile(
                       padding: Dimens.edgeInsets12,
                       bgColor: Theme.of(Get.context!).cardColor,
                       borderRadius: BorderRadius.circular(Dimens.four),
@@ -114,7 +114,7 @@ class ProfileDetailsView extends StatelessWidget {
 
                     /// Username
 
-                    NxListTile(
+                    MyListTile(
                       padding: Dimens.edgeInsets12,
                       bgColor: Theme.of(Get.context!).cardColor,
                       borderRadius: BorderRadius.circular(Dimens.four),
@@ -142,7 +142,7 @@ class ProfileDetailsView extends StatelessWidget {
 
                     /// About
 
-                    NxListTile(
+                    MyListTile(
                       padding: Dimens.edgeInsets12,
                       bgColor: Theme.of(Get.context!).cardColor,
                       borderRadius: BorderRadius.circular(Dimens.four),
@@ -183,7 +183,7 @@ class ProfileDetailsView extends StatelessWidget {
 
                     /// DOB
 
-                    NxListTile(
+                    MyListTile(
                       padding: Dimens.edgeInsets12,
                       bgColor: Theme.of(Get.context!).cardColor,
                       borderRadius: BorderRadius.circular(Dimens.four),
@@ -219,7 +219,7 @@ class ProfileDetailsView extends StatelessWidget {
 
                     /// Gender
 
-                    NxListTile(
+                    MyListTile(
                       padding: Dimens.edgeInsets12,
                       bgColor: Theme.of(Get.context!).cardColor,
                       borderRadius: BorderRadius.circular(Dimens.four),
@@ -255,7 +255,7 @@ class ProfileDetailsView extends StatelessWidget {
 
                     /// Email
 
-                    NxListTile(
+                    MyListTile(
                       padding: Dimens.edgeInsets12,
                       bgColor: Theme.of(Get.context!).cardColor,
                       borderRadius: BorderRadius.circular(Dimens.four),
@@ -287,7 +287,7 @@ class ProfileDetailsView extends StatelessWidget {
                     /// Phone
 
                     if (logic.profileDetails!.user!.phone != null)
-                      NxListTile(
+                      MyListTile(
                         padding: Dimens.edgeInsets12,
                         bgColor: Theme.of(Get.context!).cardColor,
                         borderRadius: BorderRadius.circular(Dimens.four),
@@ -332,7 +332,7 @@ class ProfileDetailsView extends StatelessWidget {
       AppUtility.showBottomSheet(
         children: [
           /// View Profile Picture
-          NxListTile(
+          MyListTile(
             bgColor: ColorValues.transparent,
             padding: Dimens.edgeInsets12,
             showBorder: false,
@@ -356,7 +356,7 @@ class ProfileDetailsView extends StatelessWidget {
           ),
 
           /// Change Profile Picture
-          NxListTile(
+          MyListTile(
             bgColor: ColorValues.transparent,
             padding: Dimens.edgeInsets12,
             showBorder: false,
@@ -376,7 +376,7 @@ class ProfileDetailsView extends StatelessWidget {
           ),
 
           /// Remove Profile Picture
-          NxListTile(
+          MyListTile(
             bgColor: ColorValues.transparent,
             padding: Dimens.edgeInsets12,
             showBorder: false,

@@ -17,7 +17,7 @@ class TwoFAView extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              NxAppBar(
+              MyAppBar(
                 title: StringValues.twoFaAuth,
                 padding: Dimens.edgeInsetsDefault,
               ),

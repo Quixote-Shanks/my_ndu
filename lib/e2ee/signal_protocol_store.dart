@@ -3,8 +3,8 @@ import 'dart:core';
 import 'package:libsignal_protocol_dart/libsignal_protocol_dart.dart';
 import 'package:my_ndu/e2ee/in_memory_session_cipher_store.dart';
 
-class NxSignalProtocolStore implements SignalProtocolStore {
-  NxSignalProtocolStore(IdentityKeyPair identityKeyPair, int registrationId) {
+class MySignalProtocolStore implements SignalProtocolStore {
+  MySignalProtocolStore(IdentityKeyPair identityKeyPair, int registrationId) {
     _identityKeyStore =
         InMemoryIdentityKeyStore(identityKeyPair, registrationId);
   }

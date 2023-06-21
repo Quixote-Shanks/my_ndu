@@ -39,10 +39,10 @@ class UserProfileView extends StatelessWidget {
           child: GetBuilder<UserDetailsController>(
             builder: (logic) {
               if (logic.isLoading) {
-                return const Center(child: NxCircularProgressIndicator());
+                return const Center(child: MyCircularProgressIndicator());
               }
 
-              return NxRefreshIndicator(
+              return MyRefreshIndicator(
                 onRefresh: logic.fetchUserDetailsById,
                 showProgress: false,
                 child: Column(
@@ -71,7 +71,7 @@ class UserProfileView extends StatelessWidget {
         if (logic.userDetails!.user!.id != currentUser.id &&
             !logic.userDetails!.user!.isBlockedByYou &&
             !logic.userDetails!.user!.isBlockedByUser)
-          NxListTile(
+          MyListTile(
             bgColor: ColorValues.transparent,
             padding: Dimens.edgeInsets12,
             showBorder: false,
@@ -101,7 +101,7 @@ class UserProfileView extends StatelessWidget {
         if (logic.userDetails!.user!.id != currentUser.id &&
             !logic.userDetails!.user!.isBlockedByYou &&
             !logic.userDetails!.user!.isBlockedByUser)
-          NxListTile(
+          MyListTile(
             bgColor: ColorValues.transparent,
             padding: Dimens.edgeInsets12,
             showBorder: false,
@@ -127,7 +127,7 @@ class UserProfileView extends StatelessWidget {
 
         /// Share User Profile
 
-        NxListTile(
+        MyListTile(
           bgColor: ColorValues.transparent,
           padding: Dimens.edgeInsets12,
           showBorder: false,
@@ -158,7 +158,7 @@ class UserProfileView extends StatelessWidget {
       UserDetailsController logic, BuildContext context) {
     final user = logic.userDetails!.user!;
     final currentUser = ProfileController.find.profileDetails!.user!;
-    return NxAppBar(
+    return MyAppBar(
       padding: Dimens.edgeInsetsDefault,
       child: Expanded(
         child: Row(
@@ -220,7 +220,7 @@ class UserProfileView extends StatelessWidget {
                   ),
                 ),
                 Dimens.boxHeight16,
-                NxFilledButton(
+                MyFilledButton(
                   label: StringValues.back,
                   padding: Dimens.edgeInsetsDefault,
                   labelStyle: AppStyles.style14Bold.copyWith(
@@ -274,7 +274,7 @@ class UserProfileView extends StatelessWidget {
                   ),
                 ),
                 Dimens.boxHeight16,
-                NxFilledButton(
+                MyFilledButton(
                   label: StringValues.learnMore,
                   padding: Dimens.edgeInsetsDefault,
                   labelStyle: AppStyles.style14Bold.copyWith(
@@ -328,7 +328,7 @@ class UserProfileView extends StatelessWidget {
                   ),
                 ),
                 Dimens.boxHeight16,
-                NxFilledButton(
+                MyFilledButton(
                   label: StringValues.learnMore,
                   padding: Dimens.edgeInsetsDefault,
                   labelStyle: AppStyles.style14Bold.copyWith(
@@ -382,7 +382,7 @@ class UserProfileView extends StatelessWidget {
                   ),
                 ),
                 Dimens.boxHeight16,
-                NxFilledButton(
+                MyFilledButton(
                   label: StringValues.unblock,
                   padding: Dimens.edgeInsetsDefault,
                   labelStyle: AppStyles.style14Bold.copyWith(
@@ -476,7 +476,7 @@ class UserProfileView extends StatelessWidget {
         ),
         Dimens.boxHeight8,
         if (user.about != null) Dimens.boxHeight8,
-        if (user.about != null) NxExpandableText(text: user.about!),
+        if (user.about != null) MyExpandableText(text: user.about!),
         Dimens.boxHeight8,
         if (logic.userDetails!.user!.website != null)
           Row(
@@ -567,7 +567,7 @@ class UserProfileView extends StatelessWidget {
   Widget _buildActionBtn(UserDetailsController logic, BuildContext context) {
     final user = logic.userDetails!.user!;
     if (user.followingStatus == "self") {
-      return NxOutlinedButton(
+      return MyOutlinedButton(
         label: StringValues.editProfile.toTitleCase(),
         width: Dimens.screenWidth,
         padding: Dimens.edgeInsets8,
@@ -583,7 +583,7 @@ class UserProfileView extends StatelessWidget {
     return Row(
       children: [
         Expanded(
-          child: NxFilledButton(
+          child: MyFilledButton(
             label: getFollowStatus(user.followingStatus, context),
             bgColor: getButtonColor(user.followingStatus, context),
             onTap: () {
@@ -607,7 +607,7 @@ class UserProfileView extends StatelessWidget {
         if (!user.isPrivate ||
             (user.isPrivate && user.followingStatus == "following"))
           Expanded(
-            child: NxFilledButton(
+            child: MyFilledButton(
               label: StringValues.message.toTitleCase(),
               bgColor: Theme.of(context).dividerColor,
               width: Dimens.screenWidth,
@@ -658,14 +658,14 @@ class UserProfileView extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: [
           Expanded(
-            child: NxCountWidget(
+            child: MyCountWidget(
               title: StringValues.posts,
               valueStyle: AppStyles.style24Bold,
               value: user.postsCount.toString().toCountingFormat(),
             ),
           ),
           Expanded(
-            child: NxCountWidget(
+            child: MyCountWidget(
               title: StringValues.followers,
               valueStyle: AppStyles.style24Bold,
               value: user.followersCount.toString().toCountingFormat(),
@@ -680,7 +680,7 @@ class UserProfileView extends StatelessWidget {
             ),
           ),
           Expanded(
-            child: NxCountWidget(
+            child: MyCountWidget(
               title: StringValues.following,
               valueStyle: AppStyles.style24Bold,
               value: user.followingCount.toString().toCountingFormat(),
@@ -727,7 +727,7 @@ class UserProfileView extends StatelessWidget {
         mainAxisSize: MainAxisSize.min,
         children: [
           if (logic.isPostLoading)
-            const Center(child: NxCircularProgressIndicator())
+            const Center(child: MyCircularProgressIndicator())
           else if (logic.postList.isEmpty)
             Center(
               child: Padding(

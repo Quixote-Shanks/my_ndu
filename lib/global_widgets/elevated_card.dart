@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:my_ndu/constants/colors.dart';
 import 'package:my_ndu/constants/dimens.dart';
 
-class NxElevatedCard extends StatelessWidget {
-  const NxElevatedCard({
+class MyElevatedCard extends StatelessWidget {
+  const MyElevatedCard({
     Key? key,
     required this.child,
     this.borderRadius,

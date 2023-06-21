@@ -35,7 +35,7 @@ class HomeView extends StatelessWidget {
                 child: _buildBody(logic),
               ),
             ),
-            bottomNavigationBar: const NxBottomNavBar(),
+            bottomNavigationBar: const MyBottomNavBar(),
           ),
         );
       },

@@ -60,7 +60,7 @@ class ReportView extends StatelessWidget {
       itemCount: StringValues.reportReasons.length,
       itemBuilder: (context, index) {
         var reason = StringValues.reportReasons[index];
-        return NxRadioTile(
+        return MyRadioTile(
           showBorder: false,
           bgColor: Theme.of(context).cardColor,
           margin: Dimens.edgeInsetsOnlyBottom12,
@@ -101,8 +101,8 @@ class ReportView extends StatelessWidget {
     );
   }
 
-  NxAppBar _buildAppBar() {
-    return NxAppBar(
+  MyAppBar _buildAppBar() {
+    return MyAppBar(
       padding: Dimens.edgeInsetsDefault,
       child: Expanded(
         child: Row(
@@ -112,7 +112,7 @@ class ReportView extends StatelessWidget {
               style: AppStyles.style20Bold,
             ),
             const Spacer(),
-            NxFilledButton(
+            MyFilledButton(
               onTap: () => ReportController.find.submitReport(),
               label: StringValues.submit.toUpperCase(),
               labelStyle: AppStyles.style13Bold,

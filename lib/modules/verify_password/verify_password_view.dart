@@ -25,7 +25,7 @@ class VerifyPasswordView extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                NxAppBar(
+                MyAppBar(
                   title: StringValues.verifyPassword,
                   padding: Dimens.edgeInsetsDefault,
                 ),
@@ -87,7 +87,7 @@ class VerifyPasswordView extends StatelessWidget {
                         ),
                       ),
                       Dimens.boxHeight40,
-                      NxFilledButton(
+                      MyFilledButton(
                         onTap: () => logic.verifyPassword(),
                         label: StringValues.next.toUpperCase(),
                         height: Dimens.fiftySix,

@@ -102,13 +102,13 @@ class WelcomeView extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.end,
                 mainAxisSize: MainAxisSize.min,
                 children: [
-                  NxFilledButton(
+                  MyFilledButton(
                     label: StringValues.login.toUpperCase(),
                     onTap: RouteManagement.goToLoginView,
                     height: Dimens.fiftySix,
                   ),
                   Dimens.boxHeight12,
-                  NxOutlinedButton(
+                  MyOutlinedButton(
                     label: StringValues.register.toUpperCase(),
                     onTap: RouteManagement.goToRegisterView,
                     height: Dimens.fiftySix,

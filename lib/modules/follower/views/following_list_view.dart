@@ -21,7 +21,7 @@ class FollowingListView extends StatelessWidget {
     return UnFocusWidget(
       child: Scaffold(
         body: SafeArea(
-          child: NxRefreshIndicator(
+          child: MyRefreshIndicator(
             onRefresh: FollowingListController.find.getFollowingList,
             showProgress: false,
             child: SizedBox(
@@ -31,7 +31,7 @@ class FollowingListView extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.start,
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
-                  NxAppBar(
+                  MyAppBar(
                     title: StringValues.following,
                     padding: Dimens.edgeInsetsDefault,
                   ),
@@ -103,7 +103,7 @@ class FollowingListView extends StatelessWidget {
   Widget _buildFollowers(FollowingListController logic) {
     if (logic.isLoading &&
         (logic.followingData == null || logic.followingList.isEmpty)) {
-      return const Center(child: NxCircularProgressIndicator());
+      return const Center(child: MyCircularProgressIndicator());
     }
     if (logic.followingData == null || logic.followingList.isEmpty) {
       return Padding(
@@ -136,7 +136,7 @@ class FollowingListView extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              const NxCircularProgressIndicator(),
+              const MyCircularProgressIndicator(),
               Dimens.boxHeight8,
             ],
           ),
@@ -165,10 +165,10 @@ class FollowingListView extends StatelessWidget {
         if (logic.isMoreLoading || logic.followingData!.hasNextPage!)
           Dimens.boxHeight8,
         if (logic.isMoreLoading)
-          const Center(child: NxCircularProgressIndicator()),
+          const Center(child: MyCircularProgressIndicator()),
         if (!logic.isMoreLoading && logic.followingData!.hasNextPage!)
           Center(
-            child: NxTextButton(
+            child: MyTextButton(
               label: 'Load more followings',
               onTap: logic.loadMore,
               labelStyle: AppStyles.style14Bold.copyWith(

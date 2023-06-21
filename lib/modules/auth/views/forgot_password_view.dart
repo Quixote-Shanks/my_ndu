@@ -25,7 +25,7 @@ class ForgotPasswordView extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
-                NxAppBar(
+                MyAppBar(
                   title: StringValues.forgotPassword,
                   padding: Dimens.edgeInsetsDefault,
                 ),
@@ -76,7 +76,7 @@ class ForgotPasswordView extends StatelessWidget {
                       onEditingComplete: logic.focusNode.unfocus,
                     ),
                     Dimens.heightedBox(Dimens.twentyEight),
-                    NxTextButton(
+                    MyTextButton(
                       label: StringValues.loginToAccount,
                       onTap: () {
                         RouteManagement.goToBack();
@@ -84,7 +84,7 @@ class ForgotPasswordView extends StatelessWidget {
                       },
                     ),
                     Dimens.boxHeight32,
-                    NxFilledButton(
+                    MyFilledButton(
                       onTap: () => logic.sendResetPasswordOTP(),
                       label: StringValues.sendOtp.toUpperCase(),
                       height: Dimens.fiftySix,
@@ -99,7 +99,7 @@ class ForgotPasswordView extends StatelessWidget {
                           style: AppStyles.style14Normal,
                         ),
                         Dimens.boxWidth4,
-                        NxTextButton(
+                        MyTextButton(
                           label: StringValues.resetPassword,
                           onTap: () {
                             RouteManagement.goToBack();

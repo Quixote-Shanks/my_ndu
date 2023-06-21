@@ -24,7 +24,7 @@ class AboutSettingsView extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                NxAppBar(
+                MyAppBar(
                   title: StringValues.about,
                   padding: Dimens.edgeInsetsDefault,
                 ),
@@ -79,7 +79,7 @@ class AboutSettingsView extends StatelessWidget {
   Column _buildMiddlePart(BuildContext context) {
     return Column(
       children: [
-        NxOutlinedButton(
+        MyOutlinedButton(
           label: StringValues.downloadLatestApp,
           borderColor: Theme.of(context).textTheme.bodyLarge!.color,
           padding: Dimens.edgeInsets0_8,
@@ -92,7 +92,7 @@ class AboutSettingsView extends StatelessWidget {
               AppUtility.openUrl(Uri.parse(StringValues.appDownloadUrl)),
         ),
         Dimens.boxHeight8,
-        NxOutlinedButton(
+        MyOutlinedButton(
           label: StringValues.githubRepo,
           borderColor: Theme.of(context).textTheme.bodyLarge!.color,
           padding: Dimens.edgeInsets0_8,
@@ -104,7 +104,7 @@ class AboutSettingsView extends StatelessWidget {
           onTap: () => AppUtility.openUrl(Uri.parse(StringValues.appGithubUrl)),
         ),
         Dimens.boxHeight8,
-        NxOutlinedButton(
+        MyOutlinedButton(
           label: StringValues.ourWebsite,
           borderColor: Theme.of(context).textTheme.bodyLarge!.color,
           padding: Dimens.edgeInsets0_8,
@@ -116,7 +116,7 @@ class AboutSettingsView extends StatelessWidget {
           onTap: () => AppUtility.openUrl(Uri.parse(StringValues.websiteUrl)),
         ),
         Dimens.boxHeight8,
-        NxOutlinedButton(
+        MyOutlinedButton(
           label: StringValues.joinTelegramChannel,
           borderColor: Theme.of(context).textTheme.bodyLarge!.color,
           padding: Dimens.edgeInsets0_8,

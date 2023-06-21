@@ -24,7 +24,7 @@ class ReportAppIssueView extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              NxAppBar(
+              MyAppBar(
                 title: StringValues.reportIssue,
                 padding: Dimens.edgeInsetsDefault,
               ),
@@ -88,7 +88,7 @@ class ReportAppIssueView extends StatelessWidget {
                                       bottom: Dimens.zero,
                                       right: Dimens.eight,
                                     ),
-                                    child: NxFileImage(
+                                    child: MyFileImage(
                                       file: e,
                                       scale: 1.0,
                                       width: Dimens.sixtyFour,
@@ -123,14 +123,14 @@ class ReportAppIssueView extends StatelessWidget {
                     mainAxisSize: MainAxisSize.min,
                     children: [
                       Dimens.boxHeight16,
-                      NxTextButton(
+                      MyTextButton(
                         label: 'Add screenshots',
                         onTap: logic.selectMultipleFiles,
                       ),
                     ],
                   ),
                 Dimens.boxHeight40,
-                NxFilledButton(
+                MyFilledButton(
                   onTap: logic.sendIssueReportOtp,
                   label: StringValues.next.toUpperCase(),
                   height: Dimens.fiftySix,

@@ -136,7 +136,7 @@ class ChatReplyToBox extends StatelessWidget {
               color: ColorValues.grayColor.withOpacity(0.25),
             ),
             child: Center(
-              child: NxCircularProgressIndicator(
+              child: MyCircularProgressIndicator(
                 value: downloadProgress.progress,
               ),
             ),

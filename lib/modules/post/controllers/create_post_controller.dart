@@ -33,6 +33,8 @@ class CreatePostController extends GetxController {
   final _caption = ''.obs;
   final _hashtagData = const HashTagResponse().obs;
 
+  final _description = ''.obs;
+
   final FocusScopeNode focusNode = FocusScopeNode();
 
   final _pickedFileList = <File>[];
@@ -51,6 +53,8 @@ class CreatePostController extends GetxController {
 
   String get caption => _caption.value;
 
+  String get description => _description.value;
+
   bool get isLoading => _isLoading.value;
 
   int get currentFileIndex => _currentFileIndex.value;
@@ -60,10 +64,17 @@ class CreatePostController extends GetxController {
   /// Setters
   set setCaption(String value) => _caption.value = value;
 
+  set setDescription(String value) => _description.value = value;
+
   set setHashtagData(HashTagResponse value) => _hashtagData.value = value;
 
   void onChangeCaption(String value) {
     setCaption = value;
+    update();
+  }
+
+  void onChangeDescription(String value) {
+    setDescription = value;
     update();
   }
 
@@ -215,6 +226,7 @@ class CreatePostController extends GetxController {
     try {
       final body = {
         "caption": _caption.value,
+        "description": _description.value,
         "mediaFiles": mediaFiles,
         "visibility": _postVisibility['id']!,
       };

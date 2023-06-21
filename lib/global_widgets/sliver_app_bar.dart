@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:my_ndu/constants/dimens.dart';
 
-class NxSliverAppBar extends StatelessWidget {
-  const NxSliverAppBar({
+class MySliverAppBar extends StatelessWidget {
+  const MySliverAppBar({
     Key? key,
     required this.leading,
     this.bgColor,

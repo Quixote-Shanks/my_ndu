@@ -265,9 +265,9 @@ class CustomControlsWidgetState extends State<CustomControlsWidget> {
   Widget build(BuildContext context) {
     if (widget.controller!.isVideoInitialized() == false || !mounted) {
       return const Positioned.fill(
-        child: NxColoredBox(
+        child: MyColoredBox(
           color: ColorValues.darkGrayColor,
-          child: Center(child: NxCircularProgressIndicator()),
+          child: Center(child: MyCircularProgressIndicator()),
         ),
       );
     }

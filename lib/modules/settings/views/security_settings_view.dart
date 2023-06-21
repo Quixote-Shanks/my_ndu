@@ -21,7 +21,7 @@ class SecuritySettingsView extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              NxAppBar(
+              MyAppBar(
                 title: StringValues.security,
                 padding: Dimens.edgeInsetsDefault,
               ),
@@ -47,7 +47,7 @@ class SecuritySettingsView extends StatelessWidget {
               Dimens.boxHeight8,
 
               /// Change Password
-              NxListTile(
+              MyListTile(
                 padding: Dimens.edgeInsets12,
                 bgColor: Theme.of(context).cardColor,
                 borderRadius: BorderRadius.circular(Dimens.four),
@@ -67,7 +67,7 @@ class SecuritySettingsView extends StatelessWidget {
               Dimens.boxHeight8,
 
               /// Login Activity
-              NxListTile(
+              MyListTile(
                 padding: Dimens.edgeInsets12,
                 bgColor: Theme.of(context).cardColor,
                 borderRadius: BorderRadius.circular(Dimens.four),
@@ -87,7 +87,7 @@ class SecuritySettingsView extends StatelessWidget {
               Dimens.boxHeight8,
 
               /// 2-FA
-              NxListTile(
+              MyListTile(
                 padding: Dimens.edgeInsets12,
                 bgColor: Theme.of(context).cardColor,
                 borderRadius: BorderRadius.circular(Dimens.four),

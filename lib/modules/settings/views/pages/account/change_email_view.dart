@@ -25,7 +25,7 @@ class ChangeEmailView extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                NxAppBar(
+                MyAppBar(
                   title: StringValues.changeEmail,
                   padding: Dimens.edgeInsetsDefault,
                 ),
@@ -137,7 +137,7 @@ class ChangeEmailView extends StatelessWidget {
                           ),
                         ),
                       Dimens.boxHeight40,
-                      NxFilledButton(
+                      MyFilledButton(
                         onTap: logic.otpSent
                             ? logic.changeEmail
                             : logic.sendChangeEmailOtp,

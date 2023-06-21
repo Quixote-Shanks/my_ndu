@@ -12,7 +12,7 @@
 // import 'package:my_ndu/utils/utility.dart';
 
 // class SignalProtocolManager {
-//   final NxSignalProtocolStore store;
+//   final MySignalProtocolStore store;
 
 //   SignalProtocolManager(this.store);
 

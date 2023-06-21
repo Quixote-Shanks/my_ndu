@@ -25,7 +25,7 @@ class DeactivateAccountView extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                NxAppBar(
+                MyAppBar(
                   title: StringValues.deactivateAccount,
                   padding: Dimens.edgeInsetsDefault,
                 ),
@@ -175,7 +175,7 @@ class DeactivateAccountView extends StatelessWidget {
                             ),
                           ),
                           Dimens.boxHeight40,
-                          NxFilledButton(
+                          MyFilledButton(
                             onTap: logic.deactivateAccount,
                             label: StringValues.next.toUpperCase(),
                             height: Dimens.fiftySix,

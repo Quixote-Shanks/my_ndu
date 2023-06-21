@@ -2,12 +2,12 @@ import 'dart:ui';
 
 import 'package:flutter/material.dart';
 
-class NxGlassContainer extends StatelessWidget {
+class MyGlassContainer extends StatelessWidget {
   final double blur;
   final Widget child;
   final double opacity;
 
-  const NxGlassContainer({
+  const MyGlassContainer({
     Key? key,
     required this.blur,
     required this.child,

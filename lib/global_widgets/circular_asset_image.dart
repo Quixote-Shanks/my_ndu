@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:my_ndu/constants/dimens.dart';
 
-class NxCircleAssetImage extends StatelessWidget {
-  const NxCircleAssetImage({
+class MyCircleAssetImage extends StatelessWidget {
+  const MyCircleAssetImage({
     Key? key,
     required this.imgAsset,
     this.radius,

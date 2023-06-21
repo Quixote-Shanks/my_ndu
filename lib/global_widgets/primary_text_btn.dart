@@ -3,7 +3,7 @@ import 'package:my_ndu/constants/colors.dart';
 import 'package:my_ndu/constants/dimens.dart';
 import 'package:my_ndu/constants/styles.dart';
 
-class NxTextButton extends StatelessWidget {
+class MyTextButton extends StatelessWidget {
   final String label;
   final VoidCallback onTap;
   final EdgeInsets? padding;
@@ -11,7 +11,7 @@ class NxTextButton extends StatelessWidget {
   final TextStyle? labelStyle;
   final bool? enabled;
 
-  const NxTextButton({
+  const MyTextButton({
     Key? key,
     required this.label,
     required this.onTap,

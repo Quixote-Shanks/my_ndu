@@ -26,7 +26,7 @@ class LoginView extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
-                NxAppBar(
+                MyAppBar(
                   title: StringValues.login,
                   padding: Dimens.edgeInsetsDefault,
                 ),
@@ -100,12 +100,12 @@ class LoginView extends StatelessWidget {
                       onEditingComplete: logic.focusNode.unfocus,
                     ),
                     Dimens.heightedBox(Dimens.twentyEight),
-                    const NxTextButton(
+                    const MyTextButton(
                       label: StringValues.forgotPassword,
                       onTap: RouteManagement.goToForgotPasswordView,
                     ),
                     Dimens.boxHeight32,
-                    NxFilledButton(
+                    MyFilledButton(
                       onTap: () => logic.login(),
                       label: StringValues.login.toUpperCase(),
                       height: Dimens.fiftySix,
@@ -120,7 +120,7 @@ class LoginView extends StatelessWidget {
                           style: AppStyles.style14Normal,
                         ),
                         Dimens.boxWidth4,
-                        NxTextButton(
+                        MyTextButton(
                           label: StringValues.register,
                           onTap: () {
                             RouteManagement.goToBack();

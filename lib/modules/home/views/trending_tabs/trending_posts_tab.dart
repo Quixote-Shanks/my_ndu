@@ -17,7 +17,7 @@ class TrendingPostsTab extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return UnFocusWidget(
-      child: NxRefreshIndicator(
+      child: MyRefreshIndicator(
         onRefresh: TrendingPostController.find.fetchPosts,
         showProgress: false,
         child: GetBuilder<TrendingPostController>(
@@ -86,7 +86,7 @@ class TrendingPostsTab extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          const Center(child: NxCircularProgressIndicator()),
+          const Center(child: MyCircularProgressIndicator()),
           Dimens.boxHeight8,
         ],
       );
@@ -119,7 +119,7 @@ class TrendingPostsTab extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              const NxCircularProgressIndicator(),
+              const MyCircularProgressIndicator(),
               Dimens.boxHeight8,
             ],
           ),

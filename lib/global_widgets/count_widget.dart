@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:my_ndu/constants/dimens.dart';
 import 'package:my_ndu/constants/styles.dart';
 
-class NxCountWidget extends StatelessWidget {
-  const NxCountWidget({
+class MyCountWidget extends StatelessWidget {
+  const MyCountWidget({
     Key? key,
     required this.title,
     required this.value,

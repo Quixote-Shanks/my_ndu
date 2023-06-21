@@ -5,7 +5,7 @@ import 'package:my_ndu/utils/utility.dart';
 /// to initiate a callback when animation gets end.
 /// It is useful to develop and What's App kind of replay animation for a
 /// component of ongoing chat.
-class NxSwipeableWidget extends StatefulWidget {
+class MySwipeableWidget extends StatefulWidget {
   /// Child widget for which you want to have horizontal swipe action
   /// @required parameter
   final Widget child;
@@ -50,7 +50,7 @@ class NxSwipeableWidget extends StatefulWidget {
   /// if not passed swipe to left will be not available
   final GestureDragUpdateCallback? onLeftSwipe;
 
-  const NxSwipeableWidget({
+  const MySwipeableWidget({
     Key? key,
     required this.child,
     this.onRightSwipe,
@@ -66,10 +66,10 @@ class NxSwipeableWidget extends StatefulWidget {
   }) : super(key: key);
 
   @override
-  NxSwipeableWidgetState createState() => NxSwipeableWidgetState();
+  MySwipeableWidgetState createState() => MySwipeableWidgetState();
 }
 
-class NxSwipeableWidgetState extends State<NxSwipeableWidget>
+class MySwipeableWidgetState extends State<MySwipeableWidget>
     with SingleTickerProviderStateMixin {
   late AnimationController _controller;
   late Animation<Offset> _animation;

@@ -27,10 +27,10 @@ class LoadMoreWidget extends StatelessWidget {
       children: [
         Dimens.boxHeight8,
         if (loadingCondition)
-          const Center(child: NxCircularProgressIndicator()),
+          const Center(child: MyCircularProgressIndicator()),
         if (!loadingCondition && hasMoreCondition)
           Center(
-            child: NxTextButton(
+            child: MyTextButton(
               label: StringValues.loadMore,
               onTap: loadMore,
               labelStyle: AppStyles.style14Bold.copyWith(

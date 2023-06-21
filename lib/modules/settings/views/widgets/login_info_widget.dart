@@ -48,7 +48,7 @@ class LoginInfoWidget extends StatelessWidget {
           borderRadius: BorderRadius.circular(Dimens.four),
           boxShadow: AppStyles.defaultShadow,
         ),
-        child: NxListTile(
+        child: MyListTile(
           padding: Dimens.edgeInsets0,
           bgColor: ColorValues.transparent,
           showBorder: false,

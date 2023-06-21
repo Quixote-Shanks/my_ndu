@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:my_ndu/constants/dimens.dart';
 
-class NxIconButton extends StatelessWidget {
+class MyIconButton extends StatelessWidget {
   final IconData icon;
   final VoidCallback onTap;
   final Color? iconColor;
@@ -13,7 +13,7 @@ class NxIconButton extends StatelessWidget {
   final bool? centerIcon;
   final double? height;
 
-  const NxIconButton({
+  const MyIconButton({
     Key? key,
     required this.icon,
     required this.onTap,
