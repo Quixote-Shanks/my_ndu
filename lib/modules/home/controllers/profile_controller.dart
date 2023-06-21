@@ -91,10 +91,16 @@ class ProfileController extends GetxController {
   Future<void> applyForBlueTick(Map<String, dynamic> details) async =>
       await _applyForBlueTick(details);
 
-  Future<void> _saveProfileDataToLocalStorage(ProfileResponse respone) async {
-    var data = jsonEncode(respone.toJson());
-    await StorageService.write('profileData', data);
-    AppUtility.log('Profile data saved to local storage');
+  Future<bool> _saveProfileDataToLocalStorage(ProfileResponse response) async {
+    try {
+      var data = jsonEncode(response.toJson());
+      await StorageService.write('profileData', data);
+      AppUtility.log('Profile data saved to local storage');
+      return true; // Data saved successfully
+    } catch (e) {
+      AppUtility.log('Failed to save profile data to local storage: $e');
+      return false; // Data failed to save
+    }
   }
 
   Future<ProfileResponse?> _readProfileDataFromLocalStorage() async {
@@ -211,6 +217,7 @@ class ProfileController extends GetxController {
 
       if (response.isSuccessful) {
         final decodedData = response.data;
+        AppUtility.log(decodedData);
         setProfileDetailsData = ProfileResponse.fromJson(decodedData);
         await _saveProfileDataToLocalStorage(_profileDetails.value);
         await _fetchBlockedUsers();

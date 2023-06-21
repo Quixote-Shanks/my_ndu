@@ -13,6 +13,7 @@ import 'package:my_ndu/apis/providers/socket_api_provider.dart';
 import 'package:my_ndu/constants/strings.dart';
 import 'package:my_ndu/modules/chat/controllers/chat_controller.dart';
 import 'package:my_ndu/routes/route_management.dart';
+import 'package:my_ndu/services/hive_service.dart';
 import 'package:my_ndu/services/storage_service.dart';
 import 'package:my_ndu/utils/utility.dart';
 
@@ -97,7 +98,7 @@ set setLoginData(AuthResponse value) => _loginData = value;
     await StorageService.remove('loginData');
     await StorageService.remove('profileData');
     await StorageService.remove("fcmToken");
-    // await HiveService.deleteAllBoxes();
+    await HiveService.deleteAllBoxes();
     AppUtility.log('Local Data Removed');
   }
 

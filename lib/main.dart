@@ -145,6 +145,7 @@ Future<void> _initPreAppServices() async {
         } else if (role == 'Lecturer') {
           RouteService.set(RouteStatus.lecturer);
         } else {
+        await authService.deleteAllLocalDataAndCache();
           AppUtility.log('Invalid role: $role', tag: 'error');
         }
         AppUtility.log('Role found: $role');
@@ -172,6 +173,7 @@ Future<void> _initPreAppServices() async {
 
         AppUtility.log("User is logged in");
       } else {
+        await authService.deleteAllLocalDataAndCache();
         if (RouteService.routeStatus != RouteStatus.error) {
           RouteService.set(RouteStatus.error);
         }
