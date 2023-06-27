@@ -1,6 +1,7 @@
 import 'package:hive/hive.dart';
 import 'package:json_annotation/json_annotation.dart';
 import 'package:my_ndu/apis/models/entities/discussion_thread.dart';
+import 'package:my_ndu/apis/models/entities/post_media_file.dart';
 import 'package:my_ndu/constants/hive_type_id.dart';
 
 part 'discussion.g.dart';
@@ -17,6 +18,7 @@ class Discussion extends HiveObject {
     this.threads,
     this.createdAt,
     this.updatedAt,
+    this.mediaFiles,
   });
 
   factory Discussion.fromJson(Map<String, dynamic> json) => _$DiscussionFromJson(json);
@@ -46,4 +48,7 @@ class Discussion extends HiveObject {
 
   @HiveField(7)
   DateTime? updatedAt;
+
+  @HiveField(8)
+  List<PostMediaFile>? mediaFiles;
 }

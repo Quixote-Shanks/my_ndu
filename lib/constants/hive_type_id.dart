@@ -2,6 +2,9 @@ abstract class HiveTypeId {
   static const auth = 13;
   static const avatar = 8;
   static const chatMessage = 11;
+  static const discussion = 19;
+  static const discussionResponse = 20;
+  static const discussionThread = 18;
   static const comment = 15;
   static const follower = 14;
   static const mediaFile = 5;
