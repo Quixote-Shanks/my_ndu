@@ -103,30 +103,29 @@ class DiscussionController extends GetxController {
     }
   }
 
-  Future<void> deleteComment(Discussion discussion, Comment comment) async {
-    try {
-      final response =
-          await _apiProvider.deleteComment(_auth.token, discussion.id, comment.id);
+  Future<void> deleteComment(String commentId) async {
+  try {
+    final response = await _apiProvider.deleteComment(_auth.token, commentId);
 
-      if (response.isSuccessful) {
-        final decodedData = response.data;
-        AppUtility.showSnackBar(
-          decodedData[StringValues.message],
-          StringValues.success,
-        );
-        await ProfileController.find.fetchProfileDetails(fetchPost: true);
-      } else {
-        final decodedData = response.data;
-        AppUtility.showSnackBar(
-          decodedData[StringValues.message],
-          StringValues.error,
-        );
-      }
-    } catch (exc) {
-      AppUtility.log('Error: $exc', tag: 'error');
-      AppUtility.showSnackBar('Error: $exc', StringValues.error);
+    if (response.isSuccessful) {
+      final decodedData = response.data;
+      AppUtility.showSnackBar(
+        decodedData[StringValues.message],
+        StringValues.success,
+      );
+      await fetchDiscussionData(); // Optionally, refresh the discussion data after deleting a comment.
+    } else {
+      final decodedData = response.data;
+      AppUtility.showSnackBar(
+        decodedData[StringValues.message],
+        StringValues.error,
+      );
     }
+  } catch (exc) {
+    AppUtility.log('Error: $exc', tag: 'error');
+    AppUtility.showSnackBar('Error: $exc', StringValues.error);
   }
+}
 
 
   Future<void> createDiscussion({
@@ -139,7 +138,8 @@ class DiscussionController extends GetxController {
       _isLoading.value = true;
       update();
 
-      final response = await _apiProvider.createDiscussion(_auth.token, title, category, tags, participants);
+      final response = await _apiProvider.createDiscussion(
+          _auth.token, title, category, tags, participants);
 
       if (response.isSuccessful) {
         final decodedData = response.data;
@@ -167,7 +167,6 @@ class DiscussionController extends GetxController {
     }
   }
 
-
   Future<void> createThread({
     required String discussionId,
     required String title,
@@ -175,17 +174,29 @@ class DiscussionController extends GetxController {
     required String createdBy,
   }) async {
     try {
-      // TODO: Implement database operation to create a new DiscussionThread
-      // associated with the provided discussionId and save it in the database.
-      // Use the DiscussionThread model and appropriate database methods.
+      final body = {
+        'discussionId': discussionId,
+        'title': title,
+        'content': content,
+        'createdBy': createdBy
+      };
 
-      
+      final response = await _apiProvider.createThread(_auth.token, body);
 
-      // TODO: Save the created thread in the database.
-      // Use appropriate database methods to save the thread.
-
-      // Placeholder code
-      print('Thread created: $thread');
+      if (response.isSuccessful) {
+        final decodedData = response.data;
+        AppUtility.showSnackBar(
+          decodedData[StringValues.message],
+          StringValues.success,
+        );
+        await fetchDiscussionData();
+      } else {
+        final decodedData = response.data;
+        AppUtility.showSnackBar(
+          decodedData[StringValues.message],
+          StringValues.error,
+        );
+      }
     } catch (exc) {
       AppUtility.log('Error: $exc', tag: 'error');
       AppUtility.showSnackBar('Error: $exc', StringValues.error);
@@ -198,16 +209,28 @@ class DiscussionController extends GetxController {
     required String content,
   }) async {
     try {
-      // TODO: Implement database operation to create a new DiscussionReply
-      // associated with the provided threadId and save it in the database.
-      // Use the DiscussionReply model and appropriate database methods.
+      final body = {
+        'threadId': threadId,
+        'content': content,
+        'createdBy': createdBy
+      };
 
-      
-      // TODO: Save the created reply in the database.
-      // Use appropriate database methods to save the reply.
+      final response = await _apiProvider.createReply(_auth.token, body);
 
-      // Placeholder code
-      print('Reply created: $reply');
+      if (response.isSuccessful) {
+        final decodedData = response.data;
+        AppUtility.showSnackBar(
+          decodedData[StringValues.message],
+          StringValues.success,
+        );
+        await fetchDiscussionData(); // Optionally, you may want to refresh the discussion data after creating a reply.
+      } else {
+        final decodedData = response.data;
+        AppUtility.showSnackBar(
+          decodedData[StringValues.message],
+          StringValues.error,
+        );
+      }
     } catch (exc) {
       AppUtility.log('Error: $exc', tag: 'error');
       AppUtility.showSnackBar('Error: $exc', StringValues.error);
@@ -219,41 +242,27 @@ class DiscussionController extends GetxController {
     required String updatedContent,
   }) async {
     try {
-      // TODO: Implement database operation to update the content of a DiscussionThread.
-      // Retrieve the thread from the database using the threadId,
-      // update its content with the provided updatedContent,
-      // and save the changes in the database.
+      final body = {
+        'threadId': threadId,
+        'content': updatedContent,
+      };
 
-      
+      final response = await _apiProvider.updateThread(_auth.token, body);
 
-      // TODO: Update the thread's content in the database.
-      // Use appropriate database methods to update the thread.
-
-      // Placeholder code
-      print('Thread updated: $thread');
-    } catch (exc) {
-      AppUtility.log('Error: $exc', tag: 'error');
-      AppUtility.showSnackBar('Error: $exc', StringValues.error);
-    }
-  }
-
-  Future<void> updateReply({
-    required String replyId,
-    required String updatedContent,
-  }) async {
-    try {
-      // TODO: Implement database operation to update the content of a DiscussionReply.
-      // Retrieve the reply from the database using the replyId,
-      // update its content with the provided updatedContent,
-      // and save the changes in the database.
-
-      
-
-      // TODO: Update the reply's content in the database.
-      // Use appropriate database methods to update the reply.
-
-      // Placeholder code
-      print('Reply updated: $reply');
+      if (response.isSuccessful) {
+        final decodedData = response.data;
+        AppUtility.showSnackBar(
+          decodedData[StringValues.message],
+          StringValues.success,
+        );
+        await fetchDiscussionData(); // Optionally, refresh the discussion data after updating a thread.
+      } else {
+        final decodedData = response.data;
+        AppUtility.showSnackBar(
+          decodedData[StringValues.message],
+          StringValues.error,
+        );
+      }
     } catch (exc) {
       AppUtility.log('Error: $exc', tag: 'error');
       AppUtility.showSnackBar('Error: $exc', StringValues.error);
@@ -262,12 +271,22 @@ class DiscussionController extends GetxController {
 
   Future<void> deleteThread(String threadId) async {
     try {
-      // TODO: Implement database operation to delete a DiscussionThread.
-      // Retrieve the thread from the database using the threadId
-      // and delete it from the database.
+      final response = await _apiProvider.deleteThread(_auth.token, threadId);
 
-      // Placeholder code
-      print('Thread deleted: $threadId');
+      if (response.isSuccessful) {
+        final decodedData = response.data;
+        AppUtility.showSnackBar(
+          decodedData[StringValues.message],
+          StringValues.success,
+        );
+        await fetchDiscussionData(); // Optionally, refresh the discussion data after deleting a thread.
+      } else {
+        final decodedData = response.data;
+        AppUtility.showSnackBar(
+          decodedData[StringValues.message],
+          StringValues.error,
+        );
+      }
     } catch (exc) {
       AppUtility.log('Error: $exc', tag: 'error');
       AppUtility.showSnackBar('Error: $exc', StringValues.error);
@@ -276,40 +295,70 @@ class DiscussionController extends GetxController {
 
   Future<void> deleteReply(String replyId) async {
     try {
-      // TODO: Implement database operation to delete a DiscussionReply.
-      // Retrieve the reply from the database using the replyId
-      // and delete it from the database.
+      final response = await _apiProvider.deleteReply(_auth.token, replyId);
 
-      // Placeholder code
-      print('Reply deleted: $replyId');
+      if (response.isSuccessful) {
+        final decodedData = response.data;
+        AppUtility.showSnackBar(
+          decodedData[StringValues.message],
+          StringValues.success,
+        );
+        await fetchDiscussionData(); // Optionally, refresh the discussion data after deleting a reply.
+      } else {
+        final decodedData = response.data;
+        AppUtility.showSnackBar(
+          decodedData[StringValues.message],
+          StringValues.error,
+        );
+      }
     } catch (exc) {
       AppUtility.log('Error: $exc', tag: 'error');
       AppUtility.showSnackBar('Error: $exc', StringValues.error);
     }
   }
 
-  Future<void> likeThread(String threadId, String userId) async {
+  Future<void> likeThread(String threadId) async {
     try {
-      // TODO: Implement database operation to like a DiscussionThread.
-      // Retrieve the thread from the database using the threadId,
-      // update its likes count, and save the changes in the database.
+      final response = await _apiProvider.likeThread(_auth.token, threadId);
 
-      // Placeholder code
-      print('Thread liked: $threadId');
+      if (response.isSuccessful) {
+        final decodedData = response.data;
+        AppUtility.showSnackBar(
+          decodedData[StringValues.message],
+          StringValues.success,
+        );
+        await fetchDiscussionData(); // Optionally, refresh the discussion data after liking a thread.
+      } else {
+        final decodedData = response.data;
+        AppUtility.showSnackBar(
+          decodedData[StringValues.message],
+          StringValues.error,
+        );
+      }
     } catch (exc) {
       AppUtility.log('Error: $exc', tag: 'error');
       AppUtility.showSnackBar('Error: $exc', StringValues.error);
     }
   }
 
-  Future<void> unlikeThread(String threadId, String userId) async {
+  Future<void> unlikeThread(String threadId) async {
     try {
-      // TODO: Implement database operation to unlike a DiscussionThread.
-      // Retrieve the thread from the database using the threadId,
-      // update its likes count, and save the changes in the database.
+      final response = await _apiProvider.unlikeThread(_auth.token, threadId);
 
-      // Placeholder code
-      print('Thread unliked: $threadId');
+      if (response.isSuccessful) {
+        final decodedData = response.data;
+        AppUtility.showSnackBar(
+          decodedData[StringValues.message],
+          StringValues.success,
+        );
+        await fetchDiscussionData(); // Optionally, refresh the discussion data after unliking a thread.
+      } else {
+        final decodedData = response.data;
+        AppUtility.showSnackBar(
+          decodedData[StringValues.message],
+          StringValues.error,
+        );
+      }
     } catch (exc) {
       AppUtility.log('Error: $exc', tag: 'error');
       AppUtility.showSnackBar('Error: $exc', StringValues.error);

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../../data/model/subject.dart';
+import 'package:my_ndu/apis/models/entities/subject.dart';
 import '../../ui/theme/app_color.dart';
 
 class SubjectItem extends StatelessWidget {

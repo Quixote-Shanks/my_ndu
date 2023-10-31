@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import '../../data/model/subject_assignment.dart';
+import 'package:my_ndu/apis/models/entities/subject_assignment.dart';
+
 import '../../ui/theme/app_color.dart';
 
 class AssignmentStatus extends StatelessWidget {

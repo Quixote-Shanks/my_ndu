@@ -120,7 +120,7 @@ class AppThemeController extends GetxController {
         fillColor: ColorValues.lightDialogColor,
         constraints: BoxConstraints(
           minHeight: Dimens.fiftySix,
-          maxWidth: Dimens.screenWidth,
+          // maxWidth: Dimens.screenWidth,
         ),
         labelStyle: AppStyles.style14Normal.copyWith(
           color: ColorValues.lightBodyTextColor,
@@ -241,7 +241,7 @@ class AppThemeController extends GetxController {
         fillColor: ColorValues.darkDialogColor,
         constraints: BoxConstraints(
           minHeight: Dimens.fiftySix,
-          maxWidth: Dimens.screenWidth,
+          // maxWidth: Dimens.screenWidth,
         ),
         labelStyle: AppStyles.style14Normal.copyWith(
           color: ColorValues.darkBodyTextColor,

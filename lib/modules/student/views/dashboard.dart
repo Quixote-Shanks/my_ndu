@@ -91,10 +91,12 @@ class DashboardView extends GetView<DashboardController> {
     switch (title) {
       case 'Home':
         return FontAwesomeIcons.house;
-      case 'Course Management':
-        return FontAwesomeIcons.book;
       case 'Event':
         return FontAwesomeIcons.calendar;
+      case 'Course Management':
+        return FontAwesomeIcons.book;
+      case 'Classroom':
+        return FontAwesomeIcons.bookJournalWhills;
       case 'Peer-to-Peer Learning':
         return FontAwesomeIcons.users;
       case 'TNTokens':

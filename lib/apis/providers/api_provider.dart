@@ -4,6 +4,9 @@ import 'dart:io';
 
 import 'package:http/http.dart' as http;
 import 'package:my_ndu/apis/models/entities/student.dart';
+import 'package:my_ndu/apis/models/entities/subject.dart';
+import 'package:my_ndu/apis/models/entities/subject_assignment.dart';
+import 'package:my_ndu/apis/models/entities/subject_stream.dart';
 import 'package:my_ndu/app_services/network_controller.dart';
 import 'package:my_ndu/app_services/route_service.dart';
 import 'package:my_ndu/constants/enums.dart';
@@ -75,11 +78,7 @@ class ApiProvider {
     return response;
   }
 
-
-  updateStudentDashboard(Student student) {
-
-    
-  }
+  updateStudentDashboard(Student student) {}
 
   ///Check student
   Future<ResponseData> checkStudent(String token) async {
@@ -90,6 +89,114 @@ class ApiProvider {
       headers: {'authorization': 'Bearer $token'},
     );
 
+    return response;
+  }
+
+  // Inside the ApiProvider class
+
+// Inside the ApiProvider class
+
+  Future<ResponseData> fetchStudentById(int id, String token) async {
+    final response = await _catchAsyncApiError(
+        endPoint: "/students/${id}", // Assuming endpoint structure
+        method: 'GET',
+        feature: 'Fetch Student by ID',
+        headers: {'authorization': 'Bearer $token'});
+
+    return response;
+  }
+
+// Inside the ApiProvider class
+
+  Future<ResponseData> updateStudents(Student student, String token) async {
+    final response = await _catchAsyncApiError(
+        endPoint: "/students/update", // Assuming endpoint structure
+        method: 'POST',
+        feature: 'Update Student Details',
+        headers: {
+          'authorization': 'Bearer $token',
+          'Content-Type': 'application/json'
+        },
+        body: student
+            .toJson() // Directly passing the Map<String, dynamic> without encoding to JSON string
+        );
+
+    return response;
+  }
+
+  // Inside the ApiProvider class
+
+// Fetching Subject by ID
+  Future<ResponseData> fetchSubjectById(int id, String token) async {
+    final response = await _catchAsyncApiError(
+        endPoint: "/subjects/${id}",
+        method: 'GET',
+        feature: 'Fetch Subject by ID',
+        headers: {'authorization': 'Bearer $token'});
+    return response;
+  }
+
+// Updating Subject
+  Future<ResponseData> updateSubject(Subject subject, String token) async {
+    final response = await _catchAsyncApiError(
+        endPoint: "/subjects/update",
+        method: 'POST',
+        feature: 'Update Subject Details',
+        headers: {
+          'authorization': 'Bearer $token',
+          'Content-Type': 'application/json'
+        },
+        body: subject.toJson());
+    return response;
+  }
+
+// Fetching SubjectAssignment by ID
+  Future<ResponseData> fetchSubjectAssignmentById(int id, String token) async {
+    final response = await _catchAsyncApiError(
+        endPoint: "/subjectAssignments/${id}",
+        method: 'GET',
+        feature: 'Fetch SubjectAssignment by ID',
+        headers: {'authorization': 'Bearer $token'});
+    return response;
+  }
+
+// Updating SubjectAssignment
+  Future<ResponseData> updateSubjectAssignment(
+      SubjectAssignment subjectAssignment, String token) async {
+    final response = await _catchAsyncApiError(
+        endPoint: "/subjectAssignments/update",
+        method: 'POST',
+        feature: 'Update SubjectAssignment Details',
+        headers: {
+          'authorization': 'Bearer $token',
+          'Content-Type': 'application/json'
+        },
+        body: subjectAssignment.toJson());
+    return response;
+  }
+
+// Fetching SubjectStream by ID
+  Future<ResponseData> fetchSubjectStreamById(int id, String token) async {
+    final response = await _catchAsyncApiError(
+        endPoint: "/subjectStreams/${id}",
+        method: 'GET',
+        feature: 'Fetch SubjectStream by ID',
+        headers: {'authorization': 'Bearer $token'});
+    return response;
+  }
+
+// Updating SubjectStream
+  Future<ResponseData> updateSubjectStream(
+      SubjectStream subjectStream, String token) async {
+    final response = await _catchAsyncApiError(
+        endPoint: "/subjectStreams/update",
+        method: 'POST',
+        feature: 'Update SubjectStream Details',
+        headers: {
+          'authorization': 'Bearer $token',
+          'Content-Type': 'application/json'
+        },
+        body: subjectStream.toJson());
     return response;
   }
 
@@ -1713,8 +1820,6 @@ class ApiProvider {
       throw AppException(exc.toString());
     }
   }
-
-
 }
 
 /// ----------------------------------------------------------------------------

@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:intl/intl.dart';
+import 'package:my_ndu/apis/models/entities/subject_assignment.dart';
 
-import '../../data/model/subject_assignment.dart';
 import '../../ui/theme/app_color.dart';
 import '../../ui/widgets/assignment_status.dart';
 

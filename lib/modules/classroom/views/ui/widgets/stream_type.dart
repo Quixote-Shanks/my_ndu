@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../../data/model/subject_stream.dart';
+import 'package:my_ndu/apis/models/entities/subject_stream.dart';
 import '../../ui/theme/app_color.dart';
 
 class StreamType extends StatelessWidget {

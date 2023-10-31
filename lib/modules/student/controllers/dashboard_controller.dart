@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:http/http.dart' as http;
+import 'package:my_ndu/modules/classroom/views/ui/views/home_view.dart' as lass;
 
 import '../../../apis/models/entities/student.dart';
 import '../../../apis/providers/api_provider.dart';
@@ -18,8 +19,9 @@ class DashboardController extends GetxController {
   final RxInt selectedIndex = 0.obs;
   final List<String> screenTitles = [
     'Home',
-    'Course Management',
     'Event',
+    'Course Management',
+    'Classroom',
     'Peer-to-Peer Learning',
     'TNTokens',
     'Notifications',
@@ -31,8 +33,9 @@ class DashboardController extends GetxController {
 
   List<WidgetData> availableWidgets = [
     WidgetData(title: 'Home', widget: const HomeView()),
-    WidgetData(title: 'Course Management', widget: CourseManagementScreen()),
     WidgetData(title: 'Event', widget: EventListPage()),
+    WidgetData(title: 'Course Management', widget: CourseManagementScreen()),
+    WidgetData(title: 'Classroom', widget: lass.HomeView()),
     WidgetData(title: 'Peer-to-Peer Learning', widget: P2PLearningApp()),
     WidgetData(title: 'TNTokens', widget: TaskListPage()),
     WidgetData(title: 'Notifications', widget: NotificationsScreen()),
@@ -43,6 +46,7 @@ class DashboardController extends GetxController {
       const HomeView(),
       CourseManagementScreen(),
       EventListPage(),
+      lass.HomeView(),
       P2PLearningApp(),
       TaskListPage(),
       NotificationsScreen(),

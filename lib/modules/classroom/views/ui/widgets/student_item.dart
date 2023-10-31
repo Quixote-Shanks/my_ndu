@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../../data/model/student.dart';
+import 'package:my_ndu/apis/models/entities/student.dart';
 import '../../ui/theme/app_color.dart';
 import '../../ui/widgets/app_icon_buttton.dart';
 

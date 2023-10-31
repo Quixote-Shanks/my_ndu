@@ -109,10 +109,25 @@ class Student {
   @HiveField(19)
   final List<StudentOffice>? studentOffices;
 
+  @JsonKey(name: 'name')
+  @HiveField(20)
+  final String name;   // New field for the student's name
+  
+  @JsonKey(name: 'email')
+  @HiveField(21)
+  final String email;   // New field for the student's name
+
+  @JsonKey(name: 'avatar')
+  @HiveField(21)
+  final String avatar;
+
 
   Student({
     required this.yearOfStudy,
     required this.department,
+    required this.name,       // Constructor parameter for name
+    required this.email,       // Constructor parameter for name
+    required this.avatar,
     this.timetable,
     this.courses,
     this.personalizedDashboard,

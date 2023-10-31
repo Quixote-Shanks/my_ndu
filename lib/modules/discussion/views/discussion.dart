@@ -2,9 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:my_ndu/modules/discussion/controllers/discussion_controller.dart';
 
-
 class DiscussionView extends StatelessWidget {
   final DiscussionController _controller = Get.find<DiscussionController>();
+
+  final TextEditingController _titleController = TextEditingController();
+  final TextEditingController _categoryController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -29,14 +31,20 @@ class DiscussionView extends StatelessWidget {
                         discussion.title,
                         style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
                       ),
-                      subtitle: Text(
-                        discussion.category,
-                        style: TextStyle(fontSize: 14),
+                      subtitle: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            discussion.category,
+                            style: TextStyle(fontSize: 14),
+                          ),
+                          // Add more details from the discussion object if needed.
+                        ],
                       ),
                       trailing: Icon(Icons.arrow_forward),
                       onTap: () {
                         // Handle discussion tap
-                        // You can navigate to a discussion details page or do any other action
+                        // TODO: Navigate to the discussion details page
                       },
                     ),
                   );
@@ -62,23 +70,19 @@ class DiscussionView extends StatelessWidget {
             mainAxisSize: MainAxisSize.min,
             children: [
               TextField(
+                controller: _titleController,
                 decoration: InputDecoration(
                   labelText: 'Title',
                   border: OutlineInputBorder(),
                 ),
-                onChanged: (value) {
-                  _controller.setDiscussionTitle = value;
-                },
               ),
               SizedBox(height: 16),
               TextField(
+                controller: _categoryController,
                 decoration: InputDecoration(
                   labelText: 'Category',
                   border: OutlineInputBorder(),
                 ),
-                onChanged: (value) {
-                  _controller.setDiscussionCategory = value;
-                },
               ),
             ],
           ),
@@ -91,8 +95,12 @@ class DiscussionView extends StatelessWidget {
             ),
             ElevatedButton(
               onPressed: () {
-                _createDiscussion();
-                Navigator.of(context).pop();
+                if (_titleController.text.isNotEmpty && _categoryController.text.isNotEmpty) {
+                  _createDiscussion();
+                  Navigator.of(context).pop();
+                } else {
+                  // TODO: Show an error message indicating that the fields are required.
+                }
               },
               child: Text('Create'),
             ),
@@ -103,6 +111,12 @@ class DiscussionView extends StatelessWidget {
   }
 
   void _createDiscussion() {
-    _controller.createDiscussion();
-  }
+  _controller.createDiscussion(
+    title: _titleController.text,
+    category: _categoryController.text,
+    tags: [], // Empty list as a default value
+    participants: [], // Empty list as a default value
+  );
+}
+
 }

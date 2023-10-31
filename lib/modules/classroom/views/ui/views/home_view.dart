@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:my_ndu/modules/classroom/controllers/home_controller.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:modal_bottom_sheet/modal_bottom_sheet.dart';
-
-import '../../data/home_data.dart';
+import 'package:get/get.dart';
+import '../../../controllers/home_controller.dart';
 import '../theme/app_color.dart';
 import '../views/subject_view.dart';
 import '../widgets/app_icon_buttton.dart';
@@ -11,7 +13,8 @@ import '../widgets/subject_item.dart';
 import 'calendar.dart';
 
 class HomeView extends StatelessWidget {
-  const HomeView({Key? key}) : super(key: key);
+  final HomeController _controller = Get.put(HomeController());
+  HomeView({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -266,34 +269,38 @@ class HomeView extends StatelessWidget {
                     ],
                   ),
                   const SizedBox(height: 16),
-                  const Row(
+                  Row(
                     children: [
                       Expanded(
-                        child: AssignmentWeek(
-                          count: 5,
-                          subjects: ["Digital Arts", "Finance"],
-                          type: AssignmentType.assigned,
-                        ),
+                        child: Obx(() {
+                          return AssignmentWeek(
+                            count: _controller.weeklyAssigned['count'],
+                            subjects: _controller.weeklyAssigned['subjects'],
+                            type: AssignmentType.assigned,
+                          );
+                        }),
                       ),
                       SizedBox(width: 16),
                       Expanded(
-                        child: AssignmentWeek(
-                          count: 2,
-                          subjects: ["Network Security", "Mobile Dev"],
-                          type: AssignmentType.missed,
-                        ),
+                        child: Obx(() {
+                          return AssignmentWeek(
+                            count: _controller.weeklyMissed['count'],
+                            subjects: _controller.weeklyMissed['subjects'],
+                            type: AssignmentType.missed,
+                          );
+                        }),
                       ),
                     ],
-                  ),
+                  )
                 ],
               ),
               const SizedBox(height: 32),
               Expanded(
                 child: ListView.builder(
                   physics: const BouncingScrollPhysics(),
-                  itemCount: subjects.length,
+                  itemCount: _controller.subjects.length,
                   itemBuilder: (ctx, index) {
-                    final subject = subjects[index];
+                    final subject = _controller.subjects[index];
 
                     // Subject Item
                     return GestureDetector(

@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
-
-import '../../data/class_data.dart';
-import '../../data/model/subject.dart';
-import '../../data/model/subject_assignment.dart';
-import '../../data/model/subject_stream.dart';
+import 'package:my_ndu/apis/models/entities/subject.dart';
+import 'package:my_ndu/apis/models/entities/subject_assignment.dart';
+import 'package:my_ndu/apis/models/entities/subject_stream.dart';
+import 'package:my_ndu/modules/classroom/controllers/subject_controller.dart';
 import '../../ui/theme/app_color.dart';
 import '../../ui/widgets/app_icon_buttton.dart';
 import '../../ui/widgets/assignment_highlight.dart';
@@ -29,8 +29,13 @@ class _SubjectViewState extends State<SubjectView> {
   @override
   Widget build(BuildContext context) {
     final pageController = PageController();
-    final subjectStreams =
-        streams.where((item) => item.subjectId == widget.subject.id).toList();
+    
+final _controller = Get.find<SubjectController>();
+_controller.fetchSubjectDetails();
+_controller.fetchStreams();
+_controller.fetchAssignments();
+
+final subjectStreams = _controller.streams.where((item) => item.subjectId == widget.subject.id).toList();
     final menus = <Map<String, dynamic>>[
       {'index': 1, 'icon': Icons.timer, 'title': "Stream"},
       {'index': 2, 'icon': Icons.assignment, 'title': "Assignment"},
@@ -39,10 +44,8 @@ class _SubjectViewState extends State<SubjectView> {
     final bodies = <Widget>[
       StreamBody(streams: subjectStreams),
       AssignmentBody(
-          assignments: assignments
-              .where((item) => item.subjectId == widget.subject.id)
-              .toList()),
-      const ClassmateBody()
+          assignments: _controller.assignments.where((item) => item.subjectId == widget.subject.id).toList()),
+     ClassmateBody()
     ];
 
     return SafeArea(
@@ -123,7 +126,7 @@ class _SubjectViewState extends State<SubjectView> {
               const SizedBox(height: 32),
               // Assignment highlight
               Row(
-                children: assignments
+                children: _controller.assignments
                     .where((item) => item.subjectId == widget.subject.id)
                     .take(2)
                     .map(
@@ -258,7 +261,8 @@ class AssignmentBody extends StatelessWidget {
 }
 
 class ClassmateBody extends StatelessWidget {
-  const ClassmateBody({Key? key}) : super(key: key);
+  final SubjectController _controller = Get.find<SubjectController>();
+  ClassmateBody({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -267,9 +271,9 @@ class ClassmateBody extends StatelessWidget {
         Expanded(
           child: ListView.builder(
             physics: const BouncingScrollPhysics(),
-            itemCount: students.length,
+            itemCount: _controller.students.length,
             itemBuilder: (ctx, index) {
-              final student = students[index];
+              final student = _controller.students[index];
 
               return StudentItem(student: student);
             },
