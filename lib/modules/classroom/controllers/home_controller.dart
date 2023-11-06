@@ -2,7 +2,7 @@ import 'package:get/get.dart';
 import 'package:my_ndu/apis/models/entities/subject.dart';
 
 
-class HomeController extends GetxController {
+class ClassHomeController extends GetxController {
   // RX Observables
   var subjects = <Subject>[].obs;
   var weeklyAssigned = {}.obs;

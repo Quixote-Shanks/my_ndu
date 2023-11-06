@@ -1,8 +1,10 @@
 import 'package:hive/hive.dart';
+import 'package:my_ndu/constants/hive_type_id.dart';
+part 'subject_stream.g.dart';
 
 enum SubjectStreamType { material, quiz }
 
-@HiveType(typeId: 3)
+@HiveType(typeId: HiveTypeId.subjectStream)
 class SubjectStream {
   @HiveField(0)
   final int id;

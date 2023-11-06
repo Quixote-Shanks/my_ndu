@@ -274,7 +274,6 @@ class ClassmateBody extends StatelessWidget {
             itemCount: _controller.students.length,
             itemBuilder: (ctx, index) {
               final student = _controller.students[index];
-
               return StudentItem(student: student);
             },
           ),

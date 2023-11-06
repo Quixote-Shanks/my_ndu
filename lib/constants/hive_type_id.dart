@@ -4,6 +4,9 @@ abstract class HiveTypeId {
   static const chatMessage = 11;
   static const discussion = 19;
   static const discussionResponse = 20;
+  static const subjectAssignment = 21;
+  static const subjectStream = 22;
+  static const subject = 23;
   static const discussionThread = 18;
   static const comment = 15;
   static const follower = 14;

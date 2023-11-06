@@ -118,7 +118,7 @@ class Student {
   final String email;   // New field for the student's name
 
   @JsonKey(name: 'avatar')
-  @HiveField(21)
+  @HiveField(22)
   final String avatar;
 
 

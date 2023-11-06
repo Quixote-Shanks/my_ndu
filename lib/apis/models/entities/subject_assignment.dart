@@ -1,8 +1,10 @@
 import 'package:hive/hive.dart';
+import 'package:my_ndu/constants/hive_type_id.dart';
+part 'subject_assignment.g.dart';
 
 enum SubjectAssignmentType { turnedIn, missing }
 
-@HiveType(typeId: 2)
+@HiveType(typeId: HiveTypeId.subjectAssignment)
 class SubjectAssignment extends HiveObject {
   @HiveField(0)
   final int id;

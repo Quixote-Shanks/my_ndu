@@ -11,6 +11,12 @@ abstract class _$StudentCWProxy {
 
   Student department(String department);
 
+  Student name(String name);
+
+  Student email(String email);
+
+  Student avatar(String avatar);
+
   Student timetable(String? timetable);
 
   Student courses(List<String>? courses);
@@ -59,6 +65,9 @@ abstract class _$StudentCWProxy {
   Student call({
     int? yearOfStudy,
     String? department,
+    String? name,
+    String? email,
+    String? avatar,
     String? timetable,
     List<String>? courses,
     Map<String, dynamic>? personalizedDashboard,
@@ -91,6 +100,15 @@ class _$StudentCWProxyImpl implements _$StudentCWProxy {
 
   @override
   Student department(String department) => this(department: department);
+
+  @override
+  Student name(String name) => this(name: name);
+
+  @override
+  Student email(String email) => this(email: email);
+
+  @override
+  Student avatar(String avatar) => this(avatar: avatar);
 
   @override
   Student timetable(String? timetable) => this(timetable: timetable);
@@ -172,6 +190,9 @@ class _$StudentCWProxyImpl implements _$StudentCWProxy {
   Student call({
     Object? yearOfStudy = const $CopyWithPlaceholder(),
     Object? department = const $CopyWithPlaceholder(),
+    Object? name = const $CopyWithPlaceholder(),
+    Object? email = const $CopyWithPlaceholder(),
+    Object? avatar = const $CopyWithPlaceholder(),
     Object? timetable = const $CopyWithPlaceholder(),
     Object? courses = const $CopyWithPlaceholder(),
     Object? personalizedDashboard = const $CopyWithPlaceholder(),
@@ -202,6 +223,18 @@ class _$StudentCWProxyImpl implements _$StudentCWProxy {
               ? _value.department
               // ignore: cast_nullable_to_non_nullable
               : department as String,
+      name: name == const $CopyWithPlaceholder() || name == null
+          ? _value.name
+          // ignore: cast_nullable_to_non_nullable
+          : name as String,
+      email: email == const $CopyWithPlaceholder() || email == null
+          ? _value.email
+          // ignore: cast_nullable_to_non_nullable
+          : email as String,
+      avatar: avatar == const $CopyWithPlaceholder() || avatar == null
+          ? _value.avatar
+          // ignore: cast_nullable_to_non_nullable
+          : avatar as String,
       timetable: timetable == const $CopyWithPlaceholder()
           ? _value.timetable
           // ignore: cast_nullable_to_non_nullable
@@ -306,6 +339,9 @@ class StudentAdapter extends TypeAdapter<Student> {
     return Student(
       yearOfStudy: fields[0] as int,
       department: fields[1] as String,
+      name: fields[20] as String,
+      email: fields[21] as String,
+      avatar: fields[22] as String,
       timetable: fields[2] as String?,
       courses: (fields[3] as List?)?.cast<String>(),
       personalizedDashboard: (fields[4] as Map?)?.cast<String, dynamic>(),
@@ -336,7 +372,7 @@ class StudentAdapter extends TypeAdapter<Student> {
   @override
   void write(BinaryWriter writer, Student obj) {
     writer
-      ..writeByte(20)
+      ..writeByte(23)
       ..writeByte(0)
       ..write(obj.yearOfStudy)
       ..writeByte(1)
@@ -376,7 +412,13 @@ class StudentAdapter extends TypeAdapter<Student> {
       ..writeByte(18)
       ..write(obj.courseRepresentatives)
       ..writeByte(19)
-      ..write(obj.studentOffices);
+      ..write(obj.studentOffices)
+      ..writeByte(20)
+      ..write(obj.name)
+      ..writeByte(21)
+      ..write(obj.email)
+      ..writeByte(22)
+      ..write(obj.avatar);
   }
 
   @override
@@ -397,6 +439,9 @@ class StudentAdapter extends TypeAdapter<Student> {
 Student _$StudentFromJson(Map<String, dynamic> json) => Student(
       yearOfStudy: json['yearOfStudy'] as int,
       department: json['department'] as String,
+      name: json['name'] as String,
+      email: json['email'] as String,
+      avatar: json['avatar'] as String,
       timetable: json['timetable'] as String?,
       courses:
           (json['courses'] as List<dynamic>?)?.map((e) => e as String).toList(),
@@ -466,6 +511,9 @@ Map<String, dynamic> _$StudentToJson(Student instance) => <String, dynamic>{
       'faculty': instance.faculty,
       'courseRepresentatives': instance.courseRepresentatives,
       'studentOffices': instance.studentOffices,
+      'name': instance.name,
+      'email': instance.email,
+      'avatar': instance.avatar,
     };
 
 CourseRepresentative _$CourseRepresentativeFromJson(
